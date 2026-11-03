@@ -1,0 +1,24 @@
+{
+  "name": "stranniki-site-tooling",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.22.0 || >=24.8.0"
+  },
+  "scripts": {
+    "dev": "node tools/preview.mjs",
+    "check": "npm run test:site && npm run test:docs && npm run test:tooling",
+    "test:site": "node tools/check-site.mjs",
+    "test:docs": "node tools/check-docs.mjs",
+    "test:docs:private": "node tools/check-docs.mjs --private",
+    "test:tooling": "node --test tools/check-docs.test.mjs tools/site.test.mjs"
+  },
+  "devDependencies": {
+    "@mermaid-lint/cli": "0.53.1",
+    "css-tree": "3.2.1",
+    "html-validate": "11.18.0",
+    "markdown-it": "15.0.3",
+    "markdownlint-cli2": "0.24.0",
+    "parse5": "8.1.0"
+  }
+}

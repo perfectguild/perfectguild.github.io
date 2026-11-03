@@ -1,4 +1,22 @@
-raw/
-secrets/
-.local/
-AGENTS.MD
+# Independent private workspace and local agent instructions
+/.local/
+/AGENTS.md
+/.agents
+
+# Historical inputs and credentials stay outside public history
+/raw/
+/secrets/
+.env
+.env.*
+!.env.example
+
+# Development dependencies and local output
+/node_modules/
+/_site/
+/.jekyll-cache/
+*.log
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

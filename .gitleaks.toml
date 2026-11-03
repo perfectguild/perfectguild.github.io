@@ -1,0 +1,4 @@
+title = "Stranniki public-snapshot secret scanning"
+
+[extend]
+useDefault = true

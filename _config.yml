@@ -1,0 +1,12 @@
+# Keep the existing GitHub Pages branch build; publish website files, not tooling.
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - CHANGELOG.md
+  - docs
+  - tools
+  - package.json
+  - package-lock.json
+  - node_modules
+  - raw
+  - secrets
