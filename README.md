@@ -2,7 +2,8 @@
 
 **Всё дело в людях.**
 
-A small postcard website for the World of Warcraft guild **Странники**:
+A small postcard website for the World of Warcraft guild
+**[Странники](https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/guild/lich-king/странники)**:
 [www.perfectguild.com](https://www.perfectguild.com/).
 
 The project is about the people behind the nicknames: remembering shared times,
