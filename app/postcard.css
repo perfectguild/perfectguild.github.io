@@ -1,0 +1,639 @@
+/* Reserve the docked left panel without changing the artwork's aspect ratio. */
+html {
+  color-scheme: dark;
+  background: #000;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  padding-left: var(--controls-left, 0px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  overflow-x: clip;
+}
+
+.no-script-note {
+  position: fixed;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font: 14px system-ui, sans-serif;
+}
+
+.no-script-note a {
+  color: #edf0ed;
+}
+
+#postcard {
+  position: relative;
+  display: block;
+  min-width: 0;
+  width: min(1920px, calc(100vw - var(--controls-left, 0px)), calc(100vh * 16 / 9));
+  width: min(1920px, calc(100vw - var(--controls-left, 0px)), calc(100dvh * 16 / 9));
+}
+
+#postcard-surface {
+  position: relative;
+}
+
+/* Atmosphere blends over the source edge, below the sharp nickname overlay. */
+#edge-fog {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Input belongs to nickname masks and photo links, not browser image toolbars. */
+#logo1,
+#forum-image {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* The base image fades out; the shader bridges its texture into the atmosphere. */
+body[data-ready="true"]:not([data-phase="original"]) #logo1 {
+  mask-image:
+    linear-gradient(to right,
+      #0000, #0000000b 0.75%, #00000028 1.5%, #00000051 2.25%,
+      #00000080 3%, #000000ae 3.75%, #000000d7 4.5%, #000000f4 5.25%,
+      #000 6% 94%,
+      #000000f4 94.75%, #000000d7 95.5%, #000000ae 96.25%, #00000080 97%,
+      #00000051 97.75%, #00000028 98.5%, #0000000b 99.25%, #0000),
+    linear-gradient(to bottom, #0000, #000 8%, #000 92%, #0000);
+  mask-composite: intersect;
+}
+
+#logo1 {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#ensemble-canvas,
+#nickname-targets {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#ensemble-canvas {
+  z-index: 2;
+}
+
+#nickname-targets {
+  z-index: 3;
+}
+
+.nickname-target {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nickname-target:focus-visible {
+  outline: 2px solid #c6dcc9;
+  outline-offset: 4px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.prototype-controls {
+  position: fixed;
+  z-index: 21;
+  top: max(var(--controls-dock-top, 10px), env(safe-area-inset-top));
+  left: max(var(--controls-dock-left, 10px), env(safe-area-inset-left));
+  width: min(300px, calc(100vw - 20px));
+  max-width: calc(var(--controls-viewport-width, 100vw) - 20px);
+  box-sizing: border-box;
+  max-height: calc(100vh - 28px);
+  max-height: calc(var(--controls-viewport-height, 100dvh) - 28px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 9px 12px;
+  border: 1px solid #444846;
+  border-radius: 10px;
+  background: #151917f5;
+  box-shadow: 0 8px 28px #0008;
+  color: #edf0ed;
+  font: 12px/1.4 system-ui, sans-serif;
+  overflow-wrap: anywhere;
+}
+
+button#controls-launcher {
+  position: fixed;
+  z-index: 21;
+  left: max(10px, env(safe-area-inset-left));
+  bottom: max(10px, env(safe-area-inset-bottom));
+  max-width: calc(100vw - 20px);
+  color: #edf0ed;
+  font: 12px/1.4 system-ui, sans-serif;
+  overflow-wrap: anywhere;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+}
+
+#controls-launcher svg,
+.controls-window-actions svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.prototype-heading {
+  display: grid;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+  margin-bottom: 6px;
+  color: #9ba99f;
+  font-size: 10px;
+  letter-spacing: normal;
+  background: #151917;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.prototype-controls[data-dragging="true"] .prototype-heading,
+.prototype-controls[data-dragging="true"] #controls-drag {
+  cursor: grabbing;
+}
+
+#controls-drag {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 4px 0;
+  border-radius: 4px;
+  color: #d9e5da;
+  font: 600 13px/1.4 system-ui, sans-serif;
+  cursor: grab;
+  touch-action: none;
+}
+
+#technology {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.controls-window-actions {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  display: flex;
+  gap: 4px;
+}
+
+.prototype-controls .controls-window-actions button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  padding: 3px;
+  touch-action: manipulation;
+}
+
+.controls-row {
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+}
+
+.controls-settings {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.pulse-count-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px 8px;
+  min-width: 0;
+}
+
+.pulse-count-control label {
+  grid-column: 1 / -1;
+  color: #aab2ad;
+}
+
+#pulse-count {
+  width: 100%;
+  min-width: 48px;
+  height: 32px;
+  margin: 0;
+  accent-color: #c6dcc9;
+  cursor: pointer;
+}
+
+#pulse-count-value {
+  width: 5.5em;
+  white-space: nowrap;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.highlight-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  min-width: 0;
+}
+
+.prototype-details {
+  min-width: 0;
+}
+
+.prototype-details summary {
+  box-sizing: border-box;
+  min-height: 32px;
+  padding-block: 7px;
+  color: #b6c5b9;
+  cursor: pointer;
+}
+
+.prototype-details[open] summary {
+  margin-bottom: 4px;
+}
+
+.nickname-picker-label {
+  color: #aab2ad;
+  font-size: 12px;
+}
+
+.prototype-controls button,
+#controls-launcher,
+.prototype-controls select,
+#close-card {
+  box-sizing: border-box;
+  min-height: 32px;
+  max-width: 100%;
+  padding: 5px 10px;
+  border: 1px solid #505952;
+  border-radius: 8px;
+  background: #252c27;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.prototype-controls select {
+  min-width: 0;
+  width: 100%;
+}
+
+#nickname-picker {
+  padding-inline-end: 8px;
+}
+
+.prototype-controls button:hover:not(:disabled),
+.prototype-controls select:hover:not(:disabled),
+#controls-launcher:hover,
+#close-card:hover {
+  background: #354037;
+}
+
+.prototype-controls :disabled {
+  opacity: .45;
+  cursor: default;
+}
+
+.prototype-controls button:focus-visible,
+#controls-drag:focus-visible,
+.prototype-controls select:focus-visible,
+#pulse-count:focus-visible,
+.prototype-details summary:focus-visible,
+#character-card:focus-visible,
+#controls-launcher:focus-visible,
+#close-card:focus-visible {
+  outline: 2px solid #c6dcc9;
+  outline-offset: 3px;
+}
+
+.prototype-state {
+  display: block;
+  margin-top: 6px;
+  height: 2.8em;
+  overflow-y: auto;
+  font-variant-numeric: tabular-nums;
+  color: #d9e5da;
+  font-size: 12px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.prototype-note {
+  margin: 4px 0 0;
+  color: #aab2ad;
+  font-size: 11px;
+}
+
+#source-note:empty {
+  display: none;
+}
+
+#character-card {
+  position: fixed;
+  z-index: 20;
+  box-sizing: border-box;
+  width: min(350px, calc(100vw - 24px));
+  max-width: calc(100vw - 24px);
+  min-height: 108px;
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 10px 12px;
+  /* The SVG frame and this content share one measured outline and transform. */
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: #edf0ed;
+  font: 13px/1.45 system-ui, sans-serif;
+  overflow-wrap: anywhere;
+  scrollbar-gutter: auto;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-heading {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 3px 6px;
+}
+
+.card-binding {
+  color: #bdc9bf;
+  font-size: 10px;
+}
+
+.card-role {
+  flex: 0 0 auto;
+  padding: 1px 5px;
+  border: 1px solid #617567;
+  border-radius: 4px;
+  color: #d0e6d7;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.card-group-confirmation {
+  margin: 3px 0 0;
+  color: #bad4c1;
+  font-size: 10px;
+}
+
+#character-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+#close-card {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 5px;
+}
+
+#close-card svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.card-content.has-forum-image {
+  grid-template-columns: 68px minmax(0, 1fr);
+}
+
+.card-photo {
+  margin: 0;
+}
+
+.card-photo a {
+  display: block;
+  width: 68px;
+  height: 68px;
+}
+
+#character-card a:focus-visible {
+  outline: 2px solid #c6dcc9;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.card-photo img {
+  display: block;
+  box-sizing: border-box;
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  border: 1px solid #59685e;
+  border-radius: 4px;
+  background: #101712;
+}
+
+.card-photo figcaption {
+  margin-top: 2px;
+  color: #bdc9bf;
+  font-size: 10px;
+  text-align: center;
+}
+
+.card-photo figcaption span {
+  display: block;
+}
+
+.card-description {
+  min-width: 0;
+  color: #c8d1cb;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.card-description p {
+  margin: 0;
+}
+
+.card-rank {
+  color: #edf0ed;
+  font-weight: 600;
+}
+
+.card-stats {
+  font-size: 11px;
+}
+
+.card-source {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+  margin: 6px 0 0;
+  color: #b0bdb4;
+  font-size: 10px;
+}
+
+.card-source a {
+  color: #d0e6d7;
+  text-underline-offset: 2px;
+}
+
+.card-note {
+  margin: 4px 0 0;
+  color: #e1c48c;
+  font-size: 10px;
+}
+
+#character-card.has-character-navigation {
+  padding-inline: 42px;
+}
+
+.card-character-position {
+  color: #bdc9bf;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.card-character-nav {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 44px;
+  padding: 3px;
+  transform: translateY(-50%);
+  border: 1px solid #59685e;
+  border-radius: 5px;
+  background: #152119;
+  color: #d0e6d7;
+  cursor: pointer;
+}
+
+.card-character-previous {
+  left: 7px;
+}
+
+.card-character-next {
+  right: 7px;
+}
+
+.card-character-nav svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+.card-character-nav:hover {
+  background: #263b2c;
+  color: #f0f6f1;
+}
+
+.card-character-nav:focus-visible {
+  outline: 2px solid #c6dcc9;
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .prototype-controls {
+    padding: 8px 10px;
+  }
+
+  #controls-drag,
+  .prototype-controls .controls-window-actions button {
+    min-height: 44px;
+  }
+
+  .prototype-controls .controls-window-actions button {
+    width: 44px;
+  }
+
+  .prototype-controls button,
+  #controls-launcher,
+  .prototype-controls select,
+  #pulse-count,
+  .prototype-details summary {
+    min-height: 44px;
+  }
+
+  .nickname-picker-label {
+    font-size: 11px;
+  }
+
+  #close-card {
+    min-height: 32px;
+  }
+}

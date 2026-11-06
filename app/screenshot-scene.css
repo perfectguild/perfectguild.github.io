@@ -1,0 +1,160 @@
+.screenshot-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.screenshot-toggle input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+/* Only the fog shader paints the preview; this transparent target owns input. */
+.screenshot-target {
+  position: absolute;
+  z-index: 2;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: transparent;
+  box-shadow: none;
+  cursor: zoom-in;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.screenshot-target:focus-visible {
+  outline: 2px solid #e0e9dd;
+  outline-offset: 3px;
+}
+
+.screenshot-target[data-viewer-returned] {
+  outline: none;
+}
+
+.screenshot-target[hidden] {
+  display: none !important;
+}
+
+/* Native top-layer modality keeps nickname/card/panel input underneath inert. */
+#screenshot-viewer {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  width: 100dvw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  touch-action: pan-y pinch-zoom;
+  background: #050708f7;
+  color: #edf0ed;
+}
+
+#screenshot-viewer::backdrop {
+  background: #030506f5;
+}
+
+#screenshot-viewer .screenshot-viewer-image {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  transform-origin: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+#screenshot-viewer-close,
+.screenshot-viewer-nav {
+  position: absolute;
+  z-index: 1;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  padding: 9px;
+  border: 1px solid #9caaa8;
+  border-radius: 7px;
+  background: #10181aeb;
+  box-shadow: 0 2px 12px #0009;
+  color: #f3f6f4;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+#screenshot-viewer-close {
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+}
+
+.screenshot-viewer-nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.screenshot-viewer-nav[hidden] {
+  display: none;
+}
+
+.screenshot-viewer-previous {
+  left: max(12px, env(safe-area-inset-left));
+}
+
+.screenshot-viewer-next {
+  right: max(12px, env(safe-area-inset-right));
+}
+
+#screenshot-viewer-position {
+  position: absolute;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100% - 32px);
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #10181aeb;
+  font-size: 14px;
+  text-align: center;
+  pointer-events: none;
+}
+
+#screenshot-viewer-close svg,
+.screenshot-viewer-nav svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+#screenshot-viewer-close:focus-visible,
+.screenshot-viewer-nav:focus-visible {
+  outline: 2px solid #edf5df;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #screenshot-viewer .screenshot-viewer-image {
+    animation: none;
+    transition: none;
+  }
+}

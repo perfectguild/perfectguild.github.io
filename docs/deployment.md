@@ -1,6 +1,6 @@
 # Publication architecture
 
-The «Странники» postcard is a static GitHub Pages site behind Cloudflare. This document records the existing publication model; the repository-tooling changes do not change hosting, DNS, proxying, TLS, redirects, or the page design.
+The «Странники» postcard is a static GitHub Pages site behind Cloudflare. Its interactive browser runtime does not require an application server or live Armory API. Hosting, DNS, proxying, TLS, and redirects retain the existing architecture.
 
 ## Request and publication paths
 
@@ -19,9 +19,50 @@ Branch publication still appears as an Actions run: GitHub runs its built-in `pa
 
 The added Node/npm CI checks are separate from the existing Pages deployment. They do not upload a Pages artifact, switch the publishing source, or gate direct publication from `main`. A push to the publishing branch can publish independently of those checks. See [CONTRIBUTING](../CONTRIBUTING.md) for the local command contract; a successful local check is not proof of a hosted deployment.
 
-The branch build retains Jekyll processing. [_config.yml](../_config.yml) excludes repository-only files from the published output: `README.md`, `CONTRIBUTING.md`, `CHANGELOG.md`, `docs`, `tools`, `package.json`, `package-lock.json`, `node_modules`, `raw`, and `secrets`. Root web files remain the site payload. Do not introduce `.nojekyll` or move the publishing source as a tooling shortcut.
+The branch build retains Jekyll processing. [_config.yml](../_config.yml) excludes repository-only files from the published output: `README.md`, `CONTRIBUTING.md`, `CHANGELOG.md`, `docs`, `tools`, `src`, `package.json`, `package-lock.json`, `node_modules`, `raw`, and `secrets`. The root web files, `app/`, `assets/`, `images/`, and third-party license notices form the website payload. Do not introduce `.nojekyll` or move the publishing source as a tooling shortcut.
 
 GitHub documents [Jekyll's default exclusions and the `exclude` setting](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll). Output exclusions are not a privacy boundary: files committed to this public repository remain public even when Jekyll omits them. Raw material, secrets, private notes, and local instruction symlinks must stay out of public Git history. Public installation and checks require none of those local files.
+
+## Reproducible publication inputs
+
+`npm run build` generates the root HTML and compiled motion module from public
+sources. Both outputs are committed because branch-based Pages runs Jekyll,
+not the npm build. The HTML includes SHA-384 integrity hashes for its local
+entry module and stylesheets; changing those files requires rebuilding HTML.
+The remaining browser modules and selected media are ordinary static files.
+See [runtime architecture](architecture.md) and [development commands](../CONTRIBUTING.md).
+
+The public checkout contains everything needed to build, check, and preview
+the site. Raw collections, private prototype history, credentials, and image
+extraction tools are not release inputs. The historical JPEG and fullscreen
+screenshots retain their original bytes except for the documented local,
+lossless JPEG-coefficient correction to Шэф.
+
+## Release procedure
+
+1. Install pinned tools with `npm ci --ignore-scripts`, run `npm run build`,
+   then `npm run check`.
+2. Exercise the actual preview on desktop and mobile: nickname/card selection,
+   fullscreen memories and carousel, keyboard focus, reduced motion, and
+   failure fallback. Check the public payload separately from the raw collection.
+3. Review the exact staged paths. Exclude `raw/`, `secrets/`, `.local/`,
+   agent links, temporary captures, and `node_modules/`.
+4. Commit source, generated outputs, selected media, documentation, and license
+   notices together. Push the authorized commit to `main` without force.
+5. Inspect both the `CI` run and GitHub's `pages-build-deployment` run for that
+   commit. Check the Pages build/deployment commit, not just a green unrelated run.
+6. Open `https://www.perfectguild.com/` in a browser. Confirm the new runtime
+   initializes, its assets have appropriate MIME types, and a full-size memory
+   opens. Check the apex redirect separately. A successful local preview is not
+   evidence that Cloudflare is serving the new deployment.
+7. Publish a versioned GitHub Release on the verified commit with English notes.
+   The release tag records a deployment; creating a tag alone does not deploy Pages.
+
+The first interactive release uses `v1.0.0`. Subsequent releases should keep
+immutable version tags. To roll back, revert the release commit on `main`,
+including generated HTML/WASM and any asset changes, and re-check both hosted
+workflows and the live site. Do not force-rewrite the publishing branch or
+retarget an existing release tag.
 
 ## Observed live behavior — 2026-11-03
 
@@ -38,7 +79,7 @@ Read-only repository/API and HTTPS/DNS observations established:
 
 The Pages API also returned `https_enforced: false` and `https_certificate: null`. Those fields are not evidence that visitors are HTTP-only: the probes above used working HTTPS at the Cloudflare edge. They do not independently prove the current edge-to-origin TLS settings, origin certificate state, or a complete Cloudflare configuration. The DNS response's authenticated-data flag is a resolver observation, not a fresh Cloudflare settings export.
 
-No new workflow has been claimed as executed by these observations. New local repository changes remain distinct from the already-live site until an authorized push and subsequent hosted execution.
+These are historical observations, not proof that a later release has deployed. Each release requires its own hosted workflow and live-site verification.
 
 ## Documented configuration — 2026-08-20 snapshot
 

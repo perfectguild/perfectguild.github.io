@@ -31,8 +31,25 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## Compiled AssemblyScript support
+
+`app/motion.wasm` is compiled with AssemblyScript 0.28.20 and includes its
+runtime/support code. The upstream Apache-2.0 license and NOTICE are retained
+in [LICENSE-assemblyscript.txt](../LICENSE-assemblyscript.txt).
+
+## Material Design Icons
+
+The settings, docking, and close icons use paths from `@mdi/svg` 7.4.47.
+Their SVG paths are unchanged; accessible buttons and wrappers are project code.
+The Apache-2.0 license is retained in [LICENSE-mdi.txt](../LICENSE-mdi.txt).
+See the upstream [Material Design Icons library](https://pictogrammers.com/library/mdi/).
+
+These notices do not license the guild artwork, game screenshots, forum avatars,
+or other historical material for unrelated reuse.
+
 ## npm dependencies
 
 Exact direct dependency versions and resolved transitive versions are recorded
 in `package.json` and `package-lock.json`. Each dependency retains its own
-upstream license; no dependency is loaded into the browser page.
+upstream license. The browser does not load installed npm packages or request
+a CDN; AssemblyScript support is included in the generated WASM as noted above.

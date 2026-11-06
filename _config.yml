@@ -5,6 +5,7 @@ exclude:
   - CHANGELOG.md
   - docs
   - tools
+  - src
   - package.json
   - package-lock.json
   - node_modules

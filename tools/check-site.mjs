@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { dirname, join, posix, resolve } from "node:path";
+import { join, posix, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { HtmlValidate } from "html-validate";
 import { parse } from "parse5";
@@ -65,11 +65,11 @@ export async function checkSite(root = repositoryRoot) {
       if (attribute.name === "id" || node.tagName === "a" && attribute.name === "name") ids.add(attribute.value);
     }
   });
-  function check(value) {
+  function check(value, from = file) {
     try {
       const path = localReference(value);
       if (path === undefined) return;
-      const target = path ? posix.normalize(path.startsWith("/") ? path.slice(1) : posix.join(dirname(file), path)) : file;
+      const target = path ? posix.normalize(path.startsWith("/") ? path.slice(1) : posix.join(posix.dirname(from), path)) : from;
       const normalized = target === "." ? "index.html" : target.endsWith("/") ? `${target}index.html` : target;
       if (!publicFiles.has(normalized)) throw new Error("target is missing or outside public files");
       if (normalized === file && value.includes("#")) {
@@ -77,24 +77,24 @@ export async function checkSite(root = repositoryRoot) {
         if (fragment && !ids.has(fragment)) throw new Error("fragment has no matching id");
       }
     } catch (error) {
-      errors.push(`${file}: ${value}: ${error.message}`);
+      errors.push(`${from}: ${value}: ${error.message}`);
     }
   }
-  function css(text, context) {
+  function css(text, context, from = file) {
     try {
       const ast = parseCss(text, {
         context,
         onParseError: (error) => { throw error; },
       });
       walk(ast, (node) => {
-        if (node.type === "Url") check(node.value);
+        if (node.type === "Url") check(node.value, from);
         if (node.type === "Atrule" && node.name.toLowerCase() === "import" && node.prelude) {
           const first = node.prelude.children.first;
-          if (first?.type === "String") check(first.value);
+          if (first?.type === "String") check(first.value, from);
         }
       });
     } catch (error) {
-      errors.push(`${file}: malformed CSS: ${error.message}`);
+      errors.push(`${from}: malformed CSS: ${error.message}`);
     }
   }
   visit(tree, (node) => {
@@ -109,6 +109,9 @@ export async function checkSite(root = repositoryRoot) {
     if (node.tagName === "style") css((node.childNodes ?? []).map((child) => child.value ?? "").join(""), "stylesheet");
     if (node.tagName === "base") errors.push(`${file}: base elements are unsupported; keep links rooted in the static page`);
   });
+  for (const asset of publicFiles) {
+    if (asset.endsWith(".css")) css(readFileSync(join(root, asset), "utf8"), "stylesheet", asset);
+  }
   return errors;
 }
 

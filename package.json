@@ -6,15 +6,20 @@
     "node": "^22.22.0 || >=24.8.0"
   },
   "scripts": {
+    "build": "node tools/build-site.mjs",
+    "test:build": "node tools/build-site.mjs --check",
     "dev": "node tools/preview.mjs",
-    "check": "npm run test:site && npm run test:docs && npm run test:tooling",
+    "check": "npm run test:build && npm run test:site && npm run test:runtime && npm run test:docs && npm run test:tooling",
     "test:site": "node tools/check-site.mjs",
+    "test:runtime": "node tools/check-runtime.mjs",
     "test:docs": "node tools/check-docs.mjs",
     "test:docs:private": "node tools/check-docs.mjs --private",
-    "test:tooling": "node --test tools/check-docs.test.mjs tools/site.test.mjs"
+    "test:tooling": "node --test tools/check-docs.test.mjs tools/site.test.mjs tools/runtime.test.mjs"
   },
   "devDependencies": {
     "@mermaid-lint/cli": "0.53.1",
+    "acorn": "8.15.0",
+    "assemblyscript": "0.28.20",
     "css-tree": "3.2.1",
     "html-validate": "11.18.0",
     "markdown-it": "15.0.3",

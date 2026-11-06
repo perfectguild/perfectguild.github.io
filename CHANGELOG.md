@@ -1,22 +1,46 @@
 # Changelog
 
-## Unreleased
+## 1.0.0 — 2026-11-06
 
 ### Added
 
-- Node.js development tooling for loopback-only website preview, HTML and local
-  link checks, Markdown/Mermaid validation, and tooling regression tests.
-- Windows/Linux CI, checksum-pinned workflow and secret validators, and weekly
-  Dependabot updates for npm and GitHub Actions.
-- Project description, contribution instructions, and publication architecture
-  documentation covering GitHub Pages behind Cloudflare.
+- Interactive nickname collage with WebAssembly timing, WebGL2 materials,
+  configurable simultaneous pulses, and pointer-contact threads to character cards.
+- Compact dated Armory details, guild ranks, historical forum media, source links,
+  and owner-confirmed main/alt navigation for Эрсул, Квилл, and Дийкстра.
+- A 51-image memory collection, three configurable fog previews, fullscreen
+  keyboard/touch carousel, four preview treatments, and five opening effects.
+- Separate fullscreen effect targets: color only, immediately colored image
+  reveal, or grayscale image reveal followed by color.
+- Movable left-side settings, icon controls, keyboard focus handling,
+  reduced-motion support, and original-artwork fallback.
+- Reproducible public HTML/WASM build, integrity hashes, runtime/data validation,
+  native motion regressions, and publication/privacy boundary checks.
 
 ### Changed
 
-- Explicit public/private repository boundaries and LF text handling.
-- GitHub Pages output excludes development tooling and documentation while
-  retaining the existing branch-based publication and root website files.
+- The accepted private prototype is now a self-contained public application;
+  raw material and historical experiment copies remain outside public Git history.
+- Defaults use left-to-right background flow, silver relief, running glint,
+  three memories, and fog opening applied to both image and color.
+- The opaque background texture uses pixel-verified lossless WebP, saving
+  502,040 bytes without changing decoded browser pixels. The alpha foreground
+  remains PNG because an otherwise lossless WebP decoded differently in Chromium.
+- Corrected Э in Шэф with local JPEG-coefficient edits, preserving the remaining
+  artwork without lossy recompression. Retained selected nickname mask repairs
+  and per-occurrence enlargement adjustments.
 
-The page's appearance, guild artwork, domain configuration, and Cloudflare
-settings are unchanged. Historical collection and visual development remain
-outside this setup stage. An unreleased entry is not evidence of deployment.
+### Fixed
+
+- Back/forward-cache resource retention, visibility handling after WebGL loss,
+  animated-avatar reduced-motion behavior, and manual thread-contact retention
+  during fullscreen viewing.
+- Removed duplicate gallery images for Квилл and Храндор; added Риннка's original
+  animated avatar with a static reduced-motion counterpart.
+- Restored focus after fullscreen viewing without a lingering thumbnail frame.
+- Updated the animation-disabled message and collage/source terminology.
+
+GitHub Pages still publishes `main` at the repository root behind Cloudflare.
+DNS, TLS, the custom domain, and branch-based deployment are unchanged.
+A changelog entry is not evidence of successful deployment; verify the release
+commit, hosted workflows, and live site separately.

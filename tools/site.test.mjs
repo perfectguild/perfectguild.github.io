@@ -19,6 +19,8 @@ function fixture(t, files = {}) {
     "index.html": page('<img src="images/logo.jpg" alt="Fixture">'),
     "favicon.ico": Buffer.from([0, 0, 1, 0]), "robots.txt": "User-agent: *\n", "CNAME": "example.invalid\n",
     "yandex_c0b7a37a9f0baeb0.html": "<html><body>Provider verification</body></html>",
+    "LICENSE-mdi.txt": "Icon license fixture\n",
+    "LICENSE-assemblyscript.txt": "Compiled runtime license fixture\n",
     "images/logo.jpg": image,
     ...files,
   })) {
@@ -50,16 +52,21 @@ async function serverFor(t, root) {
   return server;
 }
 
-test("public files exclude tooling, private files, hidden files and non-image payloads", (t) => {
+test("public files exclude tooling, private paths and inappropriate asset types", (t) => {
   const root = fixture(t, {
     "README.md": "public documentation", "tools/tool.mjs": "tool", ".local/private.jpg": image,
     "raw/capture.jpg": image, "secrets/key.jpg": image, "node_modules/payload.jpg": image,
     "images/raw/capture.jpg": image, "images/.hidden.jpg": image, "images/note.md": "private",
     "images/payload.html": "not an image", "images/nested/second.png": image,
+    "assets/private.md": "not an image", "assets/nested/allowed.webp": image,
+    "app/main.mjs": "export const active = true;", "app/private.ts": "source",
+    "app/raw/capture.json": "private", "app/.hidden.json": "private",
   });
   const files = collectPublicFiles(root);
   assert.ok(files.includes("images/nested/second.png"));
-  assert.ok(files.every((file) => !/README|tools|\.local|raw|secrets|node_modules|hidden|note|payload/.test(file)));
+  assert.ok(files.includes("assets/nested/allowed.webp"));
+  assert.ok(files.includes("app/main.mjs"));
+  assert.ok(files.every((file) => !/README|tools|\.local|raw|secrets|node_modules|hidden|note|payload|private/.test(file)));
 });
 
 test("directory links cannot import private images or create recursion", (t) => {
@@ -116,6 +123,15 @@ test("site checker uses real CSS URLs, srcset assets and document fragment targe
   assert.ok(!errors.some((error) => error.includes("example-only") || error.includes("#target")), errors.join("\n"));
 });
 
+test("external stylesheet URLs resolve relative to their public stylesheet", async (t) => {
+  const root = fixture(t, {
+    "app/styles.css": 'body { background: url("../images/logo.jpg"); mask-image: url("../assets/missing.png"); }',
+  });
+  const errors = await checkSite(root);
+  assert.ok(errors.some(error => error.includes("app/styles.css") && error.includes("../assets/missing.png")), errors.join("\n"));
+  assert.ok(!errors.some(error => error.includes("../images/logo.jpg")), errors.join("\n"));
+});
+
 test("standards validation reports malformed maintained markup", async (t) => {
   const errors = await checkSite(fixture(t, { "index.html": page('<img src="images/logo.jpg" alt="A" alt="B">') }));
   assert.ok(errors.some((error) => error.includes("no-dup-attr")), errors.join("\n"));
@@ -137,6 +153,26 @@ test("preview serves byte-exact binary images with MIME, GET and HEAD", async (t
   const post = await get(server, "/", "POST");
   assert.equal(post.status, 405);
   assert.equal(post.headers.allow, "GET, HEAD");
+});
+
+test("preview serves browser modules and stream-instantiable WebAssembly without exposing sources", async (t) => {
+  const wasm = Buffer.from([0, 97, 115, 109, 1, 0, 0, 0, 1, 5, 1, 96, 0, 1, 127, 3, 2, 1, 0, 7, 7, 1, 3, 103, 101, 116, 0, 0, 10, 6, 1, 4, 0, 65, 42, 11]);
+  const root = fixture(t, {
+    "app/main.mjs": "export const active = true;", "app/styles.css": "body { color: white; }",
+    "app/data.json": '{"active":true}', "app/motion.wasm": wasm,
+    "src/motion.ts": "private build input", "app/raw/export.json": "private data",
+  });
+  const server = await serverFor(t, root);
+  for (const [file, type] of [["main.mjs", "text/javascript"], ["styles.css", "text/css"], ["data.json", "application/json"]]) {
+    const response = await get(server, `/app/${file}`);
+    assert.equal(response.status, 200);
+    assert.ok(response.headers["content-type"].startsWith(type));
+    assert.equal(response.headers["x-content-type-options"], "nosniff");
+  }
+  const { instance } = await WebAssembly.instantiateStreaming(fetch(`http://127.0.0.1:${server.address().port}/app/motion.wasm`));
+  assert.equal(instance.exports.get(), 42);
+  assert.equal((await get(server, "/src/motion.ts")).status, 404);
+  assert.equal((await get(server, "/app/raw/export.json")).status, 404);
 });
 
 test("preview rejects traversal and never falls back or exposes non-public files", async (t) => {

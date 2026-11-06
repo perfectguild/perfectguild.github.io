@@ -1,29 +1,161 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Странники. Всё дело в людях.</title>
-    <style>
-      body {
-        background-color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      
-      #logo1 {
-        display: block;
-        margin: auto;
-        max-height: 100%;
-        max-width: 100%;
-      }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n="page.title">Странники. Всё дело в людях.</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/app/postcard.css" integrity="sha384-m8dKUk/RZMba8W/aPRSaXEHVzRPOCzN7RgGow4gEJ6hN4x2IyuHPkI9gZse9kI+c">
+    <link rel="stylesheet" href="/app/screenshot-scene.css" integrity="sha384-mPLiNEfe3vKLPi/SG1kjInh1YZyItJan6YM0TzHUE4q77aevz9JSYoMhJ1KtS6py">
+    <noscript><style>button#controls-launcher { display: none; }</style></noscript>
   </head>
   <body>
-    <a href="https://discord.gg/F6UyV4Ss7v" target="_blank">
-      <img id="logo1" src="images/stranniki_bg_v4.jpg" alt="Лого гильдии Странники">
-    </a>
+    <main id="postcard" data-i18n-aria-label="page.postcard" aria-label="Открытка гильдии Странники">
+      <h1 class="visually-hidden" data-i18n="page.title">Странники. Всё дело в людях.</h1>
+      <canvas id="edge-fog" aria-hidden="true" hidden></canvas>
+      <div id="postcard-surface">
+        <img id="logo1" src="/images/stranniki_bg_v4.jpg" width="1920" height="1080" draggable="false" data-i18n-alt="page.image" alt="Открытка гильдии Странники с историческими никами">
+        <canvas id="ensemble-canvas" aria-hidden="true" hidden></canvas>
+        <div id="nickname-targets"></div>
+      </div>
+    </main>
+    <section id="character-card" role="region" tabindex="-1" data-i18n-aria-label="card.title" hidden aria-label="Карточка ника"></section>
+    <aside id="prototype-controls" class="prototype-controls" data-floating="false" data-i18n-aria-label="page.controls" hidden aria-label="Настройки открытки">
+      <div id="controls-header" class="prototype-heading">
+        <h2 id="controls-drag" tabindex="0" data-i18n="controls.settings" data-i18n-aria-label="controls.move" data-i18n-title="controls.move" aria-describedby="controls-move-help" title="Переместить панель настроек" aria-label="Переместить панель настроек">Настройки</h2>
+        <span id="technology" data-i18n="technology.loading">WebAssembly + WebGL2 · подготовка эффекта</span>
+        <div class="controls-window-actions">
+          <!-- MDI dock-left and window-close, @mdi/svg 7.4.47, Apache-2.0. Paths unchanged. See LICENSE-mdi.txt. -->
+          <button id="controls-dock" type="button" aria-controls="prototype-controls" data-i18n-aria-label="controls.dock" data-i18n-title="controls.dock" title="Вернуть влево" aria-label="Вернуть влево">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20 4H4A2 2 0 0 0 2 6V18A2 2 0 0 0 4 20H20A2 2 0 0 0 22 18V6A2 2 0 0 0 20 4M20 18H9V6H20Z"/>
+            </svg>
+          </button>
+          <button id="controls-hide" type="button" aria-controls="prototype-controls" data-i18n-aria-label="controls.hide" data-i18n-title="controls.hide" title="Скрыть настройки" aria-label="Скрыть настройки">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <span id="controls-move-help" class="visually-hidden" data-i18n="controls.moveHelp">Перетаскивайте заголовок мышью или пальцем. Стрелки перемещают панель на 10 пикселей, Shift со стрелками — на 1 пиксель.</span>
+      <div class="controls-row">
+        <button id="autoplay" type="button" aria-pressed="false" data-i18n="controls.start" disabled>Запустить автопоказ</button>
+        <button id="original" type="button" data-i18n="controls.original" disabled>Оригинал</button>
+        <label class="nickname-picker-label" for="nickname-picker" data-i18n="controls.nickname">Ник для просмотра</label>
+        <select id="nickname-picker" disabled></select>
+        <button id="show-nickname" type="button" aria-controls="character-card" data-i18n="controls.inspect" disabled>Рассмотреть ник</button>
+      </div>
+      <output id="state" class="prototype-state" aria-live="off" data-i18n="status.original">Исходное изображение без изменений.</output>
+      <div id="announcement" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+      <div class="controls-settings">
+        <div class="pulse-count-control">
+          <label for="pulse-count" data-i18n="controls.pulseCount">Пульсирующих надписей</label>
+          <input id="pulse-count" type="range" min="1" max="29" value="12" aria-describedby="pulse-count-value" disabled>
+          <output id="pulse-count-value" for="pulse-count" aria-live="off">12</output>
+        </div>
+        <div class="highlight-control">
+          <label class="nickname-picker-label" for="highlight-style" data-i18n="controls.highlight">Стиль ников</label>
+          <select id="highlight-style" disabled>
+            <option value="0" data-i18n="highlight.forum">Серебро и бордо</option>
+            <option value="1" data-i18n="highlight.frost">Ледяное сияние</option>
+            <option value="2" data-i18n="highlight.gold">Золотой блик</option>
+            <option value="3" data-i18n="highlight.arcane">Чародейская волна</option>
+            <option value="4" data-i18n="highlight.silver" selected>Серебряный рельеф</option>
+            <option value="5" data-i18n="highlight.liquid">Жидкий металл</option>
+            <option value="6" data-i18n="highlight.gem">Дымчатый кристалл</option>
+          </select>
+        </div>
+        <div class="highlight-control">
+          <label class="nickname-picker-label" for="light-effect" data-i18n="controls.lightEffect">Доп. эффект</label>
+          <select id="light-effect" disabled>
+            <option value="0" data-i18n="effect.none">Только стиль</option>
+            <option value="1" data-i18n="effect.breath">Дыхание свечения</option>
+            <option value="2" data-i18n="effect.sweep" selected>Бегущий блик</option>
+            <option value="3" data-i18n="effect.flow">Мягкий перелив</option>
+            <option value="4" data-i18n="effect.sparks">Искры по контуру</option>
+          </select>
+        </div>
+        <div class="highlight-control">
+          <label class="nickname-picker-label" for="edge-style" data-i18n="controls.edgeStyle">Фон и края</label>
+          <select id="edge-style" disabled>
+            <option value="7" data-i18n="edge.fullFlow" selected>Весь фон слева направо</option>
+            <option value="1" data-i18n="edge.mist">Текучий туман</option>
+            <option value="2" data-i18n="edge.waves">Дымные волны</option>
+            <option value="3" data-i18n="edge.silver">Серебристая дымка</option>
+            <option value="4" data-i18n="edge.curls">Дымные завихрения</option>
+            <option value="5" data-i18n="edge.haze">Волнистое марево</option>
+            <option value="6" data-i18n="edge.breath">Дыхание дымки</option>
+            <option value="0" data-i18n="edge.blur">Спокойное размытие</option>
+          </select>
+        </div>
+        <label class="screenshot-toggle">
+          <input id="memory-enabled" type="checkbox" checked disabled>
+          <span data-i18n="memory.enabled">Воспоминания (скриншоты)</span>
+        </label>
+        <div class="highlight-control">
+          <label class="nickname-picker-label" for="memory-count" data-i18n="memory.count">Воспоминаний одновременно</label>
+          <select id="memory-count" aria-describedby="memory-count-help" disabled>
+            <option value="1" data-i18n="memory.countOne">Один снимок</option>
+            <option value="2" data-i18n="memory.countTwo">Два снимка</option>
+            <option value="3" data-i18n="memory.countThree" selected>Три снимка</option>
+          </select>
+          <span id="memory-count-help" class="visually-hidden" data-i18n="memory.countHelp">Число снимков, одновременно появляющихся в тумане: от одного до трёх.</span>
+        </div>
+        <div class="highlight-control">
+          <label class="nickname-picker-label" for="memory-reveal" data-i18n="memory.reveal">Эффект воспоминаний</label>
+          <select id="memory-reveal" disabled>
+            <option value="3" data-i18n="memory.revealOriginal">Мягкое проявление</option>
+            <option value="0" data-i18n="memory.revealFog" selected>Клубящийся туман</option>
+            <option value="1" data-i18n="memory.revealWave">Световая волна</option>
+            <option value="2" data-i18n="memory.revealDust">Серебряная пыль</option>
+          </select>
+        </div>
+        <div class="highlight-control">
+          <label class="nickname-picker-label" for="memory-viewer-effect" data-i18n="memory.viewerEffect">Открытие воспоминаний</label>
+          <select id="memory-viewer-effect" disabled>
+            <option value="0" data-i18n="memory.viewerOriginal">Плавное проявление</option>
+            <option value="1" data-i18n="memory.viewerFog" selected>Туманный проём</option>
+            <option value="2" data-i18n="memory.viewerWave">Серебряная волна</option>
+            <option value="3" data-i18n="memory.viewerDust">Сборка из пыли</option>
+            <option value="4" data-i18n="memory.viewerRipples">Круги памяти</option>
+          </select>
+        </div>
+        <div class="highlight-control">
+          <label class="nickname-picker-label" for="memory-viewer-target" data-i18n="memory.viewerTarget">Применять эффект к</label>
+          <select id="memory-viewer-target" disabled>
+            <option value="0" data-i18n="memory.targetColor">Цветности</option>
+            <option value="1" data-i18n="memory.targetImage">Изображению</option>
+            <option value="2" data-i18n="memory.targetBoth" selected>Изображению и цветности</option>
+          </select>
+        </div>
+        <details id="prototype-help" class="prototype-details">
+          <summary data-i18n="controls.help">Справка</summary>
+          <p class="prototype-note" data-i18n="page.description">По умолчанию пульсируют 12 надписей, число можно менять. У ника одно или два места на открытке и общая карточка: повторное нажатие «Рассмотреть ник» выбирает другое место. Открытая вручную карточка остаётся при пролёте курсора; для переключения задержитесь над другим ником на 1 секунду или нажмите на него. Палитра выбранного стиля применяется ко всем растущим никам, дополнительные световые эффекты — к нику с карточкой. Именованные стили сохраняют собственную динамику. При наведении импульс начинается в точке касания буквы и идёт обратно по направлению подхода мыши. Карточка вырастает из нити и покачивается; волна проходит по её краям. Автопоказ случайно выбирает точку, наклон луча и верхнее или нижнее поле на весь показ; раскрытая карточка держится 30 секунд. В карточках — форумные изображения и датированный снимок Армори, не данные в реальном времени. Совпадение имени не подтверждает историческую личность. Вертикальную панель слева можно перетаскивать за заголовок и скрывать. Кнопка с шестерёнкой в левом нижнем углу возвращает настройки.</p>
+          <p class="prototype-note" data-i18n="page.edgeDescription">«Весь фон слева направо» движет фоновую текстуру по всей открытке, сохраняя надпись СТРАННИКИ и ники на месте. Также доступны шесть вариантов тумана по краям и спокойное размытие. «Оригинал» отключает обработку; при уменьшении движения фон неподвижен.</p>
+          <p class="prototype-note" data-i18n="memory.help">По умолчанию в тумане появляются три чёрно-белых игровых снимка, не перекрывая ники и карточку. Можно выбрать от одного до трёх снимков. «Эффект воспоминаний» меняет миниатюры, «Открытие воспоминаний» — полноэкранный переход. В режиме «Цветности» снимок сразу виден чёрно-белым, а эффект возвращает цвет. «Изображению» проявляет сразу цветной снимок. «Изображению и цветности» сначала проявляет чёрно-белый снимок, затем отдельной волной возвращает цвет. Листайте все воспоминания стрелками, клавишами ←/→ или свайпом. Закройте крестиком, Escape или нажатием на тёмное поле.</p>
+          <p class="prototype-note"><a href="https://discord.gg/F6UyV4Ss7v" target="_blank" rel="noopener noreferrer" data-i18n="controls.discord">Discord гильдии</a></p>
+        </details>
+        <details id="prototype-sources" class="prototype-details">
+          <summary data-i18n="controls.sources">Источники</summary>
+          <p id="source-note" class="prototype-note"></p>
+          <p class="prototype-note">
+            <span data-i18n="controls.iconCredit">Иконки панели:</span>
+            <a href="https://pictogrammers.com/library/mdi/icon/cog/" target="_blank" rel="noopener noreferrer">Material Design Icons · cog (Google)</a>
+            · <a href="https://pictogrammers.com/library/mdi/icon/dock-left/" target="_blank" rel="noopener noreferrer">dock-left</a>
+            · <a href="https://pictogrammers.com/library/mdi/icon/window-close/" target="_blank" rel="noopener noreferrer">window-close</a>
+            · <a href="/LICENSE-mdi.txt" target="_blank" rel="noopener noreferrer">Apache-2.0</a>
+          </p>
+        </details>
+      </div>
+    </aside>
+    <button id="controls-launcher" type="button" aria-controls="prototype-controls" aria-expanded="false" data-i18n-aria-label="controls.show" data-i18n-title="controls.show" title="Настройки" aria-label="Настройки">
+      <!-- MDI cog (Google), @mdi/svg 7.4.47, Apache-2.0. Path unchanged; accessible wrapper adapted. See LICENSE-mdi.txt. -->
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
+      </svg>
+    </button>
+    <noscript><p class="no-script-note"><a href="https://discord.gg/F6UyV4Ss7v" target="_blank" rel="noopener noreferrer" data-i18n="controls.discord">Discord гильдии</a></p></noscript>
+    <script type="module" src="/app/postcard.mjs" integrity="sha384-Y99a8JrJVUC1TjVaMXw0z48zpihQCNUxxUuxOhaVZ/VOvOORGCV3mPIkNN9+y12u"></script>
   </body>
 </html>

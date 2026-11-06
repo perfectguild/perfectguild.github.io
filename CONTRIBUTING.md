@@ -15,6 +15,23 @@ npm ci --ignore-scripts
 The public checkout is sufficient. Private instructions, historical inputs,
 and credentials are not prerequisites for development or CI.
 
+## Build
+
+```sh
+npm run build
+```
+
+This local build generates the committed `index.html` from `src/index.html`
+and the Russian message catalog, adds integrity hashes for the entry module
+and stylesheets, and compiles `src/motion.ts` to `app/motion.wasm`.
+AssemblyScript is pinned; no global compiler is required.
+Commit the generated HTML and WASM with their source changes.
+GitHub Pages does not run npm or compile them during publication.
+
+Edit `src/index.html`, not its generated root copy. Rebuild after changing
+the template, catalog, entry module, stylesheets, or motion source.
+The other `app/` modules and selected `assets/` files are served directly.
+
 ## Preview
 
 ```sh
@@ -32,6 +49,9 @@ research inputs, secrets, private notes, repository metadata, or development
 tools. An unknown URL is a missing resource, not a fallback to the home page.
 Stop it with Ctrl+C.
 
+The preview takes its public-file inventory at startup. Restart it after adding
+or removing asset files; ordinary edits to existing files need only a reload.
+
 ## Verification
 
 ```sh
@@ -42,9 +62,11 @@ The combined check runs these independently usable commands:
 
 | Command | Coverage |
 | --- | --- |
-| `npm run test:site` | Maintained HTML and local website references |
+| `npm run test:build` | Rebuilds to temporary storage and rejects stale committed HTML, integrity hashes, or WASM |
+| `npm run test:site` | Maintained HTML, external/inline CSS, and local website references |
+| `npm run test:runtime` | Browser-module imports, selected media references, scene bounds, character groups, and data boundaries |
 | `npm run test:docs` | Public Markdown, local documentation links, and Mermaid syntax |
-| `npm run test:tooling` | Native Node.js regression tests for the verification and preview tools |
+| `npm run test:tooling` | Native WASM timing/state regressions and Node.js checks for validators, preview MIME types, and private-file exclusion |
 
 External websites and historical archive availability are not network
 prerequisites for these checks. The provider-issued Yandex verification page is
@@ -61,7 +83,7 @@ source wording or implementation trivia.
 
 The `CI` workflow runs on pushes, pull requests, and manual dispatch:
 
-- Site, documentation, and tooling checks on Windows and Linux.
+- Reproducible build, site, runtime-data, documentation, and regression checks on Windows and Linux.
 - Workflow validation with checksum-pinned actionlint.
 - Redacted secret scanning of the public checkout with checksum-pinned Gitleaks.
 
@@ -88,6 +110,9 @@ GitHub Pages deployment from `main`. See [publication details](docs/deployment.m
   language.
 - Historical inputs are evidence, not an automatically approved source of new
   public content or a second active checkout.
+
+See [runtime architecture](docs/architecture.md) before changing motion,
+image masks, character identity mappings, or the screenshot viewer.
 
 Instructions for a private workspace are local to its owner. Public contributors
 must not need private documents to understand or reproduce a public change.

@@ -1,0 +1,864 @@
+{
+  "observedOn": "2026-11-06",
+  "guild": "Странники",
+  "region": "EU",
+  "guildRealm": "Король-лич",
+  "guildRealmSlug": "lich-king",
+  "sourceUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/guild/lich-king/странники",
+  "sourceKind": "public-website-snapshot",
+  "itemLevelKind": "average",
+  "locale": "ru_RU",
+  "characters": [
+    {
+      "id": "skorpikora",
+      "characterName": "Скорпикора",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%81%D0%BA%D0%BE%D1%80%D0%BF%D0%B8%D0%BA%D0%BE%D1%80%D0%B0",
+      "level": 80,
+      "race": "Ночной эльф",
+      "className": "Охотник",
+      "specialization": "Стрельба",
+      "itemLevel": 103,
+      "achievementPoints": 37805,
+      "guildRank": {
+        "index": 0,
+        "name": "Глава гильдии"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "owner-confirmed-url",
+        "confirmedOn": "2026-11-05"
+      }
+    },
+    {
+      "id": "milagros",
+      "characterName": "Милагрос",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BC%D0%B8%D0%BB%D0%B0%D0%B3%D1%80%D0%BE%D1%81",
+      "level": 60,
+      "race": "Человек",
+      "className": "Жрец",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 1,
+        "name": "Звание 2"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "mobster",
+      "characterName": "Мобстер",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BC%D0%BE%D0%B1%D1%81%D1%82%D0%B5%D1%80",
+      "level": 48,
+      "race": "Ворген",
+      "className": "Воин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "askaniy",
+      "characterName": "Асканий",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B0%D1%81%D0%BA%D0%B0%D0%BD%D0%B8%D0%B9",
+      "level": 50,
+      "race": "Ночной эльф",
+      "className": "Друид",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 1,
+        "name": "Звание 2"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "aliniada",
+      "characterName": "Алиниада",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B0%D0%BB%D0%B8%D0%BD%D0%B8%D0%B0%D0%B4%D0%B0",
+      "level": 35,
+      "race": "Человек",
+      "className": "Чернокнижник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "disa",
+      "characterName": "Диса",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B4%D0%B8%D1%81%D0%B0",
+      "level": 30,
+      "race": "Дреней",
+      "className": "Охотник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "rinnka",
+      "characterName": "Риннка",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%80%D0%B8%D0%BD%D0%BD%D0%BA%D0%B0",
+      "level": 75,
+      "race": "Человек",
+      "className": "Жрец",
+      "specialization": "Послушание",
+      "itemLevel": 63,
+      "achievementPoints": 14545,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "silivren",
+      "characterName": "Силиврен",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%81%D0%B8%D0%BB%D0%B8%D0%B2%D1%80%D0%B5%D0%BD",
+      "level": 80,
+      "race": "Ночной эльф",
+      "className": "Разбойник",
+      "specialization": "Скрытность",
+      "itemLevel": 89,
+      "achievementPoints": 38340,
+      "guildRank": {
+        "index": 1,
+        "name": "Звание 2"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "nurmi",
+      "characterName": "Нурми",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BD%D1%83%D1%80%D0%BC%D0%B8",
+      "level": 45,
+      "race": "Человек",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "soulstorm",
+      "characterName": "Соулсторм",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%81%D0%BE%D1%83%D0%BB%D1%81%D1%82%D0%BE%D1%80%D0%BC",
+      "level": 40,
+      "race": "Дреней",
+      "className": "Шаман",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "kutyurye",
+      "characterName": "Кутюрье",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D1%83%D1%82%D1%8E%D1%80%D1%8C%D0%B5",
+      "level": 45,
+      "race": "Ночной эльф",
+      "className": "Друид",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "belyyvolk",
+      "characterName": "Белыйволк",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9%D0%B2%D0%BE%D0%BB%D0%BA",
+      "level": 40,
+      "race": "Дворф",
+      "className": "Охотник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "lihon",
+      "characterName": "Лихон",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BB%D0%B8%D1%85%D0%BE%D0%BD",
+      "level": 55,
+      "race": "Ночной эльф",
+      "className": "Друид",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "krivonos",
+      "characterName": "Кривонос",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D1%80%D0%B8%D0%B2%D0%BE%D0%BD%D0%BE%D1%81",
+      "level": 60,
+      "race": "Человек",
+      "className": "Воин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "aideus",
+      "characterName": "Айдеус",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B0%D0%B9%D0%B4%D0%B5%D1%83%D1%81",
+      "level": 90,
+      "race": "Человек",
+      "className": "Жрец",
+      "specialization": "Тьма",
+      "itemLevel": 334,
+      "achievementPoints": 58255,
+      "guildRank": {
+        "index": 3,
+        "name": "Звание 4"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "fabyan",
+      "characterName": "Фабьян",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%84%D0%B0%D0%B1%D1%8C%D1%8F%D0%BD",
+      "level": 60,
+      "race": "Человек",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "shef",
+      "characterName": "Шэф",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%88%D1%8D%D1%84",
+      "level": 60,
+      "race": "Человек",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 1,
+        "name": "Звание 2"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "riogall",
+      "characterName": "Риогалл",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%80%D0%B8%D0%BE%D0%B3%D0%B0%D0%BB%D0%BB",
+      "level": 45,
+      "race": "Человек",
+      "className": "Маг",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "khrandor",
+      "characterName": "Храндор",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%85%D1%80%D0%B0%D0%BD%D0%B4%D0%BE%D1%80",
+      "level": 34,
+      "race": "Дреней",
+      "className": "Жрец",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 1,
+        "name": "Звание 2"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "kvill",
+      "characterName": "Квилл",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D0%B2%D0%B8%D0%BB%D0%BB",
+      "level": 50,
+      "race": "Ворген",
+      "className": "Разбойник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "shiora",
+      "characterName": "Шиора",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%88%D0%B8%D0%BE%D1%80%D0%B0",
+      "level": 60,
+      "race": "Дреней",
+      "className": "Шаман",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 1,
+        "name": "Звание 2"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "alyk",
+      "characterName": "Алык",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B0%D0%BB%D1%8B%D0%BA",
+      "level": 40,
+      "race": "Ворген",
+      "className": "Друид",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "templier",
+      "characterName": "Темплиер",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%82%D0%B5%D0%BC%D0%BF%D0%BB%D0%B8%D0%B5%D1%80",
+      "level": 35,
+      "race": "Человек",
+      "className": "Маг",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "zukerberg",
+      "characterName": "Зукерберг",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B7%D1%83%D0%BA%D0%B5%D1%80%D0%B1%D0%B5%D1%80%D0%B3",
+      "level": 41,
+      "race": "Человек",
+      "className": "Маг",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "glupiykot",
+      "characterName": "Глупыйкот",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B3%D0%BB%D1%83%D0%BF%D1%8B%D0%B9%D0%BA%D0%BE%D1%82",
+      "level": 40,
+      "race": "Ночной эльф",
+      "className": "Друид",
+      "specialization": "Баланс",
+      "itemLevel": 15,
+      "achievementPoints": 6975,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "dzhoyser",
+      "characterName": "Джойсер",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B4%D0%B6%D0%BE%D0%B9%D1%81%D0%B5%D1%80",
+      "level": 35,
+      "race": "Ночной эльф",
+      "className": "Воин",
+      "specialization": "Защита",
+      "itemLevel": 39,
+      "achievementPoints": 8615,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "ersul",
+      "characterName": "Эрсул",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%8D%D1%80%D1%81%D1%83%D0%BB",
+      "level": 31,
+      "race": "Человек",
+      "className": "Рыцарь смерти",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "diykstra",
+      "characterName": "Дийкстра",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B4%D0%B8%D0%B9%D0%BA%D1%81%D1%82%D1%80%D0%B0",
+      "level": 70,
+      "race": "Человек",
+      "className": "Жрец",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "myuzetta",
+      "characterName": "Мьюзетта",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BC%D1%8C%D1%8E%D0%B7%D0%B5%D1%82%D1%82%D0%B0",
+      "level": 40,
+      "race": "Ночной эльф",
+      "className": "Охотник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "eldesperado",
+      "characterName": "Эльдесперадо",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%8D%D0%BB%D1%8C%D0%B4%D0%B5%D1%81%D0%BF%D0%B5%D1%80%D0%B0%D0%B4%D0%BE",
+      "level": 32,
+      "race": "Дворф",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "shpitspatrik",
+      "characterName": "Шпицпатрик",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%88%D0%BF%D0%B8%D1%86%D0%BF%D0%B0%D1%82%D1%80%D0%B8%D0%BA",
+      "level": 35,
+      "race": "Человек",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 1,
+        "name": "Звание 2"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "kvillers",
+      "characterName": "Квиллерс",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D0%B2%D0%B8%D0%BB%D0%BB%D0%B5%D1%80%D1%81",
+      "level": 50,
+      "race": "Дреней",
+      "className": "Рыцарь смерти",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "kvillpal",
+      "characterName": "Квиллпал",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D0%B2%D0%B8%D0%BB%D0%BB%D0%BF%D0%B0%D0%BB",
+      "level": 50,
+      "race": "Человек",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "kvillsham",
+      "characterName": "Квиллшам",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D0%B2%D0%B8%D0%BB%D0%BB%D1%88%D0%B0%D0%BC",
+      "level": 50,
+      "race": "Дреней",
+      "className": "Шаман",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "kvinki",
+      "characterName": "Квинки",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D0%B2%D0%B8%D0%BD%D0%BA%D0%B8",
+      "level": 45,
+      "race": "Ночной эльф",
+      "className": "Охотник на демонов",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "samtupoy",
+      "characterName": "Самтупой",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%81%D0%B0%D0%BC%D1%82%D1%83%D0%BF%D0%BE%D0%B9",
+      "level": 70,
+      "race": "Человек",
+      "className": "Воин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 3,
+        "name": "Звание 4"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    },
+    {
+      "id": "kvintilya",
+      "characterName": "Квинтилья",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D0%B2%D0%B8%D0%BD%D1%82%D0%B8%D0%BB%D1%8C%D1%8F",
+      "level": 40,
+      "race": "Человек",
+      "className": "Охотник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      }
+    }
+  ],
+  "characterGroups": [
+    {
+      "id": "ersul",
+      "nicknameIds": ["ersul"],
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-06",
+      "members": [
+        {"characterId": "shpitspatrik", "role": "main"},
+        {"characterId": "ersul", "role": "alt"}
+      ]
+    },
+    {
+      "id": "diykstra",
+      "nicknameIds": ["diykstra"],
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-06",
+      "members": [
+        {"characterId": "diykstra", "role": "main"},
+        {"characterId": "samtupoy", "role": "alt"}
+      ]
+    },
+    {
+      "id": "kvill",
+      "nicknameIds": ["kvill"],
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-06",
+      "members": [
+        {"characterId": "kvill", "role": "main"},
+        {"characterId": "kvillers", "role": "alt"},
+        {"characterId": "kvillpal", "role": "alt"},
+        {"characterId": "kvillsham", "role": "alt"},
+        {"characterId": "kvinki", "role": "alt"},
+        {"characterId": "kvintilya", "role": "alt"}
+      ]
+    }
+  ]
+}

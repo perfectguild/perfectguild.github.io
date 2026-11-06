@@ -12,6 +12,8 @@ const mime = new Map([
   [".ico", "image/x-icon"], [".jpg", "image/jpeg"], [".jpeg", "image/jpeg"],
   [".png", "image/png"], [".gif", "image/gif"], [".webp", "image/webp"],
   [".avif", "image/avif"], [".svg", "image/svg+xml"],
+  [".mjs", "text/javascript; charset=utf-8"], [".css", "text/css; charset=utf-8"],
+  [".json", "application/json; charset=utf-8"], [".wasm", "application/wasm"],
 ]);
 
 export function createPreviewServer(root = repositoryRoot) {

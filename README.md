@@ -11,21 +11,21 @@ finding one another again, and perhaps playing together on WoW Forever.
 
 ## Current site
 
-The published page displays the guild's nickname artwork and links to its
-Discord invitation. It is a static website, not a forum, character database,
-or live guild roster.
+The static GitHub Pages site now animates the original nickname collage with
+WebGL2 shaders and a WebAssembly motion engine. It includes:
 
-## Possible next steps
+- Pulsing nicknames, deliberate hover selection, and compact character cards
+  connected to the selected lettering by an animated thread.
+- Dated Armory details, guild ranks, verified alternate-character groups,
+  and selected historical forum avatars with source links.
+- Grayscale screenshot memories in the fog, a fullscreen carousel, and
+  selectable image/color reveal effects.
+- A movable, hideable settings panel, keyboard and touch controls,
+  reduced-motion handling, and the original artwork as the fallback.
 
-These are directions for later work, not implemented features or a settled design:
-
-- Give the nicknames a subtle dynamic effect instead of relying on a static image.
-- Link to verified character profiles, such as an appropriate WoW armory.
-- Recover and curate old forum avatars, posts, screenshots, and community memes
-  while preserving their historical context and sources.
-
-The initial repository setup covers development tooling and project documentation
-only. It does not redesign the page or publish the historical collection.
+This is not a live roster or a restored forum. A matching nickname does not
+prove that a current character belongs to the same historical person.
+The guild link above also provides Blizzard's current full roster for future research.
 
 ## Local development
 
@@ -34,6 +34,7 @@ The browser does not need Node.js or any installed package.
 
 ```sh
 npm ci --ignore-scripts
+npm run build
 npm run dev
 ```
 
@@ -43,9 +44,10 @@ the development workflow.
 ## Documentation
 
 - [Development and verification](CONTRIBUTING.md)
+- [Runtime architecture, data model, and effects](docs/architecture.md)
 - [Publication architecture and technical details](docs/deployment.md)
 - [Change log](CHANGELOG.md)
-- [Notices for adapted tooling](tools/THIRD-PARTY-NOTICES.md)
+- [Third-party notices](tools/THIRD-PARTY-NOTICES.md)
 
 Public development works from this repository alone. Private working notes,
 unprocessed historical material, and credentials are not public build or

@@ -1,0 +1,1150 @@
+{
+  "imageWidth": 1920,
+  "imageHeight": 1080,
+  "protectedBounds": {
+    "x": 140,
+    "y": 340,
+    "width": 1600,
+    "height": 405
+  },
+  "nicknames": [
+    {
+      "id": "skorpikora",
+      "label": "Скорпикора"
+    },
+    {
+      "id": "milagros",
+      "label": "Милагрос"
+    },
+    {
+      "id": "mobster",
+      "label": "Мобстер"
+    },
+    {
+      "id": "askaniy",
+      "label": "Асканий"
+    },
+    {
+      "id": "aliniada",
+      "label": "Алиниада"
+    },
+    {
+      "id": "disa",
+      "label": "Диса"
+    },
+    {
+      "id": "rinnka",
+      "label": "Риннка"
+    },
+    {
+      "id": "silivren",
+      "label": "Силиврен"
+    },
+    {
+      "id": "nurmi",
+      "label": "Нурми"
+    },
+    {
+      "id": "soulstorm",
+      "label": "Соулсторм"
+    },
+    {
+      "id": "kutyurye",
+      "label": "Кутюрье"
+    },
+    {
+      "id": "belyyvolk",
+      "label": "Белыйволк"
+    },
+    {
+      "id": "lihon",
+      "label": "Лихон"
+    },
+    {
+      "id": "krivonos",
+      "label": "Кривонос"
+    },
+    {
+      "id": "aideus",
+      "label": "Айдеус"
+    },
+    {
+      "id": "fabyan",
+      "label": "Фабьян"
+    },
+    {
+      "id": "shef",
+      "label": "Шэф"
+    },
+    {
+      "id": "riogall",
+      "label": "Риогалл"
+    },
+    {
+      "id": "khrandor",
+      "label": "Храндор"
+    },
+    {
+      "id": "kvill",
+      "label": "Квилл"
+    },
+    {
+      "id": "shiora",
+      "label": "Шиора"
+    },
+    {
+      "id": "alyk",
+      "label": "Алык"
+    },
+    {
+      "id": "templier",
+      "label": "Темплиер"
+    },
+    {
+      "id": "zukerberg",
+      "label": "Зукерберг"
+    },
+    {
+      "id": "glupiykot",
+      "label": "Глупыйкот"
+    },
+    {
+      "id": "dzhoyser",
+      "label": "Джойсер"
+    },
+    {
+      "id": "ersul",
+      "label": "Эрсул"
+    },
+    {
+      "id": "diykstra",
+      "label": "Дийкстра"
+    },
+    {
+      "id": "myuzetta",
+      "label": "Мьюзетта"
+    },
+    {
+      "id": "eldesperado",
+      "label": "Эльдесперадо"
+    }
+  ],
+  "occurrences": [
+    {
+      "nicknameId": "skorpikora",
+      "id": "skorpikora",
+      "artworkLabel": "СКОРПИКОРА",
+      "bounds": {
+        "x": 1428,
+        "y": 454,
+        "width": 221,
+        "height": 36
+      },
+      "maskUrl": "/assets/skorpikora-mask.png",
+      "repairUrl": "/assets/skorpikora-repair.png",
+      "contacts": {
+        "above": {
+          "x": 110.5,
+          "y": 4.5
+        },
+        "below": {
+          "x": 110.5,
+          "y": 31.5
+        }
+      }
+    },
+    {
+      "nicknameId": "milagros",
+      "id": "milagros",
+      "artworkLabel": "Милагрос",
+      "bounds": {
+        "x": 1249,
+        "y": 543,
+        "width": 132,
+        "height": 32
+      },
+      "maskUrl": "/assets/milagros-mask.png",
+      "repairUrl": "/assets/milagros-repair.png",
+      "contacts": {
+        "above": {
+          "x": 65.5,
+          "y": 9.5
+        },
+        "below": {
+          "x": 65.5,
+          "y": 22.5
+        }
+      }
+    },
+    {
+      "nicknameId": "mobster",
+      "id": "mobster",
+      "artworkLabel": "МОБСТЕР",
+      "bounds": {
+        "x": 684,
+        "y": 453,
+        "width": 128,
+        "height": 28
+      },
+      "maskUrl": "/assets/mobster-mask.png",
+      "repairUrl": "/assets/mobster-repair.png",
+      "contacts": {
+        "above": {
+          "x": 64.5,
+          "y": 10.5
+        },
+        "below": {
+          "x": 64.5,
+          "y": 17.5
+        }
+      }
+    },
+    {
+      "nicknameId": "askaniy",
+      "id": "askaniy",
+      "artworkLabel": "Асканий",
+      "bounds": {
+        "x": 726,
+        "y": 489,
+        "width": 111,
+        "height": 25
+      },
+      "maskUrl": "/assets/askaniy-mask.png",
+      "repairUrl": "/assets/askaniy-repair.png",
+      "contacts": {
+        "above": {
+          "x": 55.5,
+          "y": 9.5
+        },
+        "below": {
+          "x": 55.5,
+          "y": 22.5
+        }
+      }
+    },
+    {
+      "nicknameId": "aliniada",
+      "id": "aliniada",
+      "artworkLabel": "Алиниада",
+      "bounds": {
+        "x": 199,
+        "y": 398,
+        "width": 132,
+        "height": 24
+      },
+      "maskUrl": "/assets/aliniada-mask.png",
+      "repairUrl": "/assets/aliniada-repair.png",
+      "contacts": {
+        "above": {
+          "x": 65.5,
+          "y": 13.5
+        },
+        "below": {
+          "x": 65.5,
+          "y": 14.5
+        }
+      }
+    },
+    {
+      "nicknameId": "disa",
+      "id": "disa",
+      "artworkLabel": "Диса",
+      "bounds": {
+        "x": 241,
+        "y": 469,
+        "width": 46,
+        "height": 21
+      },
+      "maskUrl": "/assets/disa-mask.png",
+      "repairUrl": "/assets/disa-repair.png",
+      "contacts": {
+        "above": {
+          "x": 22.5,
+          "y": 5.5
+        },
+        "below": {
+          "x": 22.5,
+          "y": 16.5
+        }
+      },
+      "peakScale": 1.98
+    },
+    {
+      "nicknameId": "rinnka",
+      "id": "rinnka",
+      "artworkLabel": "РИННКА",
+      "bounds": {
+        "x": 205,
+        "y": 608,
+        "width": 111,
+        "height": 25
+      },
+      "maskUrl": "/assets/rinnka-mask.png",
+      "repairUrl": "/assets/rinnka-repair.png",
+      "contacts": {
+        "above": {
+          "x": 57.5,
+          "y": 3.5
+        },
+        "below": {
+          "x": 57.5,
+          "y": 21.5
+        }
+      }
+    },
+    {
+      "nicknameId": "silivren",
+      "id": "silivren",
+      "artworkLabel": "Силиврен",
+      "bounds": {
+        "x": 543,
+        "y": 383,
+        "width": 131,
+        "height": 31
+      },
+      "maskUrl": "/assets/silivren-mask.png",
+      "repairUrl": "/assets/silivren-repair.png",
+      "contacts": {
+        "above": {
+          "x": 65.5,
+          "y": 11.5
+        },
+        "below": {
+          "x": 65.5,
+          "y": 14.5
+        }
+      }
+    },
+    {
+      "nicknameId": "nurmi",
+      "id": "nurmi",
+      "artworkLabel": "Нурми",
+      "bounds": {
+        "x": 854,
+        "y": 409,
+        "width": 71,
+        "height": 27
+      },
+      "maskUrl": "/assets/nurmi-mask.png",
+      "repairUrl": "/assets/nurmi-repair.png",
+      "contacts": {
+        "above": {
+          "x": 35.5,
+          "y": 6.5
+        },
+        "below": {
+          "x": 35.5,
+          "y": 19.5
+        }
+      }
+    },
+    {
+      "nicknameId": "soulstorm",
+      "id": "soulstorm",
+      "artworkLabel": "СОУЛСТОРМ",
+      "bounds": {
+        "x": 870,
+        "y": 436,
+        "width": 181,
+        "height": 26
+      },
+      "maskUrl": "/assets/soulstorm-mask.png",
+      "repairUrl": "/assets/soulstorm-repair.png",
+      "contacts": {
+        "above": {
+          "x": 90.5,
+          "y": 4.5
+        },
+        "below": {
+          "x": 90.5,
+          "y": 21.5
+        }
+      }
+    },
+    {
+      "nicknameId": "kutyurye",
+      "id": "kutyurye",
+      "artworkLabel": "Кутюрье",
+      "bounds": {
+        "x": 971,
+        "y": 659,
+        "width": 73,
+        "height": 18
+      },
+      "maskUrl": "/assets/kutyurye-mask.png",
+      "repairUrl": "/assets/kutyurye-repair.png",
+      "contacts": {
+        "above": {
+          "x": 36.5,
+          "y": 2.5
+        },
+        "below": {
+          "x": 36.5,
+          "y": 12.5
+        }
+      },
+      "peakScale": 1.98
+    },
+    {
+      "nicknameId": "belyyvolk",
+      "id": "belyyvolk",
+      "artworkLabel": "Белыйволк",
+      "bounds": {
+        "x": 1013,
+        "y": 635,
+        "width": 138,
+        "height": 25
+      },
+      "maskUrl": "/assets/belyyvolk-mask.png",
+      "repairUrl": "/assets/belyyvolk-repair.png",
+      "contacts": {
+        "above": {
+          "x": 68.5,
+          "y": 10.5
+        },
+        "below": {
+          "x": 68.5,
+          "y": 21.5
+        }
+      }
+    },
+    {
+      "nicknameId": "lihon",
+      "id": "lihon",
+      "artworkLabel": "Лихон",
+      "bounds": {
+        "x": 1338,
+        "y": 502,
+        "width": 58,
+        "height": 27
+      },
+      "maskUrl": "/assets/lihon-mask.png",
+      "repairUrl": "/assets/lihon-repair.png",
+      "contacts": {
+        "above": {
+          "x": 28.5,
+          "y": 6.5
+        },
+        "below": {
+          "x": 28.5,
+          "y": 22.5
+        }
+      }
+    },
+    {
+      "nicknameId": "krivonos",
+      "id": "krivonos",
+      "artworkLabel": "КРИВОНОС",
+      "bounds": {
+        "x": 1269,
+        "y": 602,
+        "width": 154,
+        "height": 26
+      },
+      "maskUrl": "/assets/krivonos-mask.png",
+      "repairUrl": "/assets/krivonos-repair.png",
+      "contacts": {
+        "above": {
+          "x": 76.5,
+          "y": 5.5
+        },
+        "below": {
+          "x": 76.5,
+          "y": 15.5
+        }
+      }
+    },
+    {
+      "nicknameId": "aideus",
+      "id": "aideus",
+      "artworkLabel": "Айдеус",
+      "bounds": {
+        "x": 1359,
+        "y": 569,
+        "width": 102,
+        "height": 32
+      },
+      "maskUrl": "/assets/aideus-mask.png",
+      "repairUrl": "/assets/aideus-repair.png",
+      "contacts": {
+        "above": {
+          "x": 50.5,
+          "y": 9.5
+        },
+        "below": {
+          "x": 50.5,
+          "y": 21.5
+        }
+      }
+    },
+    {
+      "nicknameId": "fabyan",
+      "id": "fabyan",
+      "artworkLabel": "ФАБЬЯН",
+      "bounds": {
+        "x": 1349,
+        "y": 632,
+        "width": 60,
+        "height": 17
+      },
+      "maskUrl": "/assets/fabyan-mask.png",
+      "repairUrl": "/assets/fabyan-repair.png",
+      "contacts": {
+        "above": {
+          "x": 30.5,
+          "y": 3.5
+        },
+        "below": {
+          "x": 30.5,
+          "y": 13.5
+        }
+      }
+    },
+    {
+      "nicknameId": "shef",
+      "id": "shef",
+      "artworkLabel": "Шэф",
+      "bounds": {
+        "x": 376,
+        "y": 385,
+        "width": 60,
+        "height": 30
+      },
+      "maskUrl": "/assets/shef-mask.png",
+      "repairUrl": "/assets/shef-repair.png",
+      "contacts": {
+        "above": {
+          "x": 29.5,
+          "y": 10.5
+        },
+        "below": {
+          "x": 29.5,
+          "y": 21.5
+        }
+      }
+    },
+    {
+      "nicknameId": "riogall",
+      "id": "riogall",
+      "artworkLabel": "Риогалл",
+      "bounds": {
+        "x": 1240,
+        "y": 654,
+        "width": 112,
+        "height": 25
+      },
+      "maskUrl": "/assets/riogall-mask.png",
+      "repairUrl": "/assets/riogall-repair.png",
+      "contacts": {
+        "above": {
+          "x": 55.5,
+          "y": 9.5
+        },
+        "below": {
+          "x": 55.5,
+          "y": 10.5
+        }
+      }
+    },
+    {
+      "nicknameId": "khrandor",
+      "id": "khrandor",
+      "artworkLabel": "Храндор",
+      "bounds": {
+        "x": 466,
+        "y": 484,
+        "width": 119,
+        "height": 31
+      },
+      "maskUrl": "/assets/khrandor-mask.png",
+      "repairUrl": "/assets/khrandor-repair.png",
+      "contacts": {
+        "above": {
+          "x": 59.5,
+          "y": 15.5
+        },
+        "below": {
+          "x": 59.5,
+          "y": 16.5
+        }
+      }
+    },
+    {
+      "nicknameId": "kvill",
+      "id": "kvill",
+      "artworkLabel": "Квилл",
+      "bounds": {
+        "x": 352,
+        "y": 652,
+        "width": 82,
+        "height": 27
+      },
+      "maskUrl": "/assets/kvill-mask.png",
+      "repairUrl": "/assets/kvill-repair.png",
+      "contacts": {
+        "above": {
+          "x": 40.5,
+          "y": 12.5
+        },
+        "below": {
+          "x": 40.5,
+          "y": 13.5
+        }
+      }
+    },
+    {
+      "nicknameId": "shiora",
+      "id": "shiora",
+      "artworkLabel": "Шиора",
+      "bounds": {
+        "x": 412,
+        "y": 583,
+        "width": 54,
+        "height": 20
+      },
+      "maskUrl": "/assets/shiora-mask.png",
+      "repairUrl": "/assets/shiora-repair.png",
+      "contacts": {
+        "above": {
+          "x": 26.5,
+          "y": 9.5
+        },
+        "below": {
+          "x": 26.5,
+          "y": 9.5
+        }
+      },
+      "peakScale": 1.98
+    },
+    {
+      "nicknameId": "alyk",
+      "id": "alyk",
+      "artworkLabel": "Алык",
+      "bounds": {
+        "x": 353,
+        "y": 603,
+        "width": 40,
+        "height": 18
+      },
+      "maskUrl": "/assets/alyk-mask.png",
+      "repairUrl": "/assets/alyk-repair.png",
+      "contacts": {
+        "above": {
+          "x": 19.5,
+          "y": 7.5
+        },
+        "below": {
+          "x": 19.5,
+          "y": 8.5
+        }
+      },
+      "peakScale": 3.3
+    },
+    {
+      "nicknameId": "templier",
+      "id": "templier",
+      "artworkLabel": "Темплиер",
+      "bounds": {
+        "x": 497,
+        "y": 524,
+        "width": 112,
+        "height": 24
+      },
+      "maskUrl": "/assets/templier-mask.png",
+      "repairUrl": "/assets/templier-repair.png",
+      "contacts": {
+        "above": {
+          "x": 55.5,
+          "y": 6.5
+        },
+        "below": {
+          "x": 55.5,
+          "y": 16.5
+        }
+      }
+    },
+    {
+      "nicknameId": "zukerberg",
+      "id": "zukerberg",
+      "artworkLabel": "Зукерберг",
+      "bounds": {
+        "x": 325,
+        "y": 435,
+        "width": 70,
+        "height": 23
+      },
+      "maskUrl": "/assets/zukerberg-mask.png",
+      "repairUrl": "/assets/zukerberg-repair.png",
+      "contacts": {
+        "above": {
+          "x": 34.5,
+          "y": 7.5
+        },
+        "below": {
+          "x": 34.5,
+          "y": 14.5
+        }
+      }
+    },
+    {
+      "nicknameId": "glupiykot",
+      "id": "glupiykot",
+      "artworkLabel": "глупыйкот",
+      "bounds": {
+        "x": 336,
+        "y": 541,
+        "width": 128,
+        "height": 26
+      },
+      "maskUrl": "/assets/glupiykot-mask.png",
+      "repairUrl": "/assets/glupiykot-repair.png",
+      "contacts": {
+        "above": {
+          "x": 62.5,
+          "y": 9.5
+        },
+        "below": {
+          "x": 62.5,
+          "y": 19.5
+        }
+      }
+    },
+    {
+      "nicknameId": "dzhoyser",
+      "id": "dzhoyser",
+      "artworkLabel": "Джойсер",
+      "bounds": {
+        "x": 377,
+        "y": 519,
+        "width": 120,
+        "height": 31
+      },
+      "maskUrl": "/assets/dzhoyser-mask.png",
+      "repairUrl": "/assets/dzhoyser-repair.png",
+      "contacts": {
+        "above": {
+          "x": 59.5,
+          "y": 16.5
+        },
+        "below": {
+          "x": 59.5,
+          "y": 20.5
+        }
+      }
+    },
+    {
+      "nicknameId": "ersul",
+      "id": "ersul",
+      "artworkLabel": "ЭРСУЛ",
+      "bounds": {
+        "x": 1168,
+        "y": 479,
+        "width": 129,
+        "height": 42
+      },
+      "maskUrl": "/assets/ersul-mask.png",
+      "repairUrl": "/assets/ersul-repair.png",
+      "contacts": {
+        "above": {
+          "x": 64.5,
+          "y": 3.5
+        },
+        "below": {
+          "x": 64.5,
+          "y": 30.5
+        }
+      }
+    },
+    {
+      "nicknameId": "diykstra",
+      "id": "diykstra",
+      "artworkLabel": "Дийкстра",
+      "bounds": {
+        "x": 1224,
+        "y": 514,
+        "width": 87,
+        "height": 25
+      },
+      "maskUrl": "/assets/diykstra-mask.png",
+      "repairUrl": "/assets/diykstra-repair.png",
+      "contacts": {
+        "above": {
+          "x": 43.5,
+          "y": 6.5
+        },
+        "below": {
+          "x": 43.5,
+          "y": 17.5
+        }
+      }
+    },
+    {
+      "nicknameId": "myuzetta",
+      "id": "myuzetta",
+      "artworkLabel": "Мьюзетта",
+      "bounds": {
+        "x": 1107,
+        "y": 434,
+        "width": 122,
+        "height": 25
+      },
+      "maskUrl": "/assets/myuzetta-mask.png",
+      "repairUrl": "/assets/myuzetta-repair.png",
+      "contacts": {
+        "above": {
+          "x": 60.5,
+          "y": 9.5
+        },
+        "below": {
+          "x": 60.5,
+          "y": 20.5
+        }
+      }
+    },
+    {
+      "nicknameId": "milagros",
+      "id": "max-left-325-449",
+      "artworkLabel": "Милагрос",
+      "bounds": {
+        "x": 325,
+        "y": 449,
+        "width": 165,
+        "height": 31
+      },
+      "maskUrl": "/assets/max-left-325-449-mask.png",
+      "repairUrl": "/assets/max-left-325-449-repair.png",
+      "contacts": {
+        "above": {
+          "x": 82.5,
+          "y": 3.5
+        },
+        "below": {
+          "x": 82.5,
+          "y": 19.5
+        }
+      }
+    },
+    {
+      "nicknameId": "lihon",
+      "id": "max-left-550-592",
+      "artworkLabel": "Лихон",
+      "bounds": {
+        "x": 550,
+        "y": 592,
+        "width": 88,
+        "height": 24
+      },
+      "maskUrl": "/assets/max-left-550-592-mask.png",
+      "repairUrl": "/assets/max-left-550-592-repair.png",
+      "contacts": {
+        "above": {
+          "x": 43.5,
+          "y": 8.5
+        },
+        "below": {
+          "x": 43.5,
+          "y": 21.5
+        }
+      }
+    },
+    {
+      "nicknameId": "soulstorm",
+      "id": "max-left-529-542",
+      "artworkLabel": "Соулсторм",
+      "bounds": {
+        "x": 529,
+        "y": 542,
+        "width": 96,
+        "height": 21
+      },
+      "maskUrl": "/assets/max-left-529-542-mask.png",
+      "repairUrl": "/assets/max-left-529-542-repair.png",
+      "contacts": {
+        "above": {
+          "x": 47.5,
+          "y": 8.5
+        },
+        "below": {
+          "x": 47.5,
+          "y": 11.5
+        }
+      }
+    },
+    {
+      "nicknameId": "rinnka",
+      "id": "max-left-431-436",
+      "artworkLabel": "Риннка",
+      "bounds": {
+        "x": 431,
+        "y": 436,
+        "width": 60,
+        "height": 18
+      },
+      "maskUrl": "/assets/max-left-431-436-mask.png",
+      "repairUrl": "/assets/max-left-431-436-repair.png",
+      "contacts": {
+        "above": {
+          "x": 29.5,
+          "y": 4.5
+        },
+        "below": {
+          "x": 29.5,
+          "y": 13.5
+        }
+      }
+    },
+    {
+      "nicknameId": "myuzetta",
+      "id": "max-left-317-615",
+      "artworkLabel": "Мьюзетта",
+      "bounds": {
+        "x": 317,
+        "y": 615,
+        "width": 106,
+        "height": 28
+      },
+      "maskUrl": "/assets/max-left-317-615-mask.png",
+      "repairUrl": "/assets/max-left-317-615-repair.png",
+      "contacts": {
+        "above": {
+          "x": 52.5,
+          "y": 7.5
+        },
+        "below": {
+          "x": 52.5,
+          "y": 12.5
+        }
+      }
+    },
+    {
+      "nicknameId": "templier",
+      "id": "max-middle-791-384",
+      "artworkLabel": "Темплиер",
+      "bounds": {
+        "x": 791,
+        "y": 384,
+        "width": 128,
+        "height": 30
+      },
+      "maskUrl": "/assets/max-middle-791-384-mask.png",
+      "repairUrl": "/assets/max-middle-791-384-repair.png",
+      "contacts": {
+        "above": {
+          "x": 64.5,
+          "y": 20.5
+        },
+        "below": {
+          "x": 64.5,
+          "y": 22.5
+        }
+      }
+    },
+    {
+      "nicknameId": "skorpikora",
+      "id": "max-middle-1041-467",
+      "artworkLabel": "Скорпикора",
+      "bounds": {
+        "x": 1041,
+        "y": 467,
+        "width": 105,
+        "height": 32
+      },
+      "maskUrl": "/assets/max-middle-1041-467-mask.png",
+      "repairUrl": "/assets/max-middle-1041-467-repair.png",
+      "contacts": {
+        "above": {
+          "x": 52.5,
+          "y": 6.5
+        },
+        "below": {
+          "x": 52.5,
+          "y": 22.5
+        }
+      }
+    },
+    {
+      "nicknameId": "krivonos",
+      "id": "max-middle-1012-590",
+      "artworkLabel": "Кривонос",
+      "bounds": {
+        "x": 1012,
+        "y": 590,
+        "width": 110,
+        "height": 41
+      },
+      "maskUrl": "/assets/max-middle-1012-590-mask.png",
+      "repairUrl": "/assets/max-middle-1012-590-repair.png",
+      "contacts": {
+        "above": {
+          "x": 54.5,
+          "y": 22.5
+        },
+        "below": {
+          "x": 54.5,
+          "y": 22.5
+        }
+      }
+    },
+    {
+      "nicknameId": "aideus",
+      "id": "max-middle-932-403",
+      "artworkLabel": "айдеус",
+      "bounds": {
+        "x": 932,
+        "y": 403,
+        "width": 89,
+        "height": 24
+      },
+      "maskUrl": "/assets/max-middle-932-403-mask.png",
+      "repairUrl": "/assets/max-middle-932-403-repair.png",
+      "contacts": {
+        "above": {
+          "x": 44.5,
+          "y": 13.5
+        },
+        "below": {
+          "x": 44.5,
+          "y": 19.5
+        }
+      }
+    },
+    {
+      "nicknameId": "dzhoyser",
+      "id": "max-middle-878-566",
+      "artworkLabel": "Джойсер",
+      "bounds": {
+        "x": 878,
+        "y": 566,
+        "width": 82,
+        "height": 30
+      },
+      "maskUrl": "/assets/max-middle-878-566-mask.png",
+      "repairUrl": "/assets/max-middle-878-566-repair.png",
+      "contacts": {
+        "above": {
+          "x": 40.5,
+          "y": 7.5
+        },
+        "below": {
+          "x": 40.5,
+          "y": 23.5
+        }
+      }
+    },
+    {
+      "nicknameId": "mobster",
+      "id": "max-right-1362-379",
+      "artworkLabel": "Мобстер",
+      "bounds": {
+        "x": 1362,
+        "y": 379,
+        "width": 108,
+        "height": 31
+      },
+      "maskUrl": "/assets/max-right-1362-379-mask.png",
+      "repairUrl": "/assets/max-right-1362-379-repair.png",
+      "contacts": {
+        "above": {
+          "x": 53.5,
+          "y": 12.5
+        },
+        "below": {
+          "x": 53.5,
+          "y": 19.5
+        }
+      }
+    },
+    {
+      "nicknameId": "shef",
+      "id": "max-right-1265-432",
+      "artworkLabel": "Шэф",
+      "bounds": {
+        "x": 1265,
+        "y": 432,
+        "width": 47,
+        "height": 26
+      },
+      "maskUrl": "/assets/max-right-1265-432-mask.png",
+      "repairUrl": "/assets/max-right-1265-432-repair.png",
+      "contacts": {
+        "above": {
+          "x": 23.5,
+          "y": 2.5
+        },
+        "below": {
+          "x": 23.5,
+          "y": 23.5
+        }
+      }
+    },
+    {
+      "nicknameId": "nurmi",
+      "id": "max-right-1465-551",
+      "artworkLabel": "Нурми",
+      "bounds": {
+        "x": 1465,
+        "y": 551,
+        "width": 96,
+        "height": 25
+      },
+      "maskUrl": "/assets/max-right-1465-551-mask.png",
+      "repairUrl": "/assets/max-right-1465-551-repair.png",
+      "contacts": {
+        "above": {
+          "x": 47.5,
+          "y": 2.5
+        },
+        "below": {
+          "x": 47.5,
+          "y": 13.5
+        }
+      }
+    },
+    {
+      "nicknameId": "diykstra",
+      "id": "max-right-1435-615",
+      "artworkLabel": "Дийкстра",
+      "bounds": {
+        "x": 1435,
+        "y": 615,
+        "width": 148,
+        "height": 26
+      },
+      "maskUrl": "/assets/max-right-1435-615-mask.png",
+      "repairUrl": "/assets/max-right-1435-615-repair.png",
+      "contacts": {
+        "above": {
+          "x": 73.5,
+          "y": 7.5
+        },
+        "below": {
+          "x": 73.5,
+          "y": 20.5
+        }
+      }
+    },
+    {
+      "nicknameId": "eldesperado",
+      "id": "max-right-1419-402",
+      "artworkLabel": "Эльдесперадо",
+      "bounds": {
+        "x": 1419,
+        "y": 402,
+        "width": 70,
+        "height": 20
+      },
+      "maskUrl": "/assets/max-right-1419-402-mask.png",
+      "repairUrl": "/assets/max-right-1419-402-repair.png",
+      "contacts": {
+        "above": {
+          "x": 34.5,
+          "y": 7.5
+        },
+        "below": {
+          "x": 34.5,
+          "y": 16.5
+        }
+      }
+    }
+  ]
+}

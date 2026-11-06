@@ -4,8 +4,10 @@ import { excludedDirectories, statIfPresent, unlinkedPath } from "./paths.mjs";
 
 export const rootFiles = Object.freeze([
   "index.html", "favicon.ico", "robots.txt", "CNAME", "yandex_c0b7a37a9f0baeb0.html",
+  "LICENSE-mdi.txt", "LICENSE-assemblyscript.txt",
 ]);
 const assetExtensions = new Set([".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif", ".svg", ".ico"]);
+const runtimeExtensions = new Set([".mjs", ".css", ".json", ".wasm"]);
 
 export function collectPublicFiles(root) {
   const files = [];
@@ -13,17 +15,19 @@ export function collectPublicFiles(root) {
     const path = unlinkedPath(root, file);
     if (path && statIfPresent(path)?.isFile()) files.push(file);
   }
-  function visit(prefix) {
+  function visit(prefix, extensions) {
     const directory = unlinkedPath(root, prefix);
     if (!directory || !statIfPresent(directory)?.isDirectory()) return;
     for (const entry of readdirSync(directory, { withFileTypes: true })) {
       if (entry.name.startsWith(".") || excludedDirectories.has(entry.name.toLowerCase()) || entry.isSymbolicLink()) continue;
       const local = `${prefix}/${entry.name}`;
-      if (entry.isDirectory()) visit(local);
-      else if (entry.isFile() && assetExtensions.has(extname(entry.name).toLowerCase())) files.push(local);
+      if (entry.isDirectory()) visit(local, extensions);
+      else if (entry.isFile() && extensions.has(extname(entry.name).toLowerCase())) files.push(local);
     }
   }
-  visit("images");
+  visit("images", assetExtensions);
+  visit("assets", assetExtensions);
+  visit("app", runtimeExtensions);
   return files.sort();
 }
 
