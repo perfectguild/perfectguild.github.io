@@ -1,4 +1,4 @@
-/* Reserve the docked left panel without changing the artwork's aspect ratio. */
+/* Settings overlay the centered artwork in both docked and floating modes. */
 html {
   color-scheme: dark;
   background: #000;
@@ -10,7 +10,6 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   box-sizing: border-box;
-  padding-left: var(--controls-left, 0px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,8 +35,8 @@ body {
   position: relative;
   display: block;
   min-width: 0;
-  width: min(1920px, calc(100vw - var(--controls-left, 0px)), calc(100vh * 16 / 9));
-  width: min(1920px, calc(100vw - var(--controls-left, 0px)), calc(100dvh * 16 / 9));
+  width: min(1920px, 100vw, calc(100vh * 16 / 9));
+  width: min(1920px, 100vw, calc(100dvh * 16 / 9));
 }
 
 #postcard-surface {

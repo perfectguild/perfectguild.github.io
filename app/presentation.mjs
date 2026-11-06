@@ -76,8 +76,6 @@ export function createCardPresentation({image, controls, card, scene}) {
     viewport = {x: view?.offsetLeft || 0, y: view?.offsetTop || 0,
       width: view?.width || document.documentElement.clientWidth,
       height: view?.height || innerHeight};
-    const docked = !controls.hidden && controls.dataset.floating !== 'true' && viewport.width >= 900;
-    document.documentElement.style.setProperty('--controls-left', docked ? '320px' : '0px');
     imageRectangle = image.getBoundingClientRect();
     const launcher = document.getElementById('controls-launcher');
     const activeControls = controls.hidden ? launcher : controls;

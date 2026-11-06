@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 — 2026-11-07
+
+- Opening or docking the settings panel no longer shifts or shrinks the postcard.
+  Docked and floating settings both overlay the composition without reserving
+  sidebar space; hiding, dragging and keyboard movement preserve its geometry.
+
 ## 1.0.0 — 2026-11-06
 
 ### Added

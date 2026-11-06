@@ -182,6 +182,10 @@ Fresh loads hide the settings panel, dock it to the left, enable three memories,
 and select Весь фон слева направо, Серебряный рельеф, Бегущий блик, Туманный проём,
 and Изображению и цветности. Settings are local to the current page session.
 
+Docked and floating settings are fixed-position overlays, not layout columns.
+Opening, hiding, dragging or docking the panel must leave the artwork's position
+and size unchanged. Card placement still accounts for the visible panel's bounds.
+
 Reduced motion disables automatic startup, ambient movement, gallery rotation,
 and animated transitions. Explicit card and carousel navigation still works;
 automatic card cycling can be started deliberately with static transitions.
