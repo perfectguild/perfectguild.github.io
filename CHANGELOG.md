@@ -5,6 +5,12 @@
 - Opening or docking the settings panel no longer shifts or shrinks the postcard.
   Docked and floating settings both overlay the composition without reserving
   sidebar space; hiding, dragging and keyboard movement preserve its geometry.
+- Integrity-checked stylesheets and the entry module now use content-versioned
+  URLs, giving updated files fresh browser/CDN cache keys without weakening
+  integrity validation.
+- Character-card close buttons stay at the outer top-right corner, including
+  cards with main/alt navigation. The nickname picker uses locale-aware
+  alphabetical order without changing the automatic presentation queue.
 
 ## 1.0.0 — 2026-11-06
 

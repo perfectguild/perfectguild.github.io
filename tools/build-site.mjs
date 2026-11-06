@@ -37,6 +37,7 @@ function visit(node) {
       if (!asset.startsWith("/app/")) throw new Error(`Expected a public application asset: ${asset}`);
       const digest = createHash("sha384").update(readFileSync(join(root, asset.slice(1)))).digest("base64");
       values.push(["integrity", `sha384-${digest}`]);
+      values.push([node.tagName === "script" ? "src" : "href", `${asset}?v=${encodeURIComponent(digest)}`]);
     }
     for (const [attribute, value] of values) {
       const existing = location.attrs?.[attribute];

@@ -7,7 +7,7 @@ import {createCardPresentation} from './presentation.mjs';
 import {createPointerInput} from './pointer-input.mjs';
 import {createFloatingControls} from './floating-controls.mjs';
 import {createScreenshotScene} from './screenshot-scene.mjs';
-import {localizeDocument, t, formatNumber, formatDate} from './i18n.mjs';
+import {locale, localizeDocument, t, formatNumber, formatDate} from './i18n.mjs';
 
 localizeDocument();
 const image = document.getElementById('logo1');
@@ -432,7 +432,8 @@ async function start() {
     targets.push(button);
     targetsContainer.append(button);
   });
-  scene.nicknames.forEach(nickname => {
+  const nicknameOrder = new Intl.Collator(locale);
+  [...scene.nicknames].sort((a, b) => nicknameOrder.compare(a.label, b.label)).forEach(nickname => {
     const option = document.createElement('option');
     option.value = nickname.id;
     option.textContent = nickname.label;

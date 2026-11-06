@@ -28,6 +28,11 @@ entry module and stylesheets. The compiler uses the pinned AssemblyScript
 version, optimized output, and the stub runtime. `npm run test:build` rebuilds
 in temporary storage and compares both outputs byte-for-byte.
 
+The same digest versions each integrity-checked asset's URL through a `v` query
+parameter. Changed entry assets therefore receive fresh browser/CDN cache keys
+without disabling integrity validation. Imported modules and media keep their
+existing URLs.
+
 Generated outputs are committed for the existing branch-based GitHub Pages
 publication. `src/` is not served. See [deployment](deployment.md) for the
 release procedure and [CONTRIBUTING](../CONTRIBUTING.md) for local commands.
