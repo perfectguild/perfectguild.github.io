@@ -34,7 +34,15 @@
     "Эрсул",
     "Дийкстра",
     "Мьюзетта",
-    "Эльдесперадо"
+    "Эльдесперадо",
+    "Максиус",
+    "Йор",
+    "Пивли",
+    "Часотка",
+    "Джонрембо",
+    "Чорнобог",
+    "Эйнар"
   ],
-  "scope": "Thirty image labels matched exactly (case ignored) to the 151-name current guild roster. Forty-four source occurrences, one or two per canonical nickname, share one compact card. Dated Armory values and separately evidenced forum images do not establish historical identity or alternate-character relationships."
+  "scope": "Thirty-seven readable collage labels: thirty literal current-roster matches, four explicit in-game-note aliases, one owner-confirmed historical forum-avatar association and two exact archived forum names. Fifty-one source occurrences share cards. Armory observations, game screenshots and historical forum evidence retain separate provenance; no current character identity or rename is inferred from a forum display name.",
+  "extendedOn": "2026-11-07"
 }

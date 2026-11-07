@@ -91,16 +91,35 @@ export function checkRuntime(root = repositoryRoot) {
     sourceLink("app/sample-source.json", source.guildUrl);
     const characterIds = unique(snapshot.characters, "id", "Characters");
     const names = new Map(snapshot.characters.map(row => [row.id, row.characterName]));
-    for (const nickname of scene.nicknames) if (names.get(nickname.id) !== nickname.label) errors.push(`Nickname ${nickname.id}: character name mismatch`);
+    for (const nickname of scene.nicknames) {
+      if (nickname.characterId) {
+        const evidence = nickname.evidence;
+        if (!characterIds.has(nickname.characterId) || typeof evidence?.note !== "string" || !evidence.note.trim()
+          || !snapshot.rosterSource?.id || evidence.sourceId !== snapshot.rosterSource.id
+          || !Number.isInteger(snapshot.rosterSource.imageCount)
+          || !Number.isInteger(evidence.image) || evidence.image < 1
+          || evidence.image > snapshot.rosterSource?.imageCount) {
+          errors.push(`Nickname ${nickname.id}: alias needs a known character and explicit roster-note evidence`);
+        }
+      } else if (names.get(nickname.id) !== nickname.label) errors.push(`Nickname ${nickname.id}: character name mismatch`);
+    }
     for (const character of snapshot.characters) sourceLink("app/armory-snapshot.json", character.profileUrl);
     sourceLink("app/armory-snapshot.json", snapshot.sourceUrl);
     unique(snapshot.characterGroups, "id", "Character groups");
     const groupedNicknames = new Set();
     const groupedCharacters = new Set();
+    const nicknameCharacters = new Map(scene.nicknames.map(row => [row.id, row.characterId || row.id]));
     for (const group of snapshot.characterGroups) {
-      if (group.members.length < 2 || group.members.some((member, index) => member.role !== (index === 0 ? "main" : "alt"))) errors.push(`Group ${group.id}: main must precede its alts`);
+      const knownMain = group.members[0]?.role === "main";
+      if (group.members.length < 2 || group.members.some((member, index) =>
+        member.role !== (knownMain ? index === 0 ? "main" : "alt" : "related"))) {
+        errors.push(`Group ${group.id}: expected a main followed by alts, or related characters without an inferred main`);
+      }
+      if (!knownMain && group.evidenceKind !== "in-game-roster-note") errors.push(`Group ${group.id}: related characters need roster-note evidence`);
+      if (!knownMain && !group.evidence?.length) errors.push(`Group ${group.id}: missing roster-note evidence`);
       for (const id of group.nicknameIds) {
         if (!nicknameIds.has(id) || groupedNicknames.has(id)) errors.push(`Group ${group.id}: unknown or multiply grouped nickname ${id}`);
+        if (!group.members.some(member => member.characterId === nicknameCharacters.get(id))) errors.push(`Group ${group.id}: bound character missing for nickname ${id}`);
         groupedNicknames.add(id);
       }
       for (const member of group.members) {
@@ -112,7 +131,7 @@ export function checkRuntime(root = repositoryRoot) {
     for (const profile of forum.profiles) {
       if (!nicknameIds.has(profile.nicknameId)) errors.push(`Forum profile ${profile.nicknameId}: unknown nickname`);
       unique(profile.images, "url", `Forum profile ${profile.nicknameId}`);
-      if (!profile.images.length) errors.push(`Forum profile ${profile.nicknameId}: empty gallery`);
+      if (!profile.images.length && !profile.archiveProfileUrl && !profile.evidenceUrl) errors.push(`Forum profile ${profile.nicknameId}: empty gallery without an evidence source`);
       for (const image of profile.images) {
         reference("app/forum-media.json", image.url);
         if (image.stillUrl) reference("app/forum-media.json", image.stillUrl);

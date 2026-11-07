@@ -1,5 +1,5 @@
 {
-  "observedOn": "2026-11-06",
+  "observedOn": "2026-11-07",
   "guild": "Странники",
   "region": "EU",
   "guildRealm": "Король-лич",
@@ -30,6 +30,12 @@
       "binding": {
         "kind": "owner-confirmed-url",
         "confirmedOn": "2026-11-05"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 7,
+        "rankKey": "card.rankMaster",
+        "achievementPoints": 37805
       }
     },
     {
@@ -52,6 +58,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "rankKey": "card.rankOfficer",
+        "achievementPoints": 27150
       }
     },
     {
@@ -74,6 +86,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 12910
       }
     },
     {
@@ -96,6 +114,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 1,
+        "rankKey": "card.rankOfficer",
+        "achievementPoints": 12175
       }
     },
     {
@@ -118,6 +142,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 1,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 11580
       }
     },
     {
@@ -140,6 +170,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 3,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 2810
       }
     },
     {
@@ -149,11 +185,11 @@
       "realm": "Король-лич",
       "realmSlug": "lich-king",
       "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%80%D0%B8%D0%BD%D0%BD%D0%BA%D0%B0",
-      "level": 75,
+      "level": 76,
       "race": "Человек",
-      "className": "Жрец",
+      "className": "Жрица",
       "specialization": "Послушание",
-      "itemLevel": 63,
+      "itemLevel": 61,
       "achievementPoints": 14545,
       "guildRank": {
         "index": 2,
@@ -162,6 +198,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 7,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 14545
       }
     },
     {
@@ -172,8 +214,8 @@
       "realmSlug": "lich-king",
       "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%81%D0%B8%D0%BB%D0%B8%D0%B2%D1%80%D0%B5%D0%BD",
       "level": 80,
-      "race": "Ночной эльф",
-      "className": "Разбойник",
+      "race": "Ночная эльфийка",
+      "className": "Разбойница",
       "specialization": "Скрытность",
       "itemLevel": 89,
       "achievementPoints": 38340,
@@ -184,6 +226,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 7,
+        "rankKey": "card.rankOfficer",
+        "achievementPoints": 38340
       }
     },
     {
@@ -206,6 +254,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 6,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 7360
       }
     },
     {
@@ -228,6 +282,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 7,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 9580
       }
     },
     {
@@ -250,6 +310,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 4,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 13515
       }
     },
     {
@@ -272,6 +338,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 1,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 7755
       }
     },
     {
@@ -294,6 +366,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 15990
       }
     },
     {
@@ -316,6 +394,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 4,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 16635
       }
     },
     {
@@ -327,7 +411,7 @@
       "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B0%D0%B9%D0%B4%D0%B5%D1%83%D1%81",
       "level": 90,
       "race": "Человек",
-      "className": "Жрец",
+      "className": "Жрица",
       "specialization": "Тьма",
       "itemLevel": 334,
       "achievementPoints": 58255,
@@ -338,6 +422,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 1,
+        "rankKey": "card.rankRaider",
+        "achievementPoints": 58255
       }
     },
     {
@@ -360,6 +450,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 8,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 15705
       }
     },
     {
@@ -382,6 +478,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 9,
+        "rankKey": "card.rankOfficer",
+        "achievementPoints": 16940
       }
     },
     {
@@ -404,6 +506,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 7,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 17195
       }
     },
     {
@@ -426,6 +534,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 9,
+        "rankKey": "card.rankOfficer",
+        "achievementPoints": 8890
       }
     },
     {
@@ -448,6 +562,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 3,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 7985
       }
     },
     {
@@ -470,6 +590,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 9,
+        "rankKey": "card.rankOfficer",
+        "achievementPoints": 16040
       }
     },
     {
@@ -492,6 +618,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 1,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 3175
       }
     },
     {
@@ -514,6 +646,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 8,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 13545
       }
     },
     {
@@ -536,6 +674,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 3,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 6465
       }
     },
     {
@@ -546,7 +690,7 @@
       "realmSlug": "lich-king",
       "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B3%D0%BB%D1%83%D0%BF%D1%8B%D0%B9%D0%BA%D0%BE%D1%82",
       "level": 40,
-      "race": "Ночной эльф",
+      "race": "Ночная эльфийка",
       "className": "Друид",
       "specialization": "Баланс",
       "itemLevel": 15,
@@ -558,6 +702,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 2,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 6975
       }
     },
     {
@@ -580,6 +730,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 2,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 8615
       }
     },
     {
@@ -602,6 +758,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 10,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 3495
       }
     },
     {
@@ -624,6 +786,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 2,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 4360
       }
     },
     {
@@ -646,6 +814,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 6350
       }
     },
     {
@@ -668,6 +842,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 9,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 11515
       }
     },
     {
@@ -690,6 +870,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 9,
+        "rankKey": "card.rankOfficer",
+        "achievementPoints": 7385
       }
     },
     {
@@ -712,6 +898,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 3,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 10820
       }
     },
     {
@@ -734,6 +926,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 3,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 13845
       }
     },
     {
@@ -756,6 +954,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 3,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 6720
       }
     },
     {
@@ -778,6 +982,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 4,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 1315
       }
     },
     {
@@ -800,6 +1010,12 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 7,
+        "rankKey": "card.rankRaider",
+        "achievementPoints": 7895
       }
     },
     {
@@ -822,43 +1038,1475 @@
       "isOutdated": false,
       "binding": {
         "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 4,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 365
+      }
+    },
+    {
+      "id": "dilema",
+      "characterName": "Дилема",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B4%D0%B8%D0%BB%D0%B5%D0%BC%D0%B0",
+      "level": 30,
+      "race": "Дреней",
+      "className": "Шаман",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 5,
+        "name": "Звание 6"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 2,
+        "rankKey": "card.rankTwink",
+        "achievementPoints": 5085,
+        "level": 30
+      }
+    },
+    {
+      "id": "dzhovi",
+      "characterName": "Джови",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B4%D0%B6%D0%BE%D0%B2%D0%B8",
+      "level": 40,
+      "race": "Человек",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 5,
+        "name": "Звание 6"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 2,
+        "rankKey": "card.rankTwink",
+        "achievementPoints": 4305,
+        "level": 40
+      }
+    },
+    {
+      "id": "otselora",
+      "characterName": "Оцелора",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BE%D1%86%D0%B5%D0%BB%D0%BE%D1%80%D0%B0",
+      "level": 40,
+      "race": "Дреней",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 6,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 3255,
+        "level": 40
+      }
+    },
+    {
+      "id": "iver",
+      "characterName": "Ивэр",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B8%D0%B2%D1%8D%D1%80",
+      "level": 40,
+      "race": "Дреней",
+      "className": "Шаман",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 3,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 1620,
+        "level": 40
+      }
+    },
+    {
+      "id": "lettera",
+      "characterName": "Леттера",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BB%D0%B5%D1%82%D1%82%D0%B5%D1%80%D0%B0",
+      "level": 35,
+      "race": "Человек",
+      "className": "Чернокнижник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 4,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 2680,
+        "level": 35
+      }
+    },
+    {
+      "id": "liarel",
+      "characterName": "Лиарэль",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BB%D0%B8%D0%B0%D1%80%D1%8D%D0%BB%D1%8C",
+      "level": 35,
+      "race": "Дреней",
+      "className": "Рыцарь смерти",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 4,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 3160,
+        "level": 35
+      }
+    },
+    {
+      "id": "milinara",
+      "characterName": "Милинара",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BC%D0%B8%D0%BB%D0%B8%D0%BD%D0%B0%D1%80%D0%B0",
+      "level": 40,
+      "race": "Пандарен",
+      "className": "Охотник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 1700,
+        "level": 40
+      }
+    },
+    {
+      "id": "tulachermet",
+      "characterName": "Тулачермет",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%82%D1%83%D0%BB%D0%B0%D1%87%D0%B5%D1%80%D0%BC%D0%B5%D1%82",
+      "level": 35,
+      "race": "Дреней",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 8,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 1295,
+        "level": 35
+      }
+    },
+    {
+      "id": "kareha",
+      "characterName": "Кареха",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D0%B0%D1%80%D0%B5%D1%85%D0%B0",
+      "level": 41,
+      "race": "Дреней",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 5,
+        "name": "Звание 6"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 3,
+        "rankKey": "card.rankTwink",
+        "achievementPoints": 4015,
+        "level": 41
+      }
+    },
+    {
+      "id": "letriks",
+      "characterName": "Летрикс",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BB%D0%B5%D1%82%D1%80%D0%B8%D0%BA%D1%81",
+      "level": 41,
+      "race": "Гном",
+      "className": "Рыцарь смерти",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 5,
+        "name": "Звание 6"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 4,
+        "rankKey": "card.rankTwink",
+        "achievementPoints": 4095,
+        "level": 41
+      }
+    },
+    {
+      "id": "ryzheborod",
+      "characterName": "Рыжебород",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%80%D1%8B%D0%B6%D0%B5%D0%B1%D0%BE%D1%80%D0%BE%D0%B4",
+      "level": 50,
+      "race": "Дворф",
+      "className": "Разбойник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 7,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 1555,
+        "level": 50
+      }
+    },
+    {
+      "id": "taenpiro",
+      "characterName": "Таэнпиро",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%82%D0%B0%D1%8D%D0%BD%D0%BF%D0%B8%D1%80%D0%BE",
+      "level": 41,
+      "race": "Ночной эльф",
+      "className": "Охотник на демонов",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 8,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 190,
+        "level": 41
+      }
+    },
+    {
+      "id": "klikbum",
+      "characterName": "Кликбум",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D0%BB%D0%B8%D0%BA%D0%B1%D1%83%D0%BC",
+      "level": 34,
+      "race": "Ночной эльф",
+      "className": "Воин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 4,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 3430,
+        "level": 34
+      }
+    },
+    {
+      "id": "perekrutka",
+      "characterName": "Перекрутка",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%83%D1%82%D0%BA%D0%B0",
+      "level": 41,
+      "race": "Ночной эльф",
+      "className": "Друид",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 5,
+        "name": "Звание 6"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 6,
+        "rankKey": "card.rankTwink",
+        "achievementPoints": 3910,
+        "level": 41
+      }
+    },
+    {
+      "id": "remor",
+      "characterName": "Ремор",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%80%D0%B5%D0%BC%D0%BE%D1%80",
+      "level": 40,
+      "race": "Дворф",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 6,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 2505,
+        "level": 40
+      }
+    },
+    {
+      "id": "hidd",
+      "characterName": "Хидд",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%85%D0%B8%D0%B4%D0%B4",
+      "level": 45,
+      "race": "Ночной эльф",
+      "className": "Рыцарь смерти",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 8,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 7485,
+        "level": 45
+      }
+    },
+    {
+      "id": "shamishka",
+      "characterName": "Шамишка",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%88%D0%B0%D0%BC%D0%B8%D1%88%D0%BA%D0%B0",
+      "level": 33,
+      "race": "Пандарен",
+      "className": "Шаман",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 9,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 555,
+        "level": 33
+      }
+    },
+    {
+      "id": "eridariya",
+      "characterName": "Эридария",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%8D%D1%80%D0%B8%D0%B4%D0%B0%D1%80%D0%B8%D1%8F",
+      "level": 40,
+      "race": "Дреней",
+      "className": "Монах",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 10,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 1145,
+        "level": 40
+      }
+    },
+    {
+      "id": "rennfri",
+      "characterName": "Реннфри",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%80%D0%B5%D0%BD%D0%BD%D1%84%D1%80%D0%B8",
+      "level": 27,
+      "race": "Человек",
+      "className": "Разбойник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 7,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 1490,
+        "level": 27
+      }
+    },
+    {
+      "id": "pankotronik",
+      "characterName": "Панкотроник",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BF%D0%B0%D0%BD%D0%BA%D0%BE%D1%82%D1%80%D0%BE%D0%BD%D0%B8%D0%BA",
+      "level": 32,
+      "race": "Дворф",
+      "className": "Охотник",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 6,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 4220,
+        "level": 32
+      }
+    },
+    {
+      "id": "yennefer",
+      "characterName": "Йеннефер",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%B9%D0%B5%D0%BD%D0%BD%D0%B5%D1%84%D0%B5%D1%80",
+      "level": 40,
+      "race": "Дреней",
+      "className": "Шаман",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 5,
+        "name": "Звание 6"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 3,
+        "rankKey": "card.rankTwink",
+        "achievementPoints": 5455,
+        "level": 40
+      }
+    },
+    {
+      "id": "konservochka",
+      "characterName": "Консервочка",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D0%BE%D0%BD%D1%81%D0%B5%D1%80%D0%B2%D0%BE%D1%87%D0%BA%D0%B0",
+      "level": 34,
+      "race": "Ночной эльф",
+      "className": "Рыцарь смерти",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 4,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 2935,
+        "level": 34
+      }
+    },
+    {
+      "id": "rozmeri",
+      "characterName": "Розмэри",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%80%D0%BE%D0%B7%D0%BC%D1%8D%D1%80%D0%B8",
+      "level": 45,
+      "race": "Дреней",
+      "className": "Шаман",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 7,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 730,
+        "level": 45
+      }
+    },
+    {
+      "id": "elleona",
+      "characterName": "Эллеона",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%8D%D0%BB%D0%BB%D0%B5%D0%BE%D0%BD%D0%B0",
+      "level": 45,
+      "race": "Ночной эльф",
+      "className": "Жрец",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 9,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 4910,
+        "level": 45
+      }
+    },
+    {
+      "id": "maksis",
+      "characterName": "Максис",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D1%81",
+      "level": 32,
+      "race": "Ночной эльф",
+      "className": "Охотник",
+      "specialization": "Повелитель зверей",
+      "itemLevel": 36,
+      "achievementPoints": 14690,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 14690,
+        "level": 32
+      }
+    },
+    {
+      "id": "eramid",
+      "characterName": "Эрамид",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%8D%D1%80%D0%B0%D0%BC%D0%B8%D0%B4",
+      "level": 32,
+      "race": "Ворген",
+      "className": "Жрец",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 10,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 5395,
+        "level": 32
+      }
+    },
+    {
+      "id": "malyafka",
+      "characterName": "Маляфка",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BC%D0%B0%D0%BB%D1%8F%D1%84%D0%BA%D0%B0",
+      "level": 33,
+      "race": "Гном",
+      "className": "Маг",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 4190,
+        "level": 33
+      }
+    },
+    {
+      "id": "margok",
+      "characterName": "Маргок",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BC%D0%B0%D1%80%D0%B3%D0%BE%D0%BA",
+      "level": 40,
+      "race": "Дворф",
+      "className": "Шаман",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 5,
+        "name": "Звание 6"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "rankKey": "card.rankTwink",
+        "achievementPoints": 2230,
+        "level": 40
+      }
+    },
+    {
+      "id": "uzzbagoyzzya",
+      "characterName": "Уззбагойззя",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%83%D0%B7%D0%B7%D0%B1%D0%B0%D0%B3%D0%BE%D0%B9%D0%B7%D0%B7%D1%8F",
+      "level": 60,
+      "race": "Дреней",
+      "className": "Воин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 8,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 4205,
+        "level": 60
+      }
+    },
+    {
+      "id": "dzhonrembo",
+      "characterName": "Джонрембо",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "owner-confirmed-forum-avatar",
+        "confirmedOn": "2026-11-07"
+      }
+    },
+    {
+      "id": "chornobog",
+      "characterName": "Чорнобог",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20131126103429/http://perfectguild.com/forum/"
+      }
+    },
+    {
+      "id": "eynar",
+      "characterName": "Эйнар",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20131126103429/http://perfectguild.com/forum/"
       }
     }
   ],
   "characterGroups": [
     {
       "id": "ersul",
-      "nicknameIds": ["ersul"],
+      "nicknameIds": [
+        "ersul"
+      ],
       "evidenceKind": "owner-confirmed",
       "confirmedOn": "2026-11-06",
       "members": [
-        {"characterId": "shpitspatrik", "role": "main"},
-        {"characterId": "ersul", "role": "alt"}
+        {
+          "characterId": "shpitspatrik",
+          "role": "main"
+        },
+        {
+          "characterId": "ersul",
+          "role": "alt"
+        }
       ]
     },
     {
       "id": "diykstra",
-      "nicknameIds": ["diykstra"],
+      "nicknameIds": [
+        "diykstra"
+      ],
       "evidenceKind": "owner-confirmed",
       "confirmedOn": "2026-11-06",
       "members": [
-        {"characterId": "diykstra", "role": "main"},
-        {"characterId": "samtupoy", "role": "alt"}
+        {
+          "characterId": "diykstra",
+          "role": "main"
+        },
+        {
+          "characterId": "samtupoy",
+          "role": "alt"
+        },
+        {
+          "characterId": "rennfri",
+          "role": "alt"
+        },
+        {
+          "characterId": "yennefer",
+          "role": "alt"
+        },
+        {
+          "characterId": "konservochka",
+          "role": "alt"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 7,
+          "characterId": "rennfri",
+          "note": "ака Дийкстра"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 3,
+          "characterId": "yennefer",
+          "note": "ака Дийкстратор",
+          "resolvedAlias": "Дийкстратор"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 4,
+          "characterId": "konservochka",
+          "note": "ака Дий",
+          "resolvedAlias": "Дий"
+        }
       ]
     },
     {
       "id": "kvill",
-      "nicknameIds": ["kvill"],
+      "nicknameIds": [
+        "kvill"
+      ],
       "evidenceKind": "owner-confirmed",
       "confirmedOn": "2026-11-06",
       "members": [
-        {"characterId": "kvill", "role": "main"},
-        {"characterId": "kvillers", "role": "alt"},
-        {"characterId": "kvillpal", "role": "alt"},
-        {"characterId": "kvillsham", "role": "alt"},
-        {"characterId": "kvinki", "role": "alt"},
-        {"characterId": "kvintilya", "role": "alt"}
+        {
+          "characterId": "kvill",
+          "role": "main"
+        },
+        {
+          "characterId": "kvillers",
+          "role": "alt"
+        },
+        {
+          "characterId": "kvillpal",
+          "role": "alt"
+        },
+        {
+          "characterId": "kvillsham",
+          "role": "alt"
+        },
+        {
+          "characterId": "kvinki",
+          "role": "alt"
+        },
+        {
+          "characterId": "kvintilya",
+          "role": "alt"
+        }
+      ]
+    },
+    {
+      "id": "askaniy",
+      "nicknameIds": [
+        "askaniy"
+      ],
+      "evidenceKind": "in-game-roster-note",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "askaniy",
+          "role": "related"
+        },
+        {
+          "characterId": "dilema",
+          "role": "related"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 2,
+          "characterId": "dilema",
+          "note": "ака Асканий"
+        }
+      ]
+    },
+    {
+      "id": "belyyvolk",
+      "nicknameIds": [
+        "belyyvolk"
+      ],
+      "evidenceKind": "in-game-roster-note",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "belyyvolk",
+          "role": "related"
+        },
+        {
+          "characterId": "dzhovi",
+          "role": "related"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 2,
+          "characterId": "dzhovi",
+          "note": "ака Белый Волк"
+        }
+      ]
+    },
+    {
+      "id": "shiora",
+      "nicknameIds": [
+        "shiora",
+        "disa"
+      ],
+      "evidenceKind": "in-game-roster-note",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "shiora",
+          "role": "related"
+        },
+        {
+          "characterId": "disa",
+          "role": "related"
+        },
+        {
+          "characterId": "otselora",
+          "role": "related"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 3,
+          "characterId": "disa",
+          "note": "ака Шиора"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 6,
+          "characterId": "otselora",
+          "note": "ака Шиора"
+        }
+      ]
+    },
+    {
+      "id": "kutyurye",
+      "nicknameIds": [
+        "kutyurye"
+      ],
+      "evidenceKind": "in-game-roster-note",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "kutyurye",
+          "role": "related"
+        },
+        {
+          "characterId": "iver",
+          "role": "related"
+        },
+        {
+          "characterId": "lettera",
+          "role": "related"
+        },
+        {
+          "characterId": "liarel",
+          "role": "related"
+        },
+        {
+          "characterId": "milinara",
+          "role": "related"
+        },
+        {
+          "characterId": "tulachermet",
+          "role": "related"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 3,
+          "characterId": "iver",
+          "note": "Кутюрье"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 4,
+          "characterId": "lettera",
+          "note": "Кутюрье"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 4,
+          "characterId": "liarel",
+          "note": "Кутюрье"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 5,
+          "characterId": "milinara",
+          "note": "Кутюрье"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 8,
+          "characterId": "tulachermet",
+          "note": "Кутюрье"
+        }
+      ]
+    },
+    {
+      "id": "lihon",
+      "nicknameIds": [
+        "lihon"
+      ],
+      "evidenceKind": "in-game-roster-note",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "lihon",
+          "role": "related"
+        },
+        {
+          "characterId": "kareha",
+          "role": "related"
+        },
+        {
+          "characterId": "letriks",
+          "role": "related"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 3,
+          "characterId": "kareha",
+          "note": "ака Лихон :)"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 4,
+          "characterId": "letriks",
+          "note": "ака Лихон :)"
+        }
+      ]
+    },
+    {
+      "id": "krivonos",
+      "nicknameIds": [
+        "krivonos"
+      ],
+      "evidenceKind": "in-game-roster-note",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "krivonos",
+          "role": "related"
+        },
+        {
+          "characterId": "ryzheborod",
+          "role": "related"
+        },
+        {
+          "characterId": "taenpiro",
+          "role": "related"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 7,
+          "characterId": "ryzheborod",
+          "note": "Кривонос"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 8,
+          "characterId": "taenpiro",
+          "note": "Кривонос"
+        }
+      ]
+    },
+    {
+      "id": "soulstorm",
+      "nicknameIds": [
+        "soulstorm"
+      ],
+      "evidenceKind": "in-game-roster-note",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "soulstorm",
+          "role": "related"
+        },
+        {
+          "characterId": "klikbum",
+          "role": "related"
+        },
+        {
+          "characterId": "perekrutka",
+          "role": "related"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 4,
+          "characterId": "klikbum",
+          "note": "ака Соулсторм"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 6,
+          "characterId": "perekrutka",
+          "note": "ака Соулсторм"
+        }
+      ]
+    },
+    {
+      "id": "riogall",
+      "nicknameIds": [
+        "riogall"
+      ],
+      "evidenceKind": "owner-confirmed",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "riogall",
+          "role": "main"
+        },
+        {
+          "characterId": "remor",
+          "role": "alt"
+        },
+        {
+          "characterId": "hidd",
+          "role": "alt"
+        },
+        {
+          "characterId": "shamishka",
+          "role": "alt"
+        },
+        {
+          "characterId": "eridariya",
+          "role": "alt"
+        },
+        {
+          "characterId": "elleona",
+          "role": "alt"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 6,
+          "characterId": "remor",
+          "note": "Риогалл"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 8,
+          "characterId": "hidd",
+          "note": "ака Риогалл"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 9,
+          "characterId": "shamishka",
+          "note": "Риогалл"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 10,
+          "characterId": "eridariya",
+          "note": "Риогалл"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 9,
+          "characterId": "elleona",
+          "note": "ака Рио",
+          "resolvedAlias": "Рио"
+        }
+      ],
+      "confirmedOn": "2026-11-07"
+    },
+    {
+      "id": "khrandor",
+      "nicknameIds": [
+        "khrandor"
+      ],
+      "evidenceKind": "in-game-roster-note",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "khrandor",
+          "role": "related"
+        },
+        {
+          "characterId": "pankotronik",
+          "role": "related"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 6,
+          "characterId": "pankotronik",
+          "note": "ака Храндор"
+        }
+      ]
+    },
+    {
+      "id": "milagros",
+      "nicknameIds": [
+        "milagros"
+      ],
+      "evidenceKind": "owner-confirmed",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "milagros",
+          "role": "main"
+        },
+        {
+          "characterId": "rozmeri",
+          "role": "alt"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 7,
+          "characterId": "rozmeri",
+          "note": "Мила",
+          "resolvedAlias": "Мила"
+        }
+      ],
+      "confirmedOn": "2026-11-07"
+    },
+    {
+      "id": "maksius",
+      "nicknameIds": [
+        "maksius"
+      ],
+      "evidenceKind": "in-game-roster-note",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "maksis",
+          "role": "related"
+        },
+        {
+          "characterId": "eramid",
+          "role": "related"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 5,
+          "characterId": "maksis",
+          "note": "ака Максиус"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 10,
+          "characterId": "eramid",
+          "note": "ака Максиус"
+        }
       ]
     }
-  ]
+  ],
+  "rosterSource": {
+    "id": "owner-game-roster-2026-11-07",
+    "kind": "owner-supplied-in-game-screenshots",
+    "receivedOn": "2026-11-07",
+    "capturedOn": null,
+    "imageCount": 10,
+    "realmContext": "Король-лич",
+    "realmContextKind": "owner-supplied",
+    "aliasConfirmations": [
+      {
+        "alias": "Дий",
+        "characterId": "diykstra",
+        "kind": "owner-confirmed",
+        "confirmedOn": "2026-11-07"
+      },
+      {
+        "alias": "Дийкстратор",
+        "characterId": "diykstra",
+        "kind": "owner-confirmed",
+        "confirmedOn": "2026-11-07"
+      },
+      {
+        "alias": "Мила",
+        "characterId": "milagros",
+        "kind": "owner-confirmed",
+        "confirmedOn": "2026-11-07"
+      },
+      {
+        "alias": "Рио",
+        "characterId": "riogall",
+        "kind": "owner-confirmed",
+        "confirmedOn": "2026-11-07"
+      }
+    ]
+  }
 }

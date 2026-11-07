@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.1.0 — 2026-11-07
+
+- Incorporate separate evidence from ten owner-supplied in-game guild screenshots:
+  corrected rank titles, achievement points where Armory values are absent,
+  and twenty-nine initially screenshot-only character records, subsequently
+  enriched from observed official roster/profile sources.
+- Add nine roster-note character groups without inferring a main; preserve
+  explicitly confirmed mains, extend Дийкстра's group, and record the owner's
+  confirmation of Милагрос and Риогалл as mains.
+- Apply owner-confirmed alias resolutions for Дий / Дийкстратор, Мила and Рио
+  to link Консервочка, Йеннефер, Розмэри and Эллеона to their character groups.
+- Distinguish screenshot evidence, unknown capture dates and Armory observations;
+  keep ambiguous notes and contact information out of public identity mappings.
+- Make Максиус, Йор, Пивли and Часотка interactive using source-traced masks,
+  background repair and explicit in-game-note links. The collage now contains
+  37 selectable names in 51 places; alias cards retain the original collage label.
+- Correct screenshot transcriptions to Розмэри and Эллеона without adding
+  compatibility aliases or changing their confirmed character groups.
+- Add Джонрембо with the owner's confirmed `av-140.jpg`, preserving its bytes
+  without assuming a forum ID or current Armory character.
+- Complete retained forum-source coverage with historical Чорнобог and Эйнар
+  cards, source links and only directly evidenced media. Forum-only cards do not
+  display an unrelated Armory snapshot date or invented character details.
+- Refresh the dated Armory projection for all 66 implemented characters,
+  including 29 formerly screenshot-only alts, with actual roster links,
+  localized race/class and levels. Preserve screenshot ranks and character groups.
+- Apply seven available individual profiles over the guild cache, including
+  Риннка's level 76 and Максис's specialization/equipment. Do not fabricate
+  unavailable details from 59 HTTP 500 responses or bind historical forum names
+  absent from the current roster.
+
 ## 1.0.1 — 2026-11-07
 
 - Opening or docking the settings panel no longer shifts or shrinks the postcard.

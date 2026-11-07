@@ -1,11 +1,5 @@
 import {formatDate, formatNumber, localizeDocument, t} from './i18n.mjs';
 
-// Owner-confirmed names use the zero-based rank index from the Armory snapshot.
-const confirmedGuildRankKeys = {
-  1: 'card.rankOfficer',
-  2: 'card.rankWanderer',
-  3: 'card.rankRaider',
-};
 const imageDuration = 6;
 const emptyImages = [];
 
@@ -18,19 +12,38 @@ function writeLine(element, text) {
   element.hidden = !text;
 }
 
-function writeBinding(element, character) {
+function writeBinding(element, character, nickname) {
+  if (nickname?.characterId) {
+    writeLine(element, t('card.noteAlias'));
+    element.title = t('card.noteAliasHelp', {
+      name: nickname.label, note: nickname.evidence.note, image: formatNumber(nickname.evidence.image),
+    });
+    return;
+  }
   const kind = character.binding?.kind;
   const confirmed = kind === 'owner-confirmed-url';
-  writeLine(element, confirmed ? t('card.confirmed') : kind === 'name-match' ? t('card.nameMatch') : '');
+  if (kind === 'owner-confirmed-forum-avatar') {
+    writeLine(element, t('card.forumAvatarConfirmed'));
+    element.title = t('card.forumAvatarHelp', {date: formatDate(character.binding.confirmedOn)});
+    return;
+  }
+  if (kind === 'archive-forum-name') {
+    writeLine(element, t('card.forumArchiveBinding'));
+    element.title = t('card.forumArchiveHelp');
+    return;
+  }
+  writeLine(element, confirmed ? t('card.confirmed') : kind === 'name-match' ? t('card.nameMatch')
+    : kind === 'in-game-roster' ? t('card.rosterBinding') : '');
   element.title = confirmed
     ? t('card.confirmedHelp', {date: formatDate(character.binding.confirmedOn)})
-    : kind === 'name-match' ? t('card.nameMatchHelp') : '';
+    : kind === 'name-match' ? t('card.nameMatchHelp')
+    : kind === 'in-game-roster' ? t('card.rosterBindingHelp') : '';
 }
 
 function rankText(character) {
-  const rankKey = confirmedGuildRankKeys[character.guildRank?.index];
-  return rankKey ? t(rankKey) : character.guildRank?.name || (character.guildRank?.index != null
-    ? t('card.rankNumber', {value: formatNumber(character.guildRank.index)}) : '');
+  return character.rosterObservation?.rankKey ? t(character.rosterObservation.rankKey)
+    : character.guildRank?.name || (character.guildRank?.index != null
+      ? t('card.rankNumber', {value: formatNumber(character.guildRank.index)}) : '');
 }
 
 function classText(character) {
@@ -42,8 +55,8 @@ function statsText(character, itemLevelKind) {
   return joinDetails(character.itemLevel != null
     ? t(itemLevelKind === 'average' ? 'card.averageItemLevel' : 'card.itemLevel',
       {value: formatNumber(character.itemLevel)}) : '',
-  character.achievementPoints != null
-    ? t('card.achievements', {value: formatNumber(character.achievementPoints)}) : '');
+  (character.achievementPoints ?? character.rosterObservation?.achievementPoints) != null
+    ? t('card.achievements', {value: formatNumber(character.achievementPoints ?? character.rosterObservation.achievementPoints)}) : '');
 }
 
 function writeArmoryLink(element, character) {
@@ -70,7 +83,7 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
   }
   const element = document.getElementById('character-card');
   element.hidden = true;
-  element.setAttribute('aria-describedby', 'card-group-confirmation card-binding card-description card-source');
+  element.setAttribute('aria-describedby', 'card-group-confirmation card-collage-label card-binding card-description card-source');
   element.innerHTML = `
     <header class="card-header">
       <div class="card-heading">
@@ -87,6 +100,7 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
       </button>
     </header>
     <p id="card-group-confirmation" class="card-group-confirmation" data-i18n="card.groupConfirmed" hidden></p>
+    <p id="card-collage-label" class="card-group-confirmation" hidden></p>
     <div class="card-content">
       <figure class="card-photo" hidden>
         <a id="forum-image-link" target="_blank" rel="noopener noreferrer">
@@ -128,6 +142,7 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
   const characterPosition = element.querySelector('#card-character-position');
   const binding = element.querySelector('#card-binding');
   const groupConfirmation = element.querySelector('#card-group-confirmation');
+  const collageLabel = element.querySelector('#card-collage-label');
   const content = element.querySelector('.card-content');
   const photo = element.querySelector('.card-photo');
   const photoLink = element.querySelector('#forum-image-link');
@@ -152,7 +167,7 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
 
   let selectedKey = null;
   let selectedGroup = null;
-  let singleLabel = '';
+  let selectedNickname = null;
   let memberIds = [];
   let memberIndex = 0;
   let profile = null;
@@ -190,21 +205,37 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
 
   function paintCharacter() {
     const character = characters.get(memberIds[memberIndex]);
-    const label = selectedGroup ? character.characterName : singleLabel;
+    const label = selectedGroup || selectedNickname.characterId ? character.characterName : selectedNickname.label;
     title.textContent = label;
     element.setAttribute('aria-label', t('card.label', {name: label}));
-    roleBadge.hidden = !selectedGroup;
-    roleBadge.textContent = selectedGroup
-      ? t(selectedGroup.members[memberIndex].role === 'main' ? 'card.main' : 'card.alt') : '';
+    const memberRole = selectedGroup?.members[memberIndex].role;
+    roleBadge.hidden = !selectedGroup || memberRole === 'related';
+    roleBadge.textContent = memberRole === 'main' ? t('card.main') : memberRole === 'alt' ? t('card.alt') : '';
     writeLine(characterPosition, memberIds.length > 1
       ? t('card.characterPosition', {index: formatNumber(memberIndex + 1), count: formatNumber(memberIds.length)}) : '');
-    writeBinding(binding, character);
+    writeBinding(binding, character, selectedNickname);
     writeLine(classLine, classText(character));
     writeLine(raceLine, joinDetails(character.race, character.specialization));
     writeLine(rankLine, rankText(character));
+    rankLine.title = character.rosterObservation ? t('card.rosterRankHelp') : t('card.rankTitle');
     writeLine(statsLine, statsText(character, snapshot.itemLevelKind));
+    statsLine.title = character.achievementPoints == null && character.rosterObservation
+      ? t('card.rosterStatsHelp') : t('card.statsTitle');
+    const fromGame = character.binding?.kind === 'in-game-roster';
+    classLine.title = fromGame ? t('card.rosterBindingHelp') : '';
+    const forumAvatar = character.binding?.kind === 'owner-confirmed-forum-avatar';
+    const forumArchive = character.binding?.kind === 'archive-forum-name';
+    const fromForum = forumAvatar || forumArchive;
+    date.hidden = forumArchive;
+    if (fromGame || fromForum) date.removeAttribute('datetime');
+    else date.dateTime = snapshot.observedOn;
+    date.textContent = forumAvatar ? t('card.forumAvatarSource')
+      : forumArchive ? '' : fromGame ? t('card.rosterSource') : formatDate(snapshot.observedOn);
+    date.title = forumAvatar ? t('card.forumAvatarHelp', {date: formatDate(character.binding.confirmedOn)})
+      : forumArchive ? '' : fromGame ? t('card.rosterBindingHelp') : t('card.snapshotDate', {date: date.textContent});
     writeArmoryLink(armoryLink, character);
     noArmory.hidden = Boolean(character.profileUrl);
+    noArmory.textContent = fromForum ? t('card.noArmoryBinding') : t('card.noArmory');
     writeLine(realm, character.realm || '');
     outdated.hidden = !character.isOutdated;
   }
@@ -233,17 +264,21 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
     show(nickname) {
       if (disposed) return;
       const group = groups.get(nickname.id);
-      const key = group ? `group:${group.id}` : `character:${nickname.id}`;
+      const key = nickname.characterId || group?.members[0].role === 'related' ? `nickname:${nickname.id}`
+        : group ? `group:${group.id}` : `character:${nickname.id}`;
       if (key === selectedKey) {
         element.hidden = false;
         return;
       }
       selectedKey = key;
       selectedGroup = group || null;
-      singleLabel = nickname.label;
-      memberIds = group ? group.members.map(member => member.characterId) : [nickname.id];
-      memberIndex = 0;
-      profile = profiles.get(nickname.id) || (group && group.nicknameIds.map(id => profiles.get(id)).find(Boolean)) || null;
+      selectedNickname = nickname;
+      const characterId = nickname.characterId || nickname.id;
+      memberIds = group ? group.members.map(member => member.characterId) : [characterId];
+      memberIndex = group?.members[0].role === 'related'
+        ? Math.max(0, group.members.findIndex(member => member.characterId === characterId)) : 0;
+      profile = profiles.get(nickname.id) || profiles.get(characterId)
+        || (group && group.nicknameIds.map(id => profiles.get(id)).find(Boolean)) || null;
       images = profile?.images || emptyImages;
       imageIndex = 0;
       elapsed = 0;
@@ -252,14 +287,21 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
       element.classList.toggle('has-character-navigation', hasAlts);
       previousCharacter.hidden = !hasAlts;
       nextCharacter.hidden = !hasAlts;
-      groupConfirmation.hidden = group?.evidenceKind !== 'owner-confirmed';
-      groupConfirmation.title = groupConfirmation.hidden ? ''
-        : t('card.groupConfirmedHelp', {date: formatDate(group.confirmedOn)});
+      groupConfirmation.hidden = !group;
+      groupConfirmation.textContent = group?.evidenceKind === 'in-game-roster-note'
+        ? t('card.groupRoster') : t('card.groupConfirmed');
+      groupConfirmation.title = !group ? '' : group.evidenceKind === 'in-game-roster-note'
+        ? t('card.groupRosterHelp') : group.evidence?.length
+          ? t('card.groupMixedHelp', {date: formatDate(group.confirmedOn)})
+          : t('card.groupConfirmedHelp', {date: formatDate(group.confirmedOn)});
+      writeLine(collageLabel, nickname.characterId ? t('card.collageLabel', {name: nickname.label}) : '');
       paintCharacter();
       writeLine(forumName, profile && profile.forumName !== nickname.label ? profile.forumName : '');
       paintImage();
-      forumLink.hidden = !profile?.archiveProfileUrl;
-      if (profile?.archiveProfileUrl) forumLink.href = profile.archiveProfileUrl;
+      const forumSourceUrl = profile?.archiveProfileUrl || profile?.evidenceUrl;
+      forumLink.hidden = !forumSourceUrl;
+      forumLink.textContent = t(profile?.archiveProfileUrl ? 'card.forum' : 'card.forumEvidence');
+      if (forumSourceUrl) forumLink.href = forumSourceUrl;
       else forumLink.removeAttribute('href');
       element.scrollTop = 0;
       element.hidden = false;

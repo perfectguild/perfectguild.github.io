@@ -141,6 +141,44 @@
       "archiveProfileUrl": "https://web.archive.org/web/20090906192003if_/http://perfectguild.com:80/forum/index.php?showuser=1",
       "evidenceKind": "owner-confirmed",
       "evidenceUrl": "https://web.archive.org/web/20090906192003if_/http://perfectguild.com:80/forum/index.php?showuser=1"
+    },
+    {
+      "memberId": null,
+      "forumName": "Джонрембо",
+      "nicknameId": "dzhonrembo",
+      "images": [
+        {
+          "url": "/assets/forum/av-140.jpg",
+          "kind": "avatar"
+        }
+      ],
+      "archiveProfileUrl": null,
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-07",
+      "evidenceUrl": null
+    },
+    {
+      "memberId": 163,
+      "forumName": "Чорнобог",
+      "nicknameId": "chornobog",
+      "images": [
+        {
+          "url": "/assets/forum/photo-thumb-163.jpg",
+          "kind": "photo-thumbnail"
+        }
+      ],
+      "archiveProfileUrl": null,
+      "evidenceKind": "archive-name-match",
+      "evidenceUrl": "https://web.archive.org/web/20131126103429/http://perfectguild.com/forum/"
+    },
+    {
+      "memberId": 209,
+      "forumName": "Эйнар",
+      "nicknameId": "eynar",
+      "images": [],
+      "archiveProfileUrl": null,
+      "evidenceKind": "archive-name-match",
+      "evidenceUrl": "https://web.archive.org/web/20131126103429/http://perfectguild.com/forum/"
     }
   ]
 }

@@ -43,31 +43,85 @@ The current curated set contains:
 
 | Data | Count | Public source |
 | --- | ---: | --- |
-| Canonical nicknames | 30 | `app/nicknames.json` |
-| Artwork occurrences | 44 | `app/nicknames.json` |
-| Character records, including alts | 37 | `app/armory-snapshot.json` |
-| Owner-confirmed main/alt groups | 3 | `app/armory-snapshot.json` |
-| Forum profiles | 9 | `app/forum-media.json` |
-| Forum gallery entries | 12 | `app/forum-media.json` |
+| Canonical collage nicknames | 37 | `app/nicknames.json` |
+| Artwork occurrences | 51 | `app/nicknames.json` |
+| Card records: 66 characters and 3 historical nicknames | 69 | `app/armory-snapshot.json` |
+| Groups with an owner-confirmed main | 5 | `app/armory-snapshot.json` |
+| Additional roster-note character groups | 9 | `app/armory-snapshot.json` |
+| Forum source records | 12 | `app/forum-media.json` |
+| Forum gallery entries | 14 | `app/forum-media.json` |
 | Screenshot memories | 51 | `app/screenshots.json` |
 
-A **nickname** is the canonical card identity. An **occurrence** is one measured
-place in the artwork, with its own lettering, bounds, masks, contacts, and
-optional peak scale. One or two occurrences share a card; selecting the other
-occurrence does not reset that card's chosen alt or gallery position.
+A **nickname** identifies a readable collage label, not necessarily the current
+character name. An **occurrence** is one measured place in the artwork, with its
+own lettering, bounds, masks, contacts and optional peak scale. One or two
+occurrences share a card; selecting the other occurrence does not reset its
+chosen alt or gallery position.
 
-An **Armory record** is a dated observation, not live game state. The current
-snapshot was observed on 2026-11-06 for Странники, EU / Король-лич. Exact
-case-insensitive name matching is marked as such and does not prove historical
-identity. Owner-confirmed profile URLs are distinguished from name matches.
-Missing character details are not fabricated.
+Thirty labels match current character names literally. Four additional labels
+use an explicit `characterId` and screenshot-note `evidence`: Максиус → Максис /
+Эрамид; Йор → Маляфка; Пивли → Маргок; Часотка → Уззбагойззя.
+Cards preserve the original label in «На коллаже: …» and identify the link as a
+note-derived association, not a name match, historical identity or rename.
+The validator rejects aliases without a known target, source and image number;
+grouped aliases must refer to a member of that group. No font substitution or
+source-JPEG change is used to make the original lettering interactive.
 
-A **character group** is a separately confirmed relationship. Its first member
-is the main character and the remaining members are alts. Current groups are
-Шпицпатрик → Эрсул; Квилл → Квиллерс, Квиллпал, Квиллшам, Квинки, Квинтилья;
-and Дийкстра → Самтупой. Guild rank is not a combat role. The confirmed displayed
-rank numbers 2, 3, and 4 map to Офицер, Странник, and Рейдер; the source's rank
-index is zero-based. Unknown rank names remain unknown rather than inferred.
+Three additional labels have historical forum-only cards: Джонрембо has the
+owner-confirmed `av-140.jpg`; Чорнобог and Эйнар are exact names in retained
+archive evidence. These records explicitly use `recordKind: historical-nickname`
+and do not fabricate a current character, realm, rank, statistics or Armory URL.
+Джонрембо's avatar confirmation does not imply forum member number 140.
+Чорнобог uses the directly evidenced thumbnail; no image is assigned to Эйнар
+from a numeric filename alone. A source-only forum record may omit its gallery,
+but must retain an actual evidence URL. Verified profile links and forum-home
+evidence links are distinct; home evidence is labeled «Источник форума».
+
+An **Armory record** is a dated observation, not live game state. The snapshot
+was refreshed on 2026-11-07 for Странники, EU / Король-лич. All 66 character
+records have exact current-roster name matches, localized class/race/level and
+actual rendered profile links, including the 29 formerly screenshot-only rows.
+Exact name matching does not prove historical identity; owner-confirmed profile
+URLs remain distinct from name matches. The three historical forum names are
+absent from the observed guild roster and remain unbound.
+
+Seven individual profile pages supplied specialization, average item level and
+achievement points. Observed matching profile values take precedence over the
+guild-page cache: Риннка's profile reports level 76 while the guild row reports
+75, and profile-localized class/race names can differ. The other 59 profile
+requests returned HTTP 500; their independently observed roster values remain
+usable, but unavailable profile details are not fabricated or zero-filled.
+The observation date does not mean every character last logged in that day.
+
+A **character group** records an independently evidenced relationship.
+Five groups have an owner-confirmed main followed by alts: Шпицпатрик → Эрсул;
+Квилл → Квиллерс, Квиллпал, Квиллшам, Квинки, Квинтилья;
+Дийкстра → Самтупой, Реннфри, Йеннефер, Консервочка;
+Милагрос → Розмэри; and Риогалл → Ремор, Хидд, Шамишка, Эридария, Эллеона.
+Nine additional groups use only `related` members:
+guild notes establish a relationship but not which character is the main.
+Those cards start on the selected nickname and omit main/alt badges.
+Owner-confirmed alias resolutions are recorded separately in
+`rosterSource.aliasConfirmations`: Дий and Дийкстратор resolve to Дийкстра,
+Мила to Милагрос, and Рио to Риогалл. Group evidence retains the original note
+and its resolved alias; this does not invent a new character for the alias.
+Милагрос and Риогалл were subsequently confirmed as mains independently.
+
+Ten owner-supplied in-game roster screenshots received on 2026-11-07 supply
+separate `rosterObservation` records. Capture dates are unknown; receipt is not
+an observation timestamp. These fields remain separate from the refreshed
+Armory projection. Screenshot rank titles take precedence in the card, and
+screenshot achievement points fill only missing Armory values, with a distinct
+tooltip. The initial screenshot-only records have now been enriched from their
+exact-name current roster matches; their screenshot evidence and character
+groups are unchanged. This does not establish rename or transfer continuity.
+
+The screenshots consistently identify Armory rank indices 0/1/2/3/4/6 as
+Мастер/Офицер/Ветеран/Рейдер/Странник/Рекрут for the matched records.
+This corrects the earlier assumption that index 2 meant Странник.
+Твинк is read directly on screenshot-only characters, without guessing its
+unobserved numeric index. Rank is not a combat role or proof of whose alt a
+character is. Abbreviated, truncated or ambiguous notes are not merged.
 
 A **forum profile** records its historical member ID, selected gallery images,
 identity evidence, and an archive URL only when established. Equal filename

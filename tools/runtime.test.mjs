@@ -171,3 +171,69 @@ test("runtime validation rejects image contacts outside their local bounds and d
   assert.ok(errors.some(error => error.includes("Occurrence a") && error.includes("above")), errors.join("\n"));
   assert.ok(errors.some(error => error.includes("Forum profile a") && error.includes("/assets/avatar.png")), errors.join("\n"));
 });
+
+test("roster-linked groups may omit a main but cannot silently mix inferred main and alt roles", (t) => {
+  const { root } = runtimeFixture(t);
+  const path = join(root, "app/armory-snapshot.json");
+  const snapshot = JSON.parse(readFileSync(path, "utf8"));
+  const group = snapshot.characterGroups[0];
+  group.evidenceKind = "in-game-roster-note";
+  group.evidence = [{ characterId: "b", note: "ака А" }];
+  for (const member of group.members) member.role = "related";
+  writeFileSync(path, JSON.stringify(snapshot));
+  assert.deepEqual(checkRuntime(root), []);
+  group.members[1].role = "alt";
+  writeFileSync(path, JSON.stringify(snapshot));
+  assert.ok(checkRuntime(root).some(error => error.includes("without an inferred main")));
+  group.members[1].role = "related";
+  delete group.evidence;
+  writeFileSync(path, JSON.stringify(snapshot));
+  assert.ok(checkRuntime(root).some(error => error.includes("missing roster-note evidence")));
+});
+
+test("collage aliases require a real target and traceable note rather than a similar character name", (t) => {
+  const { root } = runtimeFixture(t);
+  const scenePath = join(root, "app/nicknames.json");
+  const snapshotPath = join(root, "app/armory-snapshot.json");
+  const scene = JSON.parse(readFileSync(scenePath, "utf8"));
+  const snapshot = JSON.parse(readFileSync(snapshotPath, "utf8"));
+  snapshot.rosterSource = { id: "screenshots", imageCount: 10 };
+  writeFileSync(snapshotPath, JSON.stringify(snapshot));
+  scene.nicknames[0].characterId = "b";
+  writeFileSync(scenePath, JSON.stringify(scene));
+  assert.ok(checkRuntime(root).some(error => error.includes("explicit roster-note evidence")));
+  scene.nicknames[0].evidence = { sourceId: "screenshots", image: 5, note: "А" };
+  writeFileSync(scenePath, JSON.stringify(scene));
+  assert.deepEqual(checkRuntime(root), []);
+  scene.nicknames[0].characterId = "missing";
+  writeFileSync(scenePath, JSON.stringify(scene));
+  assert.ok(checkRuntime(root).some(error => error.includes("known character")));
+  scene.nicknames[0].characterId = "b";
+  scene.nicknames[0].evidence.image = 11;
+  writeFileSync(scenePath, JSON.stringify(scene));
+  assert.ok(checkRuntime(root).some(error => error.includes("roster-note evidence")));
+  scene.nicknames[0].evidence.image = 5;
+  writeFileSync(scenePath, JSON.stringify(scene));
+  delete snapshot.rosterSource;
+  writeFileSync(snapshotPath, JSON.stringify(snapshot));
+  assert.ok(checkRuntime(root).some(error => error.includes("roster-note evidence")));
+  snapshot.rosterSource = { id: "screenshots", imageCount: 10 };
+  snapshot.characters.push({ id: "c", characterName: "В" });
+  snapshot.characterGroups[0].nicknameIds = ["a"];
+  snapshot.characterGroups[0].members[1].characterId = "c";
+  writeFileSync(snapshotPath, JSON.stringify(snapshot));
+  assert.ok(checkRuntime(root).some(error => error.includes("bound character missing")));
+});
+
+test("historical forum cards may cite an archive source without inventing a gallery", (t) => {
+  const { root } = runtimeFixture(t);
+  const path = join(root, "app/forum-media.json");
+  const forum = JSON.parse(readFileSync(path, "utf8"));
+  forum.profiles[0].images = [];
+  forum.profiles[0].evidenceUrl = "https://example.invalid/forum-capture";
+  writeFileSync(path, JSON.stringify(forum));
+  assert.deepEqual(checkRuntime(root), []);
+  delete forum.profiles[0].evidenceUrl;
+  writeFileSync(path, JSON.stringify(forum));
+  assert.ok(checkRuntime(root).some(error => error.includes("empty gallery without an evidence source")));
+});

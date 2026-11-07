@@ -85,7 +85,9 @@ async function start() {
   }
   const characterNames = new Map(snapshot.characters.map(character => [character.id, character.characterName]));
   if (characterNames.size !== snapshot.characters.length ||
-      scene.nicknames.some(entry => characterNames.get(entry.id) !== entry.label) ||
+      scene.nicknames.some(entry => entry.characterId
+        ? !characterNames.has(entry.characterId) || !entry.evidence?.note
+        : characterNames.get(entry.id) !== entry.label) ||
       snapshot.characterGroups.some(group => group.members.some(member => !characterNames.has(member.characterId)))) {
     throw new Error(t('errors.cardSource'));
   }

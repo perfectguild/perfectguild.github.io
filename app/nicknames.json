@@ -127,6 +127,58 @@
     {
       "id": "eldesperado",
       "label": "Эльдесперадо"
+    },
+    {
+      "id": "maksius",
+      "label": "Максиус",
+      "characterId": "maksis",
+      "evidence": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "note": "ака Максиус"
+      }
+    },
+    {
+      "id": "yor",
+      "label": "Йор",
+      "characterId": "malyafka",
+      "evidence": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "note": "ака Йор"
+      }
+    },
+    {
+      "id": "pivli",
+      "label": "Пивли",
+      "characterId": "margok",
+      "evidence": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 5,
+        "note": "Пивли"
+      }
+    },
+    {
+      "id": "chasotka",
+      "label": "Часотка",
+      "characterId": "uzzbagoyzzya",
+      "evidence": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 8,
+        "note": "ака Часотка"
+      }
+    },
+    {
+      "id": "dzhonrembo",
+      "label": "Джонрембо"
+    },
+    {
+      "id": "chornobog",
+      "label": "Чорнобог"
+    },
+    {
+      "id": "eynar",
+      "label": "Эйнар"
     }
   ],
   "occurrences": [
@@ -1145,6 +1197,167 @@
           "y": 16.5
         }
       }
+    },
+    {
+      "id": "known-maksius-left",
+      "nicknameId": "maksius",
+      "bounds": {
+        "x": 333,
+        "y": 477,
+        "width": 110,
+        "height": 30
+      },
+      "maskUrl": "/assets/known-maksius-left-mask.png",
+      "repairUrl": "/assets/known-maksius-left-repair.png",
+      "contacts": {
+        "above": {
+          "x": 54.5,
+          "y": 10.5
+        },
+        "below": {
+          "x": 54.5,
+          "y": 19.5
+        }
+      },
+      "peakScale": 1.9
+    },
+    {
+      "id": "known-yor",
+      "nicknameId": "yor",
+      "bounds": {
+        "x": 1213,
+        "y": 560,
+        "width": 34,
+        "height": 23
+      },
+      "maskUrl": "/assets/known-yor-mask.png",
+      "repairUrl": "/assets/known-yor-repair.png",
+      "contacts": {
+        "above": {
+          "x": 16.5,
+          "y": 9.5
+        },
+        "below": {
+          "x": 16.5,
+          "y": 15.5
+        }
+      },
+      "peakScale": 2.6
+    },
+    {
+      "id": "known-pivli",
+      "nicknameId": "pivli",
+      "bounds": {
+        "x": 462,
+        "y": 544,
+        "width": 64,
+        "height": 20
+      },
+      "maskUrl": "/assets/known-pivli-mask.png",
+      "repairUrl": "/assets/known-pivli-repair.png",
+      "contacts": {
+        "above": {
+          "x": 31.5,
+          "y": 5.5
+        },
+        "below": {
+          "x": 31.5,
+          "y": 16.5
+        }
+      },
+      "peakScale": 2.3
+    },
+    {
+      "id": "known-chasotka",
+      "nicknameId": "chasotka",
+      "bounds": {
+        "x": 258,
+        "y": 510,
+        "width": 55,
+        "height": 16
+      },
+      "maskUrl": "/assets/known-chasotka-mask.png",
+      "repairUrl": "/assets/known-chasotka-repair.png",
+      "contacts": {
+        "above": {
+          "x": 27.5,
+          "y": 6.5
+        },
+        "below": {
+          "x": 27.5,
+          "y": 13.5
+        }
+      },
+      "peakScale": 2.8
+    },
+    {
+      "id": "known-dzhonrembo",
+      "nicknameId": "dzhonrembo",
+      "bounds": {
+        "x": 193,
+        "y": 520,
+        "width": 161,
+        "height": 30
+      },
+      "maskUrl": "/assets/known-dzhonrembo-mask.png",
+      "repairUrl": "/assets/known-dzhonrembo-repair.png",
+      "contacts": {
+        "above": {
+          "x": 80.5,
+          "y": 7.5
+        },
+        "below": {
+          "x": 80.5,
+          "y": 20.5
+        }
+      },
+      "peakScale": 1.8
+    },
+    {
+      "id": "known-chornobog",
+      "nicknameId": "chornobog",
+      "bounds": {
+        "x": 1500,
+        "y": 441,
+        "width": 71,
+        "height": 18
+      },
+      "maskUrl": "/assets/known-chornobog-mask.png",
+      "repairUrl": "/assets/known-chornobog-repair.png",
+      "contacts": {
+        "above": {
+          "x": 35.5,
+          "y": 5.5
+        },
+        "below": {
+          "x": 35.5,
+          "y": 12.5
+        }
+      },
+      "peakScale": 2.4
+    },
+    {
+      "id": "known-eynar",
+      "nicknameId": "eynar",
+      "bounds": {
+        "x": 1112,
+        "y": 506,
+        "width": 96,
+        "height": 29
+      },
+      "maskUrl": "/assets/known-eynar-mask.png",
+      "repairUrl": "/assets/known-eynar-repair.png",
+      "contacts": {
+        "above": {
+          "x": 47.5,
+          "y": 16.5
+        },
+        "below": {
+          "x": 47.5,
+          "y": 17.5
+        }
+      },
+      "peakScale": 1.85
     }
   ]
 }
