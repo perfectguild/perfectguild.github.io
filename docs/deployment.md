@@ -1,6 +1,6 @@
 # Publication architecture
 
-The «Странники» postcard is a static GitHub Pages site behind Cloudflare. Its interactive browser runtime does not require an application server or live Armory API. Hosting, DNS, proxying, TLS, and redirects retain the existing architecture.
+The «Странники» guild chronicle is a static GitHub Pages site behind Cloudflare. Its interactive browser runtime does not require an application server or live Armory API. Hosting, DNS, proxying, TLS, and redirects retain the existing architecture.
 
 ## Request and publication paths
 

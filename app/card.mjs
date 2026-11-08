@@ -83,6 +83,7 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
   }
   const element = document.getElementById('character-card');
   element.hidden = true;
+  element.dataset.controlsStyle = 'round';
   element.setAttribute('aria-describedby', 'card-group-confirmation card-collage-label card-binding card-description card-source');
   element.innerHTML = `
     <header class="card-header">
@@ -92,7 +93,7 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
         <span id="card-character-position" class="card-character-position" hidden></span>
         <span id="card-binding" class="card-binding"></span>
       </div>
-      <button id="close-card" type="button" data-i18n-aria-label="card.closeLabel" data-i18n-title="card.closeLabel">
+      <button id="close-card" class="card-control" type="button" data-i18n-aria-label="card.closeLabel" data-i18n-title="card.closeLabel">
         <!-- MDI window-close, @mdi/svg 7.4.47, Apache-2.0; see LICENSE-mdi.txt. -->
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"/>
@@ -101,22 +102,32 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
     </header>
     <p id="card-group-confirmation" class="card-group-confirmation" data-i18n="card.groupConfirmed" hidden></p>
     <p id="card-collage-label" class="card-group-confirmation" hidden></p>
-    <div class="card-content">
-      <figure class="card-photo" hidden>
-        <a id="forum-image-link" target="_blank" rel="noopener noreferrer">
-          <img id="forum-image" width="68" height="68" draggable="false" alt="">
-        </a>
-        <figcaption>
-          <span id="forum-name" data-i18n-title="card.forumName" hidden></span>
-          <span id="forum-image-position" hidden></span>
-        </figcaption>
-      </figure>
-      <div id="card-description" class="card-description">
-        <p id="card-class"></p>
-        <p id="card-race"></p>
-        <p id="card-rank" class="card-rank" data-i18n-title="card.rankTitle"></p>
-        <p id="card-stats" class="card-stats" data-i18n-title="card.statsTitle"></p>
+    <div class="card-body">
+      <button id="card-previous-character" class="card-control card-character-nav card-character-previous" type="button"
+        data-i18n-aria-label="card.previousCharacter" data-i18n-title="card.previousCharacter" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path transform="translate(1.3 0)" d="M15.4 5.4 8.8 12l6.6 6.6-1.4 1.4-8-8 8-8Z"/></svg>
+      </button>
+      <div class="card-content">
+        <figure class="card-photo" hidden>
+          <a id="forum-image-link" target="_blank" rel="noopener noreferrer">
+            <img id="forum-image" width="68" height="68" draggable="false" alt="">
+          </a>
+          <figcaption>
+            <span id="forum-name" data-i18n-title="card.forumName" hidden></span>
+            <span id="forum-image-position" hidden></span>
+          </figcaption>
+        </figure>
+        <div id="card-description" class="card-description">
+          <p id="card-class"></p>
+          <p id="card-race"></p>
+          <p id="card-rank" class="card-rank" data-i18n-title="card.rankTitle"></p>
+          <p id="card-stats" class="card-stats" data-i18n-title="card.statsTitle"></p>
+        </div>
       </div>
+      <button id="card-next-character" class="card-control card-character-nav card-character-next" type="button"
+        data-i18n-aria-label="card.nextCharacter" data-i18n-title="card.nextCharacter" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path transform="translate(22.7 0) scale(-1 1)" d="M15.4 5.4 8.8 12l6.6 6.6-1.4 1.4-8-8 8-8Z"/></svg>
+      </button>
     </div>
     <p id="card-source" class="card-source">
       <a id="armory-link" target="_blank" rel="noopener noreferrer" data-i18n="card.armory"></a>
@@ -126,14 +137,7 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
       <a id="forum-profile-link" target="_blank" rel="noopener noreferrer" data-i18n="card.forum" hidden></a>
     </p>
     <p id="card-outdated" class="card-note" data-i18n="card.outdated" hidden></p>
-    <button id="card-previous-character" class="card-character-nav card-character-previous" type="button"
-      data-i18n-aria-label="card.previousCharacter" data-i18n-title="card.previousCharacter" hidden>
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 5.4 8.8 12l6.6 6.6-1.4 1.4-8-8 8-8Z"/></svg>
-    </button>
-    <button id="card-next-character" class="card-character-nav card-character-next" type="button"
-      data-i18n-aria-label="card.nextCharacter" data-i18n-title="card.nextCharacter" hidden>
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8.6 4 8 8-8 8-1.4-1.4 6.6-6.6-6.6-6.6Z"/></svg>
-    </button>
+    <div class="card-character-pagination" hidden></div>
   `;
   localizeDocument(element);
   element.setAttribute('aria-label', t('card.title'));
@@ -143,6 +147,8 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
   const binding = element.querySelector('#card-binding');
   const groupConfirmation = element.querySelector('#card-group-confirmation');
   const collageLabel = element.querySelector('#card-collage-label');
+  const body = element.querySelector('.card-body');
+  const pagination = element.querySelector('.card-character-pagination');
   const content = element.querySelector('.card-content');
   const photo = element.querySelector('.card-photo');
   const photoLink = element.querySelector('#forum-image-link');
@@ -287,6 +293,7 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
       element.classList.toggle('has-character-navigation', hasAlts);
       previousCharacter.hidden = !hasAlts;
       nextCharacter.hidden = !hasAlts;
+      pagination.hidden = !hasAlts || element.dataset.controlsStyle !== 'footer';
       groupConfirmation.hidden = !group;
       groupConfirmation.textContent = group?.evidenceKind === 'in-game-roster-note'
         ? t('card.groupRoster') : t('card.groupConfirmed');
@@ -309,6 +316,20 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
     hide() {
       element.hidden = true;
       moving = false;
+    },
+    setControlsStyle(style) {
+      if (disposed || element.dataset.controlsStyle === style) return;
+      element.dataset.controlsStyle = style;
+      // Move the existing controls, preserving the selected alt and listeners.
+      if (style === 'footer') {
+        pagination.append(previousCharacter, characterPosition, nextCharacter);
+      } else {
+        body.prepend(previousCharacter);
+        body.append(nextCharacter);
+        binding.before(characterPosition);
+      }
+      pagination.hidden = style !== 'footer' || memberIds.length < 2;
+      onLayout?.();
     },
     setReducedMotion(enabled) {
       if (disposed || reducedMotion === enabled) return;

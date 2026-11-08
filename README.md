@@ -2,7 +2,7 @@
 
 **Всё дело в людях.**
 
-A small postcard website for the World of Warcraft guild
+A visual guild chronicle («Летопись гильдии») for the World of Warcraft guild
 **[Странники](https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/guild/lich-king/странники)**:
 [www.perfectguild.com](https://www.perfectguild.com/).
 
@@ -18,6 +18,8 @@ WebGL2 shaders and a WebAssembly motion engine. It includes:
   connected to the selected lettering by an animated thread.
 - Dated Armory details, guild ranks, verified alternate-character groups,
   and selected historical forum avatars with source links.
+- Three character-card control layouts in settings: compact edge buttons,
+  circular buttons (default), or bottom navigation, with full-size touch targets.
 - Grayscale screenshot memories in the fog, a fullscreen carousel, and
   selectable image/color reveal effects.
 - A movable, hideable settings panel, keyboard and touch controls,

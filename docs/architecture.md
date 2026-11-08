@@ -1,6 +1,6 @@
 # Runtime architecture
 
-The site is a static, Russian-language guild postcard. Native browser modules,
+The site is a static, Russian-language guild chronicle («Летопись гильдии»). Native browser modules,
 WebGL2, and a small AssemblyScript/WebAssembly engine enhance the original
 1920 × 1080 nickname collage. There is no application backend, live Armory fetch,
 forum database, client framework, or CDN dependency.
@@ -232,7 +232,7 @@ between image and color calculations.
 
 Fullscreen navigation cancels stale requests with tokens. Late decodes cannot
 replace a newer selection or reopen a closed dialog. Hidden-page loads are
-retained for application on return; neither the postcard nor its gallery clocks
+retained for application on return; neither the chronicle nor its gallery clocks
 advance while the modal is open.
 
 ## Defaults and accessibility
@@ -244,6 +244,19 @@ and Изображению и цветности. Settings are local to the curr
 Docked and floating settings are fixed-position overlays, not layout columns.
 Opening, hiding, dragging or docking the panel must leave the artwork's position
 and size unchanged. Card placement still accounts for the visible panel's bounds.
+
+Character cards default to circular controls. The «Кнопки карточки» setting also
+offers compact square edge buttons and bottom navigation. Every close/arrow button
+has a centered 28 × 28 visible shape inside a 44 × 44 native hit target; arrows
+are exact mirrors. Circular arrows align with the avatar/details row, compact
+arrows with the card center, and bottom arrows flank the character counter.
+Switching layouts moves existing controls without resetting the selected alt,
+avatar gallery, or motion phase, then recalculates the frame/thread placement.
+Cards without alternate characters hide navigation in every layout.
+
+User-facing language distinguishes the guild chronicle from its historical
+collage. Existing `postcard` file names, DOM identifiers and localization keys
+remain technical identifiers, not the product's displayed name.
 
 Reduced motion disables automatic startup, ambient movement, gallery rotation,
 and animated transitions. Explicit card and carousel navigation still works;

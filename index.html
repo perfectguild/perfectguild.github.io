@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title data-i18n="page.title">Странники. Всё дело в людях.</title>
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/app/postcard.css?v=j9CuoUEWRymv5boxX2cLLucDzrZG%2FCfCqCzhEio3%2BuYP48mNMkHf8Wok6jPmjoXY" integrity="sha384-j9CuoUEWRymv5boxX2cLLucDzrZG/CfCqCzhEio3+uYP48mNMkHf8Wok6jPmjoXY">
+    <link rel="stylesheet" href="/app/postcard.css?v=zNrlpX8BtLwh2wLG5B7ikgrdSDsD%2B6KlrI4f36HF5R3T5bEF2Rud6fSGdHdp8tWS" integrity="sha384-zNrlpX8BtLwh2wLG5B7ikgrdSDsD+6KlrI4f36HF5R3T5bEF2Rud6fSGdHdp8tWS">
     <link rel="stylesheet" href="/app/screenshot-scene.css?v=mPLiNEfe3vKLPi%2FSG1kjInh1YZyItJan6YM0TzHUE4q77aevz9JSYoMhJ1KtS6py" integrity="sha384-mPLiNEfe3vKLPi/SG1kjInh1YZyItJan6YM0TzHUE4q77aevz9JSYoMhJ1KtS6py">
     <noscript><style>button#controls-launcher { display: none; }</style></noscript>
   </head>
   <body>
-    <main id="postcard" data-i18n-aria-label="page.postcard" aria-label="Открытка гильдии Странники">
+    <main id="postcard" data-i18n-aria-label="page.postcard" aria-label="Летопись гильдии Странники">
       <h1 class="visually-hidden" data-i18n="page.title">Странники. Всё дело в людях.</h1>
       <canvas id="edge-fog" aria-hidden="true" hidden></canvas>
       <div id="postcard-surface">
-        <img id="logo1" src="/images/stranniki_bg_v4.jpg" width="1920" height="1080" draggable="false" data-i18n-alt="page.image" alt="Открытка гильдии Странники с историческими никами">
+        <img id="logo1" src="/images/stranniki_bg_v4.jpg" width="1920" height="1080" draggable="false" data-i18n-alt="page.image" alt="Коллаж гильдии Странники с историческими никами">
         <canvas id="ensemble-canvas" aria-hidden="true" hidden></canvas>
         <div id="nickname-targets"></div>
       </div>
     </main>
     <section id="character-card" role="region" tabindex="-1" data-i18n-aria-label="card.title" hidden aria-label="Карточка ника"></section>
-    <aside id="prototype-controls" class="prototype-controls" data-floating="false" data-i18n-aria-label="page.controls" hidden aria-label="Настройки открытки">
+    <aside id="prototype-controls" class="prototype-controls" data-floating="false" data-i18n-aria-label="page.controls" hidden aria-label="Настройки летописи">
       <div id="controls-header" class="prototype-heading">
         <h2 id="controls-drag" tabindex="0" data-i18n="controls.settings" data-i18n-aria-label="controls.move" data-i18n-title="controls.move" aria-describedby="controls-move-help" title="Переместить панель настроек" aria-label="Переместить панель настроек">Настройки</h2>
         <span id="technology" data-i18n="technology.loading">WebAssembly + WebGL2 · подготовка эффекта</span>
@@ -49,6 +49,14 @@
       <output id="state" class="prototype-state" aria-live="off" data-i18n="status.original">Исходное изображение без изменений.</output>
       <div id="announcement" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
       <div class="controls-settings">
+        <div class="highlight-control">
+          <label class="nickname-picker-label" for="card-controls-style" data-i18n="controls.cardControls">Кнопки карточки</label>
+          <select id="card-controls-style" disabled>
+            <option value="compact" data-i18n="cardControls.compact">Компактные по краям</option>
+            <option value="round" data-i18n="cardControls.round" selected>Круглые</option>
+            <option value="footer" data-i18n="cardControls.footer">Навигация снизу</option>
+          </select>
+        </div>
         <div class="pulse-count-control">
           <label for="pulse-count" data-i18n="controls.pulseCount">Пульсирующих надписей</label>
           <input id="pulse-count" type="range" min="1" max="29" value="12" aria-describedby="pulse-count-value" disabled>
@@ -131,8 +139,8 @@
         </div>
         <details id="prototype-help" class="prototype-details">
           <summary data-i18n="controls.help">Справка</summary>
-          <p class="prototype-note" data-i18n="page.description">По умолчанию пульсируют 12 надписей, число можно менять. У ника одно или два места на открытке и общая карточка: повторное нажатие «Рассмотреть ник» выбирает другое место. Открытая вручную карточка остаётся при пролёте курсора; для переключения задержитесь над другим ником на 1 секунду или нажмите на него. Палитра выбранного стиля применяется ко всем растущим никам, дополнительные световые эффекты — к нику с карточкой. Именованные стили сохраняют собственную динамику. При наведении импульс начинается в точке касания буквы и идёт обратно по направлению подхода мыши. Карточка вырастает из нити и покачивается; волна проходит по её краям. Автопоказ случайно выбирает точку, наклон луча и верхнее или нижнее поле на весь показ; раскрытая карточка держится 30 секунд. В карточках — форумные изображения и датированный снимок Армори, не данные в реальном времени. Совпадение имени не подтверждает историческую личность. Вертикальную панель слева можно перетаскивать за заголовок и скрывать. Кнопка с шестерёнкой в левом нижнем углу возвращает настройки.</p>
-          <p class="prototype-note" data-i18n="page.edgeDescription">«Весь фон слева направо» движет фоновую текстуру по всей открытке, сохраняя надпись СТРАННИКИ и ники на месте. Также доступны шесть вариантов тумана по краям и спокойное размытие. «Оригинал» отключает обработку; при уменьшении движения фон неподвижен.</p>
+          <p class="prototype-note" data-i18n="page.description">По умолчанию пульсируют 12 надписей, число можно менять. У ника одно или два места на коллаже и общая карточка: повторное нажатие «Рассмотреть ник» выбирает другое место. Открытая вручную карточка остаётся при пролёте курсора; для переключения задержитесь над другим ником на 1 секунду или нажмите на него. Палитра выбранного стиля применяется ко всем растущим никам, дополнительные световые эффекты — к нику с карточкой. Именованные стили сохраняют собственную динамику. При наведении импульс начинается в точке касания буквы и идёт обратно по направлению подхода мыши. Карточка вырастает из нити и покачивается; волна проходит по её краям. Автопоказ случайно выбирает точку, наклон луча и верхнее или нижнее поле на весь показ; раскрытая карточка держится 30 секунд. В карточках — форумные изображения и датированный снимок Армори, не данные в реальном времени. Совпадение имени не подтверждает историческую личность. «Кнопки карточки» переключают круглые кнопки, компактные кнопки по краям или навигацию снизу. Вертикальную панель слева можно перетаскивать за заголовок и скрывать. Кнопка с шестерёнкой в левом нижнем углу возвращает настройки.</p>
+          <p class="prototype-note" data-i18n="page.edgeDescription">«Весь фон слева направо» движет фоновую текстуру по всему коллажу, сохраняя надпись СТРАННИКИ и ники на месте. Также доступны шесть вариантов тумана по краям и спокойное размытие. «Оригинал» отключает обработку; при уменьшении движения фон неподвижен.</p>
           <p class="prototype-note" data-i18n="memory.help">По умолчанию в тумане появляются три чёрно-белых игровых снимка, не перекрывая ники и карточку. Можно выбрать от одного до трёх снимков. «Эффект воспоминаний» меняет миниатюры, «Открытие воспоминаний» — полноэкранный переход. В режиме «Цветности» снимок сразу виден чёрно-белым, а эффект возвращает цвет. «Изображению» проявляет сразу цветной снимок. «Изображению и цветности» сначала проявляет чёрно-белый снимок, затем отдельной волной возвращает цвет. Листайте все воспоминания стрелками, клавишами ←/→ или свайпом. Закройте крестиком, Escape или нажатием на тёмное поле.</p>
           <p class="prototype-note"><a href="https://discord.gg/F6UyV4Ss7v" target="_blank" rel="noopener noreferrer" data-i18n="controls.discord">Discord гильдии</a></p>
         </details>
@@ -156,6 +164,6 @@
       </svg>
     </button>
     <noscript><p class="no-script-note"><a href="https://discord.gg/F6UyV4Ss7v" target="_blank" rel="noopener noreferrer" data-i18n="controls.discord">Discord гильдии</a></p></noscript>
-    <script type="module" src="/app/postcard.mjs?v=Bb87P06HsmeB4Ysv1yg9NJfFvWYmB%2Fw7KWooU7RmL65zonynNJsEdU%2BxDcXHpybU" integrity="sha384-Bb87P06HsmeB4Ysv1yg9NJfFvWYmB/w7KWooU7RmL65zonynNJsEdU+xDcXHpybU"></script>
+    <script type="module" src="/app/postcard.mjs?v=e5SUGnPfBW9mVN1%2Bx7EgzUYRyce7x7kvR0Jp2fL51bT0e5TbtMpC69xPL7ef2bNP" integrity="sha384-e5SUGnPfBW9mVN1+x7EgzUYRyce7x7kvR0Jp2fL51bT0e5TbtMpC69xPL7ef2bNP"></script>
   </body>
 </html>

@@ -16,6 +16,7 @@ const fogCanvas = document.getElementById('edge-fog');
 const targetsContainer = document.getElementById('nickname-targets');
 const picker = document.getElementById('nickname-picker');
 const showButton = document.getElementById('show-nickname');
+const cardControlsPicker = document.getElementById('card-controls-style');
 const autoButton = document.getElementById('autoplay');
 const originalButton = document.getElementById('original');
 const controls = document.querySelector('.prototype-controls');
@@ -476,6 +477,7 @@ async function start() {
   controls.addEventListener('focusout', requestClose);
   controlsLauncher.addEventListener('focusin', cancelClose);
   controlsLauncher.addEventListener('focusout', requestClose);
+  cardControlsPicker.addEventListener('change', () => card.setControlsStyle(cardControlsPicker.value));
   highlightPicker.addEventListener('change', changeMaterial);
   effectPicker.addEventListener('change', changeMaterial);
   fogPicker.addEventListener('change', changeMaterial);
@@ -599,6 +601,8 @@ async function start() {
     count: formatNumber(motion.pulseCount), total: formatNumber(scene.occurrences.length),
   });
   pulseCount.setAttribute('aria-valuetext', pulseValue.textContent);
+  card.setControlsStyle(cardControlsPicker.value);
+  cardControlsPicker.disabled = false;
   pulseCount.disabled = highlightPicker.disabled = effectPicker.disabled = fogPicker.disabled = memoryEnabled.disabled = memoryCount.disabled = memoryRevealPicker.disabled = memoryViewerPicker.disabled = memoryViewerTarget.disabled = picker.disabled = showButton.disabled = autoButton.disabled = originalButton.disabled = false;
   motion.setReducedMotion(reducedMotion.matches);
   motion.setAutomatic(!reducedMotion.matches);

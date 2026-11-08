@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.2.0 — 2026-11-08
+
+- Add «Кнопки карточки» to the existing settings panel with three layouts:
+  compact edge buttons, circular buttons, and bottom navigation. Circular
+  controls are the default; the local comparison toolbar is not published.
+- Align close/arrow icons and use mirrored chevrons, equal 28 × 28 visible
+  buttons, and 44 × 44 keyboard/touch targets. Preserve the selected alternate
+  character when switching layouts and hide navigation on single-character cards.
+- Use «Летопись гильдии Странники» for the site and «коллаж» for its historical
+  artwork in accessible labels, help, status messages, and project documentation.
+  Preserve the motto, artwork, and existing technical identifiers.
+
 ## 1.1.0 — 2026-11-07
 
 - Incorporate separate evidence from ten owner-supplied in-game guild screenshots:

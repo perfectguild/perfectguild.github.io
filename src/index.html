@@ -49,6 +49,14 @@
       <output id="state" class="prototype-state" aria-live="off" data-i18n="status.original"></output>
       <div id="announcement" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
       <div class="controls-settings">
+        <div class="highlight-control">
+          <label class="nickname-picker-label" for="card-controls-style" data-i18n="controls.cardControls"></label>
+          <select id="card-controls-style" disabled>
+            <option value="compact" data-i18n="cardControls.compact"></option>
+            <option value="round" data-i18n="cardControls.round" selected></option>
+            <option value="footer" data-i18n="cardControls.footer"></option>
+          </select>
+        </div>
         <div class="pulse-count-control">
           <label for="pulse-count" data-i18n="controls.pulseCount"></label>
           <input id="pulse-count" type="range" min="1" max="29" value="12" aria-describedby="pulse-count-value" disabled>

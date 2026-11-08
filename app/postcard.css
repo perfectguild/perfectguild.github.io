@@ -301,8 +301,7 @@ button#controls-launcher {
 
 .prototype-controls button,
 #controls-launcher,
-.prototype-controls select,
-#close-card {
+.prototype-controls select {
   box-sizing: border-box;
   min-height: 32px;
   max-width: 100%;
@@ -326,8 +325,7 @@ button#controls-launcher {
 
 .prototype-controls button:hover:not(:disabled),
 .prototype-controls select:hover:not(:disabled),
-#controls-launcher:hover,
-#close-card:hover {
+#controls-launcher:hover {
   background: #354037;
 }
 
@@ -342,8 +340,7 @@ button#controls-launcher {
 #pulse-count:focus-visible,
 .prototype-details summary:focus-visible,
 #character-card:focus-visible,
-#controls-launcher:focus-visible,
-#close-card:focus-visible {
+#controls-launcher:focus-visible {
   outline: 2px solid #c6dcc9;
   outline-offset: 3px;
 }
@@ -385,8 +382,8 @@ button#controls-launcher {
   position: fixed;
   z-index: 20;
   box-sizing: border-box;
-  width: min(350px, calc(100vw - 24px));
-  max-width: calc(100vw - 24px);
+  width: min(350px, calc(100vw - 40px));
+  max-width: calc(100vw - 40px);
   min-height: 108px;
   max-height: calc(100vh - 24px);
   max-height: calc(100dvh - 24px);
@@ -408,7 +405,7 @@ button#controls-launcher {
   align-items: flex-start;
   justify-content: space-between;
   gap: 8px;
-  padding-inline-end: 40px;
+  padding-inline-end: 32px;
 }
 
 .card-heading {
@@ -448,22 +445,65 @@ button#controls-launcher {
   line-height: 1.2;
 }
 
-#close-card {
-  position: absolute;
-  top: 10px;
-  right: 12px;
+/* Compact visible controls retain a full 44px keyboard/touch target. */
+.card-control {
+  position: relative;
+  box-sizing: border-box;
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
-  padding: 5px;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #dce8df;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-#close-card svg {
-  width: 20px;
-  height: 20px;
+.card-control::before {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  box-sizing: border-box;
+  border: 1px solid #68786d;
+  border-radius: var(--card-control-radius, 6px);
+  background: #1e2922;
+  pointer-events: none;
+}
+
+.card-control svg {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
   fill: currentColor;
   pointer-events: none;
+}
+
+.card-control:hover::before {
+  border-color: #acbfb1;
+  background: #35483b;
+}
+
+.card-control:focus-visible::before {
+  outline: 2px solid #c6dcc9;
+  outline-offset: 3px;
+}
+
+.card-control[hidden],
+.card-character-pagination[hidden] {
+  display: none;
+}
+
+#close-card {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .card-content {
@@ -557,8 +597,16 @@ button#controls-launcher {
   font-size: 10px;
 }
 
-#character-card.has-character-navigation {
-  padding-inline: 42px;
+#character-card[data-controls-style="compact"].has-character-navigation {
+  padding-inline: 44px;
+}
+
+#character-card[data-controls-style="compact"].has-character-navigation .card-header {
+  padding-inline-end: 0;
+}
+
+#character-card[data-controls-style="round"] {
+  --card-control-radius: 50%;
 }
 
 .card-character-position {
@@ -570,43 +618,63 @@ button#controls-launcher {
 .card-character-nav {
   position: absolute;
   top: 50%;
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 44px;
-  padding: 3px;
   transform: translateY(-50%);
-  border: 1px solid #59685e;
-  border-radius: 5px;
-  background: #152119;
-  color: #d0e6d7;
-  cursor: pointer;
 }
 
 .card-character-previous {
-  left: 7px;
+  left: 0;
 }
 
 .card-character-next {
-  right: 7px;
+  right: 0;
 }
 
-.card-character-nav svg {
-  display: block;
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-  pointer-events: none;
+#character-card[data-controls-style="round"].has-character-navigation .card-body {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  margin: 6px -12px 0;
 }
 
-.card-character-nav:hover {
-  background: #263b2c;
-  color: #f0f6f1;
+#character-card[data-controls-style="round"].has-character-navigation .card-content {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
 }
 
-.card-character-nav:focus-visible {
-  outline: 2px solid #c6dcc9;
-  outline-offset: 2px;
+#character-card[data-controls-style="round"] .card-character-nav,
+.card-character-pagination .card-character-nav {
+  position: relative;
+  inset: auto;
+  transform: none;
+}
+
+#character-card[data-controls-style="round"] .card-character-nav {
+  grid-row: 1;
+}
+
+#character-card[data-controls-style="round"] .card-character-previous {
+  grid-column: 1;
+}
+
+#character-card[data-controls-style="round"] .card-character-next {
+  grid-column: 3;
+}
+
+.card-character-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-top: 1px solid #394c3f;
+  margin-top: 8px;
+  padding-top: 2px;
+}
+
+.card-character-pagination .card-character-position {
+  min-width: 48px;
+  text-align: center;
+  font-size: 11px;
 }
 
 @media (max-width: 600px) {
@@ -633,9 +701,5 @@ button#controls-launcher {
 
   .nickname-picker-label {
     font-size: 11px;
-  }
-
-  #close-card {
-    min-height: 32px;
   }
 }
