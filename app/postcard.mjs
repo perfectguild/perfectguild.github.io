@@ -7,7 +7,7 @@ import {createCardPresentation} from './presentation.mjs';
 import {createPointerInput} from './pointer-input.mjs';
 import {createFloatingControls} from './floating-controls.mjs';
 import {createScreenshotScene} from './screenshot-scene.mjs';
-import {locale, localizeDocument, t, formatNumber, formatDate} from './i18n.mjs';
+import {locale, localizeDocument, t, formatNumber} from './i18n.mjs';
 
 localizeDocument();
 const image = document.getElementById('logo1');
@@ -103,7 +103,9 @@ async function start() {
     group.push(index);
     occurrenceIds.add(occurrence.id);
   });
-  if (nicknames.size !== scene.nicknames.length || [...occurrenceGroups.values()].some(group => !group.length)) {
+  if (nicknames.size !== scene.nicknames.length || scene.nicknames.some(nickname =>
+    nickname.placement === 'catalog-only' ? occurrenceGroups.get(nickname.id).length !== 0
+      : occurrenceGroups.get(nickname.id).length === 0)) {
     throw new Error(t('errors.source'));
   }
   const nicknameFor = index => nicknames.get(scene.occurrences[index].nicknameId);
@@ -122,13 +124,24 @@ async function start() {
   });
   const card = createCharacterCard({snapshot, forum, reducedMotion: reducedMotion.matches, onLayout() {
     if (frame || wakeTimer) advance((performance.now() - previousTime) / 1000);
-    presentation.reposition();
+    repositionCard();
     refresh();
   }});
   const presentation = createCardPresentation({image, controls, card, scene});
-  repositionCard = presentation.reposition;
+  repositionCard = () => {
+    presentation.reposition();
+    const bounds = presentation.exclusionBounds;
+    if (catalogue && !controls.hidden && bounds
+      && (bounds.width < 200 || card.element.scrollHeight > card.element.clientHeight + 1)) {
+      catalogue.restoreControls = true;
+      floatingControls.hide();
+    }
+  };
+  window.addEventListener('resize', () => repositionCard?.());
+  window.visualViewport?.addEventListener('resize', () => repositionCard?.());
   const targets = [];
   let pinned = false;
+  let catalogue = null;
   let overTarget = -1;
   let overCard = false;
   let focusPending = false;
@@ -142,6 +155,7 @@ async function start() {
   let displayedCard = -1;
   let lastPhase = '';
   let lastSelected = -1;
+  let lastCardNickname = '';
   let lastSecond = -1;
   let lastReturning = false;
   let lastPresentationPhase = '';
@@ -178,21 +192,21 @@ async function start() {
   });
 
   function advance(seconds) {
-    const moving = motion.advance(memories.open ? 0 : seconds);
-    memoryOptions.enabled = memoryEnabled.checked && motion.phase !== 'original';
+    const moving = motion.advance(memories.open ? 0 : seconds, Boolean(catalogue));
+    memoryOptions.enabled = memoryEnabled.checked && (Boolean(catalogue) || motion.phase !== 'original');
     memoryOptions.reducedMotion = motion.reducedMotion;
     memoryOptions.count = Number(memoryCount.value);
     memoryOptions.viewerEffect = Number(memoryViewerPicker.value);
     memoryOptions.viewerTarget = Number(memoryViewerTarget.value);
     memories.advance(seconds, memoryOptions);
-    const cardMoving = card.advance(seconds, presentation.ready && motion.phase !== 'original'
+    const cardMoving = card.advance(seconds, presentation.ready && (Boolean(catalogue) || motion.phase !== 'original')
       && !memories.open && !motion.reducedMotion && !document.hidden);
     return !memories.open && (moving || memories.moving || cardMoving);
   }
 
 
   function sync() {
-    const phase = motion.phase;
+    const phase = catalogue ? 'catalogue' : motion.phase;
     const selected = motion.selectedIndex;
     if (selected < 0 || phase === 'original' || phase === 'waiting' || phase === 'candidates') {
       automaticContact = null;
@@ -234,28 +248,29 @@ async function start() {
     }
     edgeFog.update(motion.reducedMotion ? 0 : motion.effectTime, edgeStyle,
       phase !== 'original', memories.renderStates, memoryReveal);
-    const presentationPhase = motion.cardProgress >= 1 ? 'card'
+    const presentationPhase = catalogue ? 'catalogue' : motion.cardProgress >= 1 ? 'card'
       : motion.cardProgress > 0 ? 'growing' : motion.threadProgress > 0 ? 'thread' : 'none';
     if (document.body.dataset.presentation !== presentationPhase) {
       document.body.dataset.presentation = presentationPhase;
     }
-    if (nextCard !== displayedCard) {
+    const nextNickname = catalogue?.nickname.id || (nextCard < 0 ? '' : nicknameFor(nextCard).id);
+    if (nextCard !== displayedCard || document.body.dataset.card !== nextNickname) {
       displayedCard = nextCard;
       for (let index = 0; index < targets.length; index++) {
         targets[index].setAttribute('aria-expanded', String(index === nextCard));
       }
-      showButton.setAttribute('aria-expanded', String(nextCard >= 0));
-      document.body.dataset.card = nextCard < 0 ? '' : nicknameFor(nextCard).id;
-      document.body.dataset.occurrence = nextCard < 0 ? '' : scene.occurrences[nextCard].id;
+      showButton.setAttribute('aria-expanded', String(Boolean(catalogue) || nextCard >= 0));
+      document.body.dataset.card = nextNickname;
+      document.body.dataset.occurrence = catalogue || nextCard < 0 ? '' : scene.occurrences[nextCard].id;
     }
     if (focusPending && presentation.ready) {
       focusPending = false;
       card.element.focus({preventScroll: true});
     }
-    const phaseChanged = phase !== lastPhase || selected !== lastSelected;
+    const phaseChanged = phase !== lastPhase || selected !== lastSelected || nextNickname !== lastCardNickname;
     const returning = phase === 'original' && hasInk;
     if (phaseChanged || second !== lastSecond || returning !== lastReturning || presentationPhase !== lastPresentationPhase) {
-      const name = selected < 0 ? '' : nicknameFor(selected).label;
+      const name = catalogue ? catalogue.nickname.label : selected < 0 ? '' : nicknameFor(selected).label;
       const names = phase === 'candidates'
         ? [motion.candidateA, motion.candidateB, motion.candidateC].map(index => nicknameFor(index).label).join(', ')
         : '';
@@ -269,12 +284,14 @@ async function start() {
       if (phase !== lastPhase) document.body.dataset.phase = phase;
       lastPhase = phase;
       lastSelected = selected;
+      lastCardNickname = nextNickname;
       lastSecond = second;
       lastReturning = returning;
       lastPresentationPhase = presentationPhase;
     }
-    if (lastAutomatic !== motion.automatic) {
-      lastAutomatic = motion.automatic;
+    const automatic = catalogue ? catalogue.automatic : motion.automatic;
+    if (lastAutomatic !== automatic) {
+      lastAutomatic = automatic;
       autoButton.textContent = t(lastAutomatic ? 'controls.stop' : 'controls.start');
       autoButton.setAttribute('aria-pressed', String(lastAutomatic));
     }
@@ -324,9 +341,34 @@ async function start() {
     pointerContact = null;
     overTarget = -1;
   }
+  function leaveCatalogue(restoreAutomatic = true) {
+    if (!catalogue) return;
+    const automatic = catalogue.automatic;
+    const restoreControls = catalogue.restoreControls;
+    catalogue = null;
+    presentation.setCatalogue(null);
+    if (restoreAutomatic) motion.setAutomatic(automatic);
+    if (restoreControls && controls.hidden) floatingControls.show({focus: false, docked: false});
+  }
+  function inspectCatalogue(nickname) {
+    cancelClose();
+    clearPointer();
+    automaticContact = null;
+    const automatic = catalogue ? catalogue.automatic : motion.automatic;
+    catalogue = {nickname, automatic, restoreControls: catalogue?.restoreControls || false};
+    motion.setAutomatic(false);
+    motion.dismiss();
+    pinned = true;
+    focusPending = true;
+    picker.value = nickname.id;
+    presentation.setCatalogue(nickname);
+    repositionCard();
+    refresh();
+  }
   function inspect(index, pin = false, focus = false, contact) {
     cancelHover();
     cancelClose();
+    leaveCatalogue();
     if (contact === null) {
       clearPointer();
       automaticContact = null;
@@ -346,6 +388,7 @@ async function start() {
   function releaseManual() {
     cancelClose();
     clearPointer();
+    leaveCatalogue();
     pinned = focusPending = false;
     motion.setManual(-1);
     refresh();
@@ -364,6 +407,7 @@ async function start() {
   }
   function reset() {
     cancelClose();
+    leaveCatalogue(false);
     pinned = overCard = focusPending = false;
     clearPointer();
     motion.reset();
@@ -371,6 +415,7 @@ async function start() {
   }
   function dismiss() {
     cancelClose();
+    leaveCatalogue();
     pinned = overCard = focusPending = false;
     clearPointer();
     motion.dismiss();
@@ -387,7 +432,7 @@ async function start() {
       cancelHover();
       if (motion.manualIndex >= 0) pinned = true;
       if (index === motion.manualIndex || index === displayedCard) return;
-      if (motion.manualIndex < 0 && displayedCard < 0 && motion.threadProgress === 0) {
+      if (!catalogue && motion.manualIndex < 0 && displayedCard < 0 && motion.threadProgress === 0) {
         inspect(index, true, false, contact);
         return;
       }
@@ -492,12 +537,17 @@ async function start() {
   memoryViewerTarget.addEventListener('change', changeMemories);
   showButton.addEventListener('click', () => {
     const group = occurrenceGroups.get(picker.value);
+    if (!group.length) {
+      inspectCatalogue(nicknames.get(picker.value));
+      return;
+    }
     const current = motion.manualIndex >= 0 ? motion.manualIndex : displayedCard;
     const next = group[(group.indexOf(current) + 1) % group.length];
     inspect(next, true, true, null);
   });
   autoButton.addEventListener('click', () => {
-    const enabled = !motion.automatic;
+    const enabled = !(catalogue ? catalogue.automatic : motion.automatic);
+    leaveCatalogue(false);
     cancelClose();
     clearPointer();
     pinned = focusPending = false;
@@ -508,7 +558,7 @@ async function start() {
   originalButton.addEventListener('click', reset);
   card.element.querySelector('#close-card').addEventListener('click', () => {
     dismiss();
-    showButton.focus({preventScroll: true});
+    (controls.hidden ? controlsLauncher : showButton).focus({preventScroll: true});
   });
   document.addEventListener('pointerdown', event => {
     if (memories.open || event.target.closest('.screenshot-target')) return;
@@ -518,7 +568,7 @@ async function start() {
       inspect(pointerInput.currentIndex, true, false, pointerInput.currentContact);
       return;
     }
-    if (motion.manualIndex >= 0 && !targetsContainer.contains(event.target) &&
+    if ((catalogue || motion.manualIndex >= 0) && !targetsContainer.contains(event.target) &&
         !card.element.contains(event.target) && !controls.contains(event.target) &&
         !controlsLauncher.contains(event.target)) {
       releaseManual();
@@ -526,18 +576,21 @@ async function start() {
   });
   document.addEventListener('keydown', event => {
     if (event.defaultPrevented || memories.open) return;
-    if (event.key === 'Escape' && (motion.automatic || motion.manualIndex >= 0 || displayedCard >= 0)) {
+    if (event.key === 'Escape' && (catalogue || motion.automatic || motion.manualIndex >= 0 || displayedCard >= 0)) {
       event.preventDefault();
       const restoreFocus = card.element.contains(document.activeElement);
       reset();
-      if (restoreFocus) showButton.focus({preventScroll: true});
+      if (restoreFocus) (controls.hidden ? controlsLauncher : showButton).focus({preventScroll: true});
     }
   });
   reducedMotion.addEventListener('change', () => {
     if (failed) return;
     card.setReducedMotion(reducedMotion.matches);
     motion.setReducedMotion(reducedMotion.matches);
-    if (reducedMotion.matches) motion.setAutomatic(false);
+    if (reducedMotion.matches) {
+      if (catalogue) catalogue.automatic = false;
+      motion.setAutomatic(false);
+    }
     announceTechnology();
     refresh();
   });
@@ -592,7 +645,7 @@ async function start() {
   }
 
   document.getElementById('source-note').textContent = t('source.summary', {
-    guild: source.guildName, realm: t(`realm.${source.realmSlug}`), date: formatDate(source.checkedOn),
+    guild: source.guildName, realm: t(`realm.${source.realmSlug}`),
   });
   announceTechnology();
   pulseCount.max = String(scene.occurrences.length);

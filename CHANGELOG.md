@@ -1,5 +1,40 @@
 # Changelog
 
+## 1.3.0 — 2026-11-09
+
+- Unify character-card content alignment across circular, compact and bottom
+  controls. Keep identical side rails with or without alternates so navigation
+  cannot shift portraits, headings or source links; preserve 44px hit targets.
+- Show the owner-supplied guild emblem on cards without a selected avatar.
+  Serve it locally, distinguish it from historical portraits, and preserve
+  existing galleries, image counters and attribution warnings.
+- Mark Асканий, Белыйволк and Лихон as probable mains within already-linked
+  character groups, where every other member has a corroborated «Твинк» rank.
+  Display probable main/alt badges and preserve the original note evidence.
+- Keep owner-confirmed mains authoritative and leave ambiguous groups unassigned.
+  Validate inference provenance, rank agreement, existing links and snapshot age
+  instead of equating higher guild rank, level or achievements with a main.
+- Record owner-confirmed mains for Кутюрье, Кривонос, Соулсторм, Храндор,
+  Максиус and Шиора, preserving screenshot-note evidence for their alts.
+- Give Максиус a separate historical-character card before Максис and Эрамид,
+  without conflating the names or inventing an Armory profile, statistics,
+  realm or observation date.
+- Migrate recovered forum sources into 67 catalogue entries and 109 character
+  records, covering all 34 recovered profile groups and six personal applications.
+  Keep applicants and historical forum accounts distinct from confirmed guild members.
+- Add 14 source-traced nickname occurrences without changing the original collage,
+  plus 16 picker-only cards with no invented glyph, thread or automatic selection.
+- Incorporate approved forum handles, legacy account continuities and the
+  Пандемоний/Фордана character associations; retain actual latest recovered profile links.
+- Add owner-confirmed Хадли and Эндис groups, two historical groups without a main,
+  and separately attributed Дарко/Тефф declarations rather than inferred alts.
+- Add selected forum images, remove duplicate thumbnail versions from galleries,
+  and visibly qualify Эйнар's permitted number-only avatar candidate.
+- Add nine separately dated public-roster observations without redating existing
+  Armory records. Preserve independent screenshot ranks and achievement evidence.
+- Keep scenery animated during threadless card inspection, retain reduced-motion
+  behavior, and avoid hiding settings merely because a historical card is naturally short.
+
 ## 1.2.0 — 2026-11-08
 
 - Add «Кнопки карточки» to the existing settings panel with three layouts:

@@ -285,15 +285,17 @@ export function setReducedMotion(enabled: i32): void {
   render();
 }
 
-export function advance(deltaSeconds: f64): i32 {
+export function advance(deltaSeconds: f64, continueEffects: bool): i32 {
   // Invalid input must not poison the clock. Finite positive deltas are never clamped.
   if (!(deltaSeconds >= 0.0) || deltaSeconds == Infinity) deltaSeconds = 0.0;
   if (phase == ORIGINAL || phase == MANUAL) {
     const limit = phase == ORIGINAL ? RETREAT_SECONDS : REVEAL_SECONDS;
     elapsed = reducedMotion ? limit : Math.min(limit, elapsed + deltaSeconds);
-    if (phase == MANUAL && !reducedMotion) pulseClock += deltaSeconds;
+    // A threadless catalogue card keeps scenery moving without selecting a glyph.
+    const effectsMoving = (phase == MANUAL || continueEffects) && !reducedMotion;
+    if (effectsMoving) pulseClock += deltaSeconds;
     render();
-    return elapsed < limit || (phase == MANUAL && !reducedMotion) ? 1 : 0;
+    return elapsed < limit || effectsMoving ? 1 : 0;
   }
 
   let remaining = deltaSeconds;

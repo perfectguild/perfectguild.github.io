@@ -18,6 +18,10 @@ WebGL2 shaders and a WebAssembly motion engine. It includes:
   connected to the selected lettering by an animated thread.
 - Dated Armory details, guild ranks, verified alternate-character groups,
   and selected historical forum avatars with source links.
+- An alphabetic catalogue of 67 entries, including historical profiles and
+  applications without a readable place on the collage. Such cards open without
+  a fabricated nickname highlight or connecting thread.
+  Confirmed identities, historical declarations and candidate images remain distinct.
 - Three character-card control layouts in settings: compact edge buttons,
   circular buttons (default), or bottom navigation, with full-size touch targets.
 - Grayscale screenshot memories in the fog, a fullscreen carousel, and

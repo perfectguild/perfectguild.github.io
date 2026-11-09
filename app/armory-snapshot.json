@@ -1888,6 +1888,27 @@
       }
     },
     {
+      "id": "maksius",
+      "characterName": "Максиус",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "owner-confirmed-character",
+        "confirmedOn": "2026-11-08"
+      }
+    },
+    {
       "id": "dzhonrembo",
       "characterName": "Джонрембо",
       "recordKind": "historical-nickname",
@@ -1948,6 +1969,897 @@
       "binding": {
         "kind": "archive-forum-name",
         "evidenceUrl": "https://web.archive.org/web/20131126103429/http://perfectguild.com/forum/"
+      }
+    },
+    {
+      "id": "azzarius",
+      "characterName": "Аззариус",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100501170026id_/http://perfectguild.com:80/forum/index.php?/user/8-ali/"
+      }
+    },
+    {
+      "id": "knarr",
+      "characterName": "Кнарр",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100426012142id_/http://perfectguild.com:80/forum/index.php?/forum/4-%D0%B2%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D0%B3%D0%B8%D0%BB%D1%8C%D0%B4%D0%B8%D1%8E/"
+      }
+    },
+    {
+      "id": "kolontitul",
+      "characterName": "Колонтитул",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100812112308id_/http://perfectguild.com:80/forum/index.php?/forum/2-%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D1%80-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82%D1%8C-%D0%BB%D1%8C%D0%B2%D0%B0/"
+      }
+    },
+    {
+      "id": "nadirka",
+      "characterName": "Надирка",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100812112308id_/http://perfectguild.com:80/forum/index.php?/forum/2-%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D1%80-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82%D1%8C-%D0%BB%D1%8C%D0%B2%D0%B0/"
+      }
+    },
+    {
+      "id": "pandem462d1d",
+      "characterName": "Пандем462D1D",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BF%D0%B0%D0%BD%D0%B4%D0%B5%D0%BC462d1d",
+      "level": 32,
+      "race": "Дреней",
+      "className": "Паладин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "observedOn": "2026-11-09",
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 6,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 11580
+      }
+    },
+    {
+      "id": "skromnik",
+      "characterName": "Скромник",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100502020751id_/http://perfectguild.com:80/forum/index.php?/user/18-%D0%B1%D0%B0%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0/"
+      }
+    },
+    {
+      "id": "teffi",
+      "characterName": "Теффи",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20100624042726id_/http://perfectguild.com:80/forum/index.php?/user/176-jamie/"
+      }
+    },
+    {
+      "id": "tilvar",
+      "characterName": "Тильвар",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20090908224420id_/http://perfectguild.com:80/forum/index.php?showtopic=331&st=0&"
+      }
+    },
+    {
+      "id": "tonk",
+      "characterName": "Тонк",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100302054707id_/http://perfectguild.com:80/forum/index.php?/user/100-%D1%82%D0%BE%D0%BD%D0%BA/"
+      }
+    },
+    {
+      "id": "fordan85213c",
+      "characterName": "Фордан85213C",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%84%D0%BE%D1%80%D0%B4%D0%B0%D0%BD85213c",
+      "level": 30,
+      "race": "Дреней",
+      "className": "Воин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "observedOn": "2026-11-09",
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 8,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 5420
+      }
+    },
+    {
+      "id": "hadli",
+      "characterName": "Хадли",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%85%D0%B0%D0%B4%D0%BB%D0%B8",
+      "level": 60,
+      "race": "Дреней",
+      "className": "Жрец",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 4,
+        "name": "Звание 5"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "observedOn": "2026-11-09",
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 8,
+        "rankKey": "card.rankWanderer",
+        "achievementPoints": 12630
+      }
+    },
+    {
+      "id": "endis",
+      "characterName": "Эндис",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%8D%D0%BD%D0%B4%D0%B8%D1%81",
+      "level": 70,
+      "race": "Ночной эльф",
+      "className": "Воин",
+      "specialization": "Оружие",
+      "itemLevel": 503,
+      "achievementPoints": 31830,
+      "guildRank": {
+        "index": 2,
+        "name": "Звание 3"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "observedOn": "2026-11-09",
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 10,
+        "rankKey": "card.rankVeteran",
+        "achievementPoints": 31830
+      }
+    },
+    {
+      "id": "espiritus",
+      "characterName": "Эспиритус",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100628232903id_/http://perfectguild.com:80/forum/index.php?"
+      }
+    },
+    {
+      "id": "shayana",
+      "characterName": "Шаяна",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20131126103429id_/http://perfectguild.com/forum/"
+      }
+    },
+    {
+      "id": "inken",
+      "characterName": "Инкен",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100814030404id_/http://perfectguild.com:80/forum/index.php?app=forums&module=extras&section=stats"
+      }
+    },
+    {
+      "id": "sevior",
+      "characterName": "Сэвиор",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100424142416id_/http://perfectguild.com:80/forum/index.php?/user/16-savior/"
+      }
+    },
+    {
+      "id": "salmar",
+      "characterName": "Сальмар",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%81%D0%B0%D0%BB%D1%8C%D0%BC%D0%B0%D1%80",
+      "level": 47,
+      "race": "Дворф",
+      "className": "Воин",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "observedOn": "2026-11-09",
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 7,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 4660
+      }
+    },
+    {
+      "id": "grizmor",
+      "characterName": "Гризмор",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100302021200id_/http://perfectguild.com:80/forum/index.php?/user/135-%D0%B3%D1%80%D0%B8%D0%B7%D0%BC%D0%BE%D1%80/"
+      }
+    },
+    {
+      "id": "ostr",
+      "characterName": "Остр",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20100424142421id_/http://perfectguild.com:80/forum/index.php?/user/171-ostsr/"
+      }
+    },
+    {
+      "id": "goryachiyparen",
+      "characterName": "Горячийпарен",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20100424142426id_/http://perfectguild.com:80/forum/index.php?/user/172-ashes/"
+      }
+    },
+    {
+      "id": "hest",
+      "characterName": "Хэст",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20100424142437id_/http://perfectguild.com:80/forum/index.php?/user/175-%D1%85%D1%8D%D1%81%D1%82/"
+      }
+    },
+    {
+      "id": "bambina",
+      "characterName": "Бамбина",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100502020751id_/http://perfectguild.com:80/forum/index.php?/user/18-%D0%B1%D0%B0%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0/"
+      }
+    },
+    {
+      "id": "dantes",
+      "characterName": "Дантэc",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100302053641id_/http://perfectguild.com:80/forum/index.php?/user/28-%D0%B4%D0%B0%D0%BD%D1%82%D1%8Dc/"
+      }
+    },
+    {
+      "id": "tal",
+      "characterName": "Тал",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100302054723id_/http://perfectguild.com:80/forum/index.php?/user/33-%D1%82%D0%B0%D0%BB/"
+      }
+    },
+    {
+      "id": "rilya",
+      "characterName": "Рилья",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20100424142521id_/http://perfectguild.com:80/forum/index.php?/user/5-lis/"
+      }
+    },
+    {
+      "id": "ivian",
+      "characterName": "Ivian",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20100302054728id_/http://perfectguild.com:80/forum/index.php?/user/59-ivian/"
+      }
+    },
+    {
+      "id": "kelebrin",
+      "characterName": "Келебрин",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20090906192007id_/http://perfectguild.com:80/forum/index.php?showuser=118"
+      }
+    },
+    {
+      "id": "kepswevareaky",
+      "characterName": "kepSwevareaky",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20090906192011id_/http://perfectguild.com:80/forum/index.php?showuser=191"
+      }
+    },
+    {
+      "id": "sirius",
+      "characterName": "Сириус",
+      "recordKind": "historical-nickname",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-forum-name",
+        "evidenceUrl": "https://web.archive.org/web/20090905093706id_/http://perfectguild.com:80/forum/index.php?showuser=37"
+      }
+    },
+    {
+      "id": "chernodel",
+      "characterName": "Чернодел",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20090907091537id_/http://perfectguild.com:80/forum/index.php?showtopic=489&pid=6887&st=0&"
+      }
+    },
+    {
+      "id": "volchanka",
+      "characterName": "Волчанка",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20100424235646id_/http://perfectguild.com:80/forum/index.php?/topic/200-%D1%85%D0%B0%D0%B4%D0%BB%D0%B8/"
+      }
+    },
+    {
+      "id": "ostich",
+      "characterName": "Остич",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20100424235635id_/http://perfectguild.com:80/forum/index.php?/topic/195-%D0%BE%D1%81%D1%82%D1%80/"
+      }
+    },
+    {
+      "id": "jassim",
+      "characterName": "Jassim",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20100424235635id_/http://perfectguild.com:80/forum/index.php?/topic/195-%D0%BE%D1%81%D1%82%D1%80/"
+      }
+    },
+    {
+      "id": "ostr-latin",
+      "characterName": "Ostr",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20100424235635id_/http://perfectguild.com:80/forum/index.php?/topic/195-%D0%BE%D1%81%D1%82%D1%80/"
+      }
+    },
+    {
+      "id": "zeles",
+      "characterName": "зелес",
+      "recordKind": "historical-character",
+      "region": null,
+      "realm": null,
+      "realmSlug": null,
+      "profileUrl": null,
+      "level": null,
+      "race": null,
+      "className": null,
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": null,
+      "isOutdated": false,
+      "binding": {
+        "kind": "archive-character",
+        "sourceUrl": "https://web.archive.org/web/20090907091537id_/http://perfectguild.com:80/forum/index.php?showtopic=489&pid=6887&st=0&"
+      }
+    },
+    {
+      "id": "chiirik",
+      "characterName": "Чиирик",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%87%D0%B8%D0%B8%D1%80%D0%B8%D0%BA",
+      "level": 45,
+      "race": "Человек",
+      "className": "Рыцарь смерти",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "observedOn": "2026-11-09",
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 9,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 4555
+      }
+    },
+    {
+      "id": "pakdi",
+      "characterName": "Пакди",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BF%D0%B0%D0%BA%D0%B4%D0%B8",
+      "level": 40,
+      "race": "Дреней",
+      "className": "Монах",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "observedOn": "2026-11-09",
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 6,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 1415
+      }
+    },
+    {
+      "id": "endiguard",
+      "characterName": "Эндигуард",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D1%8D%D0%BD%D0%B4%D0%B8%D0%B3%D1%83%D0%B0%D1%80%D0%B4",
+      "level": 45,
+      "race": "Дреней",
+      "className": "Шаман",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "observedOn": "2026-11-09",
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 9,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 4235
+      }
+    },
+    {
+      "id": "kortum",
+      "characterName": "Кортум",
+      "region": "EU",
+      "realm": "Король-лич",
+      "realmSlug": "lich-king",
+      "profileUrl": "https://worldofwarcraft.blizzard.com/ru-ru/worldsoul/eu/armory/character/lich-king/%D0%BA%D0%BE%D1%80%D1%82%D1%83%D0%BC",
+      "level": 70,
+      "race": "Ночной эльф",
+      "className": "Друид",
+      "specialization": null,
+      "itemLevel": null,
+      "achievementPoints": null,
+      "guildRank": {
+        "index": 6,
+        "name": "Звание 7"
+      },
+      "isOutdated": false,
+      "binding": {
+        "kind": "name-match"
+      },
+      "observedOn": "2026-11-09",
+      "rosterObservation": {
+        "sourceId": "owner-game-roster-2026-11-07",
+        "image": 4,
+        "rankKey": "card.rankRecruit",
+        "achievementPoints": 4860
       }
     }
   ],
@@ -2063,14 +2975,20 @@
       ],
       "evidenceKind": "in-game-roster-note",
       "receivedOn": "2026-11-07",
+      "roleInference": {
+        "kind": "single-non-twink",
+        "assessedOn": "2026-11-08",
+        "armoryObservedOn": "2026-11-07",
+        "rosterSourceId": "owner-game-roster-2026-11-07"
+      },
       "members": [
         {
           "characterId": "askaniy",
-          "role": "related"
+          "role": "main"
         },
         {
           "characterId": "dilema",
-          "role": "related"
+          "role": "alt"
         }
       ],
       "evidence": [
@@ -2089,14 +3007,20 @@
       ],
       "evidenceKind": "in-game-roster-note",
       "receivedOn": "2026-11-07",
+      "roleInference": {
+        "kind": "single-non-twink",
+        "assessedOn": "2026-11-08",
+        "armoryObservedOn": "2026-11-07",
+        "rosterSourceId": "owner-game-roster-2026-11-07"
+      },
       "members": [
         {
           "characterId": "belyyvolk",
-          "role": "related"
+          "role": "main"
         },
         {
           "characterId": "dzhovi",
-          "role": "related"
+          "role": "alt"
         }
       ],
       "evidence": [
@@ -2114,20 +3038,21 @@
         "shiora",
         "disa"
       ],
-      "evidenceKind": "in-game-roster-note",
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-08",
       "receivedOn": "2026-11-07",
       "members": [
         {
           "characterId": "shiora",
-          "role": "related"
+          "role": "main"
         },
         {
           "characterId": "disa",
-          "role": "related"
+          "role": "alt"
         },
         {
           "characterId": "otselora",
-          "role": "related"
+          "role": "alt"
         }
       ],
       "evidence": [
@@ -2150,32 +3075,33 @@
       "nicknameIds": [
         "kutyurye"
       ],
-      "evidenceKind": "in-game-roster-note",
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-08",
       "receivedOn": "2026-11-07",
       "members": [
         {
           "characterId": "kutyurye",
-          "role": "related"
+          "role": "main"
         },
         {
           "characterId": "iver",
-          "role": "related"
+          "role": "alt"
         },
         {
           "characterId": "lettera",
-          "role": "related"
+          "role": "alt"
         },
         {
           "characterId": "liarel",
-          "role": "related"
+          "role": "alt"
         },
         {
           "characterId": "milinara",
-          "role": "related"
+          "role": "alt"
         },
         {
           "characterId": "tulachermet",
-          "role": "related"
+          "role": "alt"
         }
       ],
       "evidence": [
@@ -2218,18 +3144,24 @@
       ],
       "evidenceKind": "in-game-roster-note",
       "receivedOn": "2026-11-07",
+      "roleInference": {
+        "kind": "single-non-twink",
+        "assessedOn": "2026-11-08",
+        "armoryObservedOn": "2026-11-07",
+        "rosterSourceId": "owner-game-roster-2026-11-07"
+      },
       "members": [
         {
           "characterId": "lihon",
-          "role": "related"
+          "role": "main"
         },
         {
           "characterId": "kareha",
-          "role": "related"
+          "role": "alt"
         },
         {
           "characterId": "letriks",
-          "role": "related"
+          "role": "alt"
         }
       ],
       "evidence": [
@@ -2252,20 +3184,21 @@
       "nicknameIds": [
         "krivonos"
       ],
-      "evidenceKind": "in-game-roster-note",
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-08",
       "receivedOn": "2026-11-07",
       "members": [
         {
           "characterId": "krivonos",
-          "role": "related"
+          "role": "main"
         },
         {
           "characterId": "ryzheborod",
-          "role": "related"
+          "role": "alt"
         },
         {
           "characterId": "taenpiro",
-          "role": "related"
+          "role": "alt"
         }
       ],
       "evidence": [
@@ -2288,20 +3221,21 @@
       "nicknameIds": [
         "soulstorm"
       ],
-      "evidenceKind": "in-game-roster-note",
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-08",
       "receivedOn": "2026-11-07",
       "members": [
         {
           "characterId": "soulstorm",
-          "role": "related"
+          "role": "main"
         },
         {
           "characterId": "klikbum",
-          "role": "related"
+          "role": "alt"
         },
         {
           "characterId": "perekrutka",
-          "role": "related"
+          "role": "alt"
         }
       ],
       "evidence": [
@@ -2392,16 +3326,17 @@
       "nicknameIds": [
         "khrandor"
       ],
-      "evidenceKind": "in-game-roster-note",
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-08",
       "receivedOn": "2026-11-07",
       "members": [
         {
           "characterId": "khrandor",
-          "role": "related"
+          "role": "main"
         },
         {
           "characterId": "pankotronik",
-          "role": "related"
+          "role": "alt"
         }
       ],
       "evidence": [
@@ -2446,16 +3381,21 @@
       "nicknameIds": [
         "maksius"
       ],
-      "evidenceKind": "in-game-roster-note",
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-08",
       "receivedOn": "2026-11-07",
       "members": [
         {
+          "characterId": "maksius",
+          "role": "main"
+        },
+        {
           "characterId": "maksis",
-          "role": "related"
+          "role": "alt"
         },
         {
           "characterId": "eramid",
-          "role": "related"
+          "role": "alt"
         }
       ],
       "evidence": [
@@ -2470,6 +3410,129 @@
           "image": 10,
           "characterId": "eramid",
           "note": "ака Максиус"
+        }
+      ]
+    },
+    {
+      "id": "hadli",
+      "nicknameIds": [
+        "hadli"
+      ],
+      "evidenceKind": "owner-confirmed",
+      "capturedOn": "2010-04-24",
+      "evidenceUrl": "https://web.archive.org/web/20100424235646id_/http://perfectguild.com:80/forum/index.php?/topic/200-%D1%85%D0%B0%D0%B4%D0%BB%D0%B8/",
+      "members": [
+        {
+          "characterId": "hadli",
+          "role": "main"
+        },
+        {
+          "characterId": "volchanka",
+          "role": "alt"
+        }
+      ],
+      "confirmedOn": "2026-11-09"
+    },
+    {
+      "id": "ostr",
+      "nicknameIds": [
+        "ostr"
+      ],
+      "evidenceKind": "archive-self-report",
+      "capturedOn": "2010-04-24",
+      "evidenceUrl": "https://web.archive.org/web/20100424235635id_/http://perfectguild.com:80/forum/index.php?/topic/195-%D0%BE%D1%81%D1%82%D1%80/",
+      "members": [
+        {
+          "characterId": "ostr",
+          "role": "related"
+        },
+        {
+          "characterId": "ostich",
+          "role": "related"
+        },
+        {
+          "characterId": "jassim",
+          "role": "related"
+        },
+        {
+          "characterId": "ostr-latin",
+          "role": "related"
+        }
+      ]
+    },
+    {
+      "id": "chernodel",
+      "nicknameIds": [
+        "chernodel"
+      ],
+      "evidenceKind": "archive-self-report",
+      "capturedOn": "2009-09-07",
+      "evidenceUrl": "https://web.archive.org/web/20090907091537id_/http://perfectguild.com:80/forum/index.php?showtopic=489&pid=6887&st=0&",
+      "members": [
+        {
+          "characterId": "chernodel",
+          "role": "related"
+        },
+        {
+          "characterId": "zeles",
+          "role": "related"
+        }
+      ]
+    },
+    {
+      "id": "endis",
+      "nicknameIds": [
+        "endis"
+      ],
+      "evidenceKind": "owner-confirmed",
+      "confirmedOn": "2026-11-09",
+      "receivedOn": "2026-11-07",
+      "members": [
+        {
+          "characterId": "endis",
+          "role": "main"
+        },
+        {
+          "characterId": "kortum",
+          "role": "alt"
+        },
+        {
+          "characterId": "pakdi",
+          "role": "alt"
+        },
+        {
+          "characterId": "chiirik",
+          "role": "alt"
+        },
+        {
+          "characterId": "endiguard",
+          "role": "alt"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 4,
+          "characterId": "kortum",
+          "note": "Эндис"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 6,
+          "characterId": "pakdi",
+          "note": "Эндис"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 9,
+          "characterId": "chiirik",
+          "note": "ака Эндис"
+        },
+        {
+          "sourceId": "owner-game-roster-2026-11-07",
+          "image": 9,
+          "characterId": "endiguard",
+          "note": "Эндис"
         }
       ]
     }

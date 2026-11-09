@@ -159,15 +159,16 @@ export function createFloatingControls({panel, onLayout}) {
     notifyLayout();
   }
 
-  function show() {
+  function show({focus = true, docked = true} = {}) {
     if (disposed || !panel.hidden) return;
     panel.hidden = false;
     launcher.hidden = true;
     launcher.setAttribute('aria-expanded', 'true');
-    dock();
+    if (docked) dock();
     clamp();
+    if (!docked) notifyLayout();
     const target = panel.contains(lastFocus) && !lastFocus.disabled && lastFocus.getClientRects().length ? lastFocus : handle;
-    target.focus({preventScroll: true});
+    if (focus) target.focus({preventScroll: true});
   }
 
   function dock() {
@@ -207,6 +208,8 @@ export function createFloatingControls({panel, onLayout}) {
   clamp();
 
   return {
+    hide,
+    show,
     dispose() {
       if (disposed) return;
       disposed = true;

@@ -1,5 +1,5 @@
 // One contact impulse: glyph ink -> thread -> growing frame -> gentle sway.
-// All progress and oscillation come from WASM; this module owns only geometry.
+// WASM owns glyph animation; catalogue-only cards have an explicit static mode.
 export function createCardPresentation({image, controls, card, scene}) {
   const nicknames = new Map(scene.nicknames.map(nickname => [nickname.id, nickname]));
   const ns = 'http://www.w3.org/2000/svg';
@@ -41,6 +41,7 @@ export function createCardPresentation({image, controls, card, scene}) {
   for (const element of content) element.inert = true;
 
   let index = -1;
+  let catalogue = null;
   let geometry = null;
   let latestMotion = null;
   let inputContact = null;
@@ -154,21 +155,22 @@ export function createCardPresentation({image, controls, card, scene}) {
       y: 2.1 + 1.5 + width * swaySin + height * swayInset};
   }
   function layout() {
-    if (index < 0) return;
+    if (index < 0 && !catalogue) return;
     if (!imageRectangle) measureLayout();
     const rectangle = imageRectangle;
     const ratio = rectangle.width / scene.imageWidth;
-    const occurrence = scene.occurrences[index];
-    const bounds = occurrence.bounds;
+    const occurrence = catalogue ? null : scene.occurrences[index];
+    const bounds = occurrence?.bounds;
     const protection = scene.protectedBounds;
     const protectedTop = rectangle.top + protection.y * ratio;
     const protectedBottom = rectangle.top + (protection.y + protection.height) * ratio;
     const directed = inputContact?.mode === 'automatic' || inputContact?.approachKnown;
-    const preferredAbove = inputContact && Math.abs(inputContact.dy) >= 0.2
-      ? inputContact.dy < 0 : bounds.y + bounds.height / 2 < scene.imageHeight / 2;
+    const preferredAbove = catalogue ? protectedTop - viewport.y > viewport.y + viewport.height - protectedBottom
+      : inputContact && Math.abs(inputContact.dy) >= 0.2
+        ? inputContact.dy < 0 : bounds.y + bounds.height / 2 < scene.imageHeight / 2;
     const preferredSide = preferredAbove ? 'above' : 'below';
-    // Moving the destination must not change the glyph contact or outgoing angle.
-    const ink = inputContact || occurrence.contacts[preferredSide];
+    // Catalogue cards have no ink contact, thread or glyph transform.
+    const ink = catalogue ? null : inputContact || occurrence.contacts[preferredSide];
     const padding = 12, gap = 14, obstacleGap = 8;
     const obstacles = [];
     const addObstacle = obstacle => obstacles.push({
@@ -193,17 +195,18 @@ export function createCardPresentation({image, controls, card, scene}) {
     if (wasHidden) {
       card.element.style.visibility = 'hidden';
       card.element.inert = true;
-      card.show(nicknames.get(occurrence.nicknameId));
+      card.show(catalogue || nicknames.get(occurrence.nicknameId));
     }
     card.element.style.transform = 'none';
     card.element.style.minHeight = '0';
     card.element.style.width = '';
     card.element.style.maxHeight = `${Math.max(1, viewport.height - padding * 2)}px`;
     const natural = card.element.getBoundingClientRect();
-    const sourceCenterX = rectangle.left + (bounds.x + bounds.width / 2) * ratio;
-    const peakScale = occurrence.peakScale ?? latestMotion.defaultPeakScale;
-    const restingInkX = sourceCenterX + (ink.x - bounds.width / 2) * ratio * peakScale;
-    const desiredJoint = inputContact ? restingInkX + (directed ? inputContact.dx * 180 : 0) : sourceCenterX;
+    const sourceCenterX = catalogue ? rectangle.left + rectangle.width / 2
+      : rectangle.left + (bounds.x + bounds.width / 2) * ratio;
+    const desiredJoint = catalogue ? sourceCenterX : inputContact
+      ? sourceCenterX + (ink.x - bounds.width / 2) * ratio * (occurrence.peakScale ?? latestMotion.defaultPeakScale)
+        + (directed ? inputContact.dx * 180 : 0) : sourceCenterX;
     function choosePlacement(blocked, minimumWidth = 160, minimumHeight = 64) {
       let best = null;
       for (const region of regions) {
@@ -268,6 +271,14 @@ export function createCardPresentation({image, controls, card, scene}) {
     exclusion.y = top - safety.y;
     exclusion.width = width + safety.x * 2;
     exclusion.height = height + safety.y * 2;
+    if (catalogue) {
+      geometry = {card: {x: left, y: top, width, height},
+        protected: {x: rectangle.left + protection.x * ratio, y: protectedTop,
+          width: protection.width * ratio, height: protection.height * ratio},
+        constrained: screenshots.some(screenshot => screenshot.active && intersects(exclusion, screenshot.viewport))};
+      if (wasHidden) card.hide();
+      return;
+    }
     geometry = {
       side, preferredSide, ratio, sourceCenterX,
       sourceCenterY: rectangle.top + (bounds.y + bounds.height / 2) * ratio,
@@ -397,6 +408,18 @@ export function createCardPresentation({image, controls, card, scene}) {
     contactRing.setAttribute('opacity', travelling ? String((1 - touch) ** 2 * 0.85) : '0');
     contact.setAttribute('opacity', travelling ? String(1 - touch) : '0');
   }
+  function paintCatalogue() {
+    svg.style.display = 'none';
+    card.element.dataset.placement = 'catalog-only';
+    card.element.style.visibility = 'visible';
+    card.element.style.transform = 'none';
+    card.element.style.clipPath = 'none';
+    card.element.style.opacity = '1';
+    card.element.inert = false;
+    card.show(catalogue);
+    visible = true;
+    setReady(true);
+  }
   function update(motion, input, renderStates) {
     latestMotion = motion;
     const nextContact = input?.index === motion.selectedIndex ? input : null;
@@ -404,6 +427,11 @@ export function createCardPresentation({image, controls, card, scene}) {
     inputContact = nextContact;
     const screenshotsChanged = cacheScreenshots(renderStates);
     if (screenshotsChanged) projectScreenshots();
+    if (catalogue) {
+      if (!geometry || screenshotsChanged) layout();
+      paintCatalogue();
+      return;
+    }
     if (index !== motion.selectedIndex) {
       index = motion.selectedIndex;
       if (index >= 0) {
@@ -423,25 +451,47 @@ export function createCardPresentation({image, controls, card, scene}) {
   function reposition() {
     measureLayout();
     layout();
-    if (latestMotion) paint(latestMotion);
+    if (catalogue) paintCatalogue();
+    else if (latestMotion) paint(latestMotion);
   }
   const observer = new ResizeObserver(reposition);
   observer.observe(controls);
   observer.observe(image);
   window.addEventListener('resize', reposition);
   window.addEventListener('scroll', reposition, {passive: true});
+  window.visualViewport?.addEventListener('resize', reposition);
+  window.visualViewport?.addEventListener('scroll', reposition);
   measureLayout();
   return {
+    setCatalogue(nickname) {
+      if (catalogue === nickname) return;
+      catalogue = nickname;
+      index = -1;
+      geometry = null;
+      inputContact = null;
+      visible = false;
+      setReady(false);
+      card.hide();
+      card.element.inert = true;
+      delete card.element.dataset.placement;
+      svg.style.display = 'none';
+      if (catalogue) {
+        layout();
+        paintCatalogue();
+      }
+    },
     update,
     reposition,
     get visible() { return visible; },
     get ready() { return ready; },
-    get exclusionBounds() { return index >= 0 && geometry ? exclusion : null; },
+    get exclusionBounds() { return geometry && (catalogue || index >= 0) ? exclusion : null; },
     get constrained() { return Boolean(geometry?.constrained); },
     dispose() {
       observer.disconnect();
       window.removeEventListener('resize', reposition);
       window.removeEventListener('scroll', reposition);
+      window.visualViewport?.removeEventListener('resize', reposition);
+      window.visualViewport?.removeEventListener('scroll', reposition);
       svg.remove();
       card.hide();
       card.element.inert = true;

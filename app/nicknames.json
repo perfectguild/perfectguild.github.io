@@ -130,13 +130,7 @@
     },
     {
       "id": "maksius",
-      "label": "Максиус",
-      "characterId": "maksis",
-      "evidence": {
-        "sourceId": "owner-game-roster-2026-11-07",
-        "image": 5,
-        "note": "ака Максиус"
-      }
+      "label": "Максиус"
     },
     {
       "id": "yor",
@@ -179,6 +173,154 @@
     {
       "id": "eynar",
       "label": "Эйнар"
+    },
+    {
+      "id": "azzarius",
+      "label": "Аззариус"
+    },
+    {
+      "id": "knarr",
+      "label": "Кнарр"
+    },
+    {
+      "id": "kolontitul",
+      "label": "Колонтитул"
+    },
+    {
+      "id": "nadirka",
+      "label": "Надирка"
+    },
+    {
+      "id": "pandemoniy",
+      "label": "Пандемоний",
+      "characterId": "pandem462d1d",
+      "evidence": {
+        "kind": "owner-confirmed-character",
+        "confirmedOn": "2026-11-09",
+        "note": "Пандемоний — тот же персонаж, что Пандем462D1D; подтверждено владельцем."
+      }
+    },
+    {
+      "id": "skromnik",
+      "label": "Скромник"
+    },
+    {
+      "id": "teffi",
+      "label": "Теффи"
+    },
+    {
+      "id": "tilvar",
+      "label": "Тильвар"
+    },
+    {
+      "id": "tonk",
+      "label": "Тонк"
+    },
+    {
+      "id": "fordana",
+      "label": "Фордана",
+      "characterId": "fordan85213c",
+      "evidence": {
+        "kind": "owner-confirmed-character",
+        "confirmedOn": "2026-11-09",
+        "note": "Фордана — тот же персонаж, что Фордан85213C; подтверждено владельцем."
+      }
+    },
+    {
+      "id": "hadli",
+      "label": "Хадли",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "endis",
+      "label": "Эндис",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "espiritus",
+      "label": "Эспиритус"
+    },
+    {
+      "id": "shayana",
+      "label": "Шаяна"
+    },
+    {
+      "id": "inken",
+      "label": "Инкен"
+    },
+    {
+      "id": "sevior",
+      "label": "Сэвиор"
+    },
+    {
+      "id": "salmar",
+      "label": "Сальмар",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "grizmor",
+      "label": "Гризмор",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "ostr",
+      "label": "Остр",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "goryachiyparen",
+      "label": "Горячийпарен",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "hest",
+      "label": "Хэст",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "bambina",
+      "label": "Бамбина",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "dantes",
+      "label": "Дантэc",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "tal",
+      "label": "Тал",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "rilya",
+      "label": "Рилья",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "ivian",
+      "label": "Ivian",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "kelebrin",
+      "label": "Келебрин",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "kepswevareaky",
+      "label": "kepSwevareaky",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "sirius",
+      "label": "Сириус",
+      "placement": "catalog-only"
+    },
+    {
+      "id": "chernodel",
+      "label": "Чернодел",
+      "placement": "catalog-only"
     }
   ],
   "occurrences": [
@@ -1358,6 +1500,328 @@
         }
       },
       "peakScale": 1.85
+    },
+    {
+      "id": "migration-azzarius",
+      "artworkLabel": "Аззариус",
+      "bounds": {
+        "x": 755,
+        "y": 557,
+        "width": 76,
+        "height": 20
+      },
+      "maskUrl": "/assets/migration-azzarius-mask.png",
+      "repairUrl": "/assets/migration-azzarius-repair.png",
+      "contacts": {
+        "above": {
+          "x": 36.5,
+          "y": 6.5
+        },
+        "below": {
+          "x": 36.5,
+          "y": 12.5
+        }
+      },
+      "nicknameId": "azzarius"
+    },
+    {
+      "id": "migration-knarr",
+      "artworkLabel": "Кнарр",
+      "bounds": {
+        "x": 459,
+        "y": 561,
+        "width": 44,
+        "height": 15
+      },
+      "maskUrl": "/assets/migration-knarr-mask.png",
+      "repairUrl": "/assets/migration-knarr-repair.png",
+      "contacts": {
+        "above": {
+          "x": 21.5,
+          "y": 5.5
+        },
+        "below": {
+          "x": 21.5,
+          "y": 12.5
+        }
+      },
+      "nicknameId": "knarr"
+    },
+    {
+      "id": "migration-kolontitul",
+      "artworkLabel": "Колонтитул",
+      "bounds": {
+        "x": 263,
+        "y": 573,
+        "width": 71,
+        "height": 12
+      },
+      "maskUrl": "/assets/migration-kolontitul-mask.png",
+      "repairUrl": "/assets/migration-kolontitul-repair.png",
+      "contacts": {
+        "above": {
+          "x": 35.5,
+          "y": 4.5
+        },
+        "below": {
+          "x": 35.5,
+          "y": 8.5
+        }
+      },
+      "nicknameId": "kolontitul"
+    },
+    {
+      "id": "migration-nadirka",
+      "artworkLabel": "Надирка",
+      "bounds": {
+        "x": 707,
+        "y": 442,
+        "width": 63,
+        "height": 14
+      },
+      "maskUrl": "/assets/migration-nadirka-mask.png",
+      "repairUrl": "/assets/migration-nadirka-repair.png",
+      "contacts": {
+        "above": {
+          "x": 31.5,
+          "y": 3.5
+        },
+        "below": {
+          "x": 31.5,
+          "y": 9.5
+        }
+      },
+      "nicknameId": "nadirka"
+    },
+    {
+      "id": "migration-pandemoniy",
+      "artworkLabel": "Пандемоний",
+      "bounds": {
+        "x": 964,
+        "y": 386,
+        "width": 158,
+        "height": 23
+      },
+      "maskUrl": "/assets/migration-pandemoniy-mask.png",
+      "repairUrl": "/assets/migration-pandemoniy-repair.png",
+      "contacts": {
+        "above": {
+          "x": 78.5,
+          "y": 13.5
+        },
+        "below": {
+          "x": 78.5,
+          "y": 21.5
+        }
+      },
+      "nicknameId": "pandemoniy"
+    },
+    {
+      "id": "migration-skromnik",
+      "artworkLabel": "Скромник",
+      "bounds": {
+        "x": 1175,
+        "y": 550,
+        "width": 75,
+        "height": 14
+      },
+      "maskUrl": "/assets/migration-skromnik-mask.png",
+      "repairUrl": "/assets/migration-skromnik-repair.png",
+      "contacts": {
+        "above": {
+          "x": 37.5,
+          "y": 3.5
+        },
+        "below": {
+          "x": 37.5,
+          "y": 9.5
+        }
+      },
+      "nicknameId": "skromnik"
+    },
+    {
+      "id": "migration-teffi",
+      "artworkLabel": "Теффи",
+      "bounds": {
+        "x": 1308,
+        "y": 389,
+        "width": 61,
+        "height": 20
+      },
+      "maskUrl": "/assets/migration-teffi-mask.png",
+      "repairUrl": "/assets/migration-teffi-repair.png",
+      "contacts": {
+        "above": {
+          "x": 30.5,
+          "y": 7.5
+        },
+        "below": {
+          "x": 30.5,
+          "y": 12.5
+        }
+      },
+      "nicknameId": "teffi"
+    },
+    {
+      "id": "migration-tilvar",
+      "artworkLabel": "Тильвар",
+      "bounds": {
+        "x": 608,
+        "y": 454,
+        "width": 74,
+        "height": 20
+      },
+      "maskUrl": "/assets/migration-tilvar-mask.png",
+      "repairUrl": "/assets/migration-tilvar-repair.png",
+      "contacts": {
+        "above": {
+          "x": 36.5,
+          "y": 10.5
+        },
+        "below": {
+          "x": 36.5,
+          "y": 15.5
+        }
+      },
+      "nicknameId": "tilvar"
+    },
+    {
+      "id": "migration-tonk",
+      "artworkLabel": "Тонк",
+      "bounds": {
+        "x": 553,
+        "y": 421,
+        "width": 53,
+        "height": 20
+      },
+      "maskUrl": "/assets/migration-tonk-mask.png",
+      "repairUrl": "/assets/migration-tonk-repair.png",
+      "contacts": {
+        "above": {
+          "x": 26.5,
+          "y": 7.5
+        },
+        "below": {
+          "x": 26.5,
+          "y": 16.5
+        }
+      },
+      "nicknameId": "tonk"
+    },
+    {
+      "id": "migration-fordana",
+      "artworkLabel": "Фордана",
+      "bounds": {
+        "x": 1289,
+        "y": 480,
+        "width": 110,
+        "height": 27
+      },
+      "maskUrl": "/assets/migration-fordana-mask.png",
+      "repairUrl": "/assets/migration-fordana-repair.png",
+      "contacts": {
+        "above": {
+          "x": 54.5,
+          "y": 13.5
+        },
+        "below": {
+          "x": 54.5,
+          "y": 20.5
+        }
+      },
+      "nicknameId": "fordana"
+    },
+    {
+      "id": "migration-espiritus",
+      "artworkLabel": "Эспиритус",
+      "bounds": {
+        "x": 1407,
+        "y": 648,
+        "width": 80,
+        "height": 15
+      },
+      "maskUrl": "/assets/migration-espiritus-mask.png",
+      "repairUrl": "/assets/migration-espiritus-repair.png",
+      "contacts": {
+        "above": {
+          "x": 39.5,
+          "y": 4.5
+        },
+        "below": {
+          "x": 39.5,
+          "y": 10.5
+        }
+      },
+      "nicknameId": "espiritus"
+    },
+    {
+      "id": "migration-shayana",
+      "artworkLabel": "Шаяна",
+      "bounds": {
+        "x": 435,
+        "y": 402,
+        "width": 101,
+        "height": 24
+      },
+      "maskUrl": "/assets/migration-shayana-mask.png",
+      "repairUrl": "/assets/migration-shayana-repair.png",
+      "contacts": {
+        "above": {
+          "x": 50.5,
+          "y": 4.5
+        },
+        "below": {
+          "x": 50.5,
+          "y": 21.5
+        }
+      },
+      "nicknameId": "shayana"
+    },
+    {
+      "id": "migration-inken",
+      "artworkLabel": "Инкен",
+      "bounds": {
+        "x": 210,
+        "y": 547,
+        "width": 46,
+        "height": 11
+      },
+      "maskUrl": "/assets/migration-inken-mask.png",
+      "repairUrl": "/assets/migration-inken-repair.png",
+      "contacts": {
+        "above": {
+          "x": 22.5,
+          "y": 4.5
+        },
+        "below": {
+          "x": 22.5,
+          "y": 7.5
+        }
+      },
+      "nicknameId": "inken"
+    },
+    {
+      "id": "migration-sevior",
+      "artworkLabel": "Сэвиор",
+      "bounds": {
+        "x": 640,
+        "y": 432,
+        "width": 58,
+        "height": 17
+      },
+      "maskUrl": "/assets/migration-sevior-mask.png",
+      "repairUrl": "/assets/migration-sevior-repair.png",
+      "contacts": {
+        "above": {
+          "x": 28.5,
+          "y": 5.5
+        },
+        "below": {
+          "x": 28.5,
+          "y": 12.5
+        }
+      },
+      "nicknameId": "sevior"
     }
   ]
 }

@@ -57,8 +57,8 @@ export async function loadMotion(occurrences) {
     reset() {
       wasm.reset();
     },
-    advance(deltaSeconds) {
-      return wasm.advance(deltaSeconds) !== 0;
+    advance(deltaSeconds, continueEffects = false) {
+      return wasm.advance(deltaSeconds, continueEffects ? 1 : 0) !== 0;
     },
     get phase() { return phases[wasm.getPhase()]; },
     get automatic() { return wasm.getAutomatic() !== 0; },

@@ -6,6 +6,10 @@ import { collectPublicFiles } from "./public-files.mjs";
 import { localReference } from "./paths.mjs";
 
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
+const rankKeys = [
+  "card.rankMaster", "card.rankOfficer", "card.rankVeteran", "card.rankRaider",
+  "card.rankWanderer", "card.rankTwink", "card.rankRecruit",
+];
 
 function walk(node, visitor) {
   if (!node || typeof node.type !== "string") return;
@@ -36,6 +40,10 @@ export function checkRuntime(root = repositoryRoot) {
       const url = new URL(value);
       if (url.protocol !== "https:" || url.username || url.password) throw new Error("expected an HTTPS source link without credentials");
     } catch (error) { errors.push(`${file}: unsafe source URL: ${error.message}`); }
+  }
+  function dated(value) {
+    return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)
+      && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
   }
   for (const file of publicFiles) {
     if (!file.startsWith("app/") || !file.endsWith(".mjs")) continue;
@@ -86,37 +94,92 @@ export function checkRuntime(root = repositoryRoot) {
         if (!point || !Number.isFinite(point.x) || !Number.isFinite(point.y) || point.x < 0 || point.y < 0 || point.x >= bounds.width || point.y >= bounds.height) errors.push(`Occurrence ${occurrence.id}: invalid ${side} contact`);
       }
     }
-    for (const [id, count] of occurrenceCounts) if (count < 1 || count > 2) errors.push(`Nickname ${id}: expected one or two occurrences`);
+    for (const nickname of scene.nicknames) {
+      const count = occurrenceCounts.get(nickname.id);
+      if (nickname.placement === "catalog-only" ? count !== 0 : count < 1 || count > 2) {
+        errors.push(`Nickname ${nickname.id}: catalogue-only entries need zero occurrences; placed entries need one or two`);
+      }
+      if (nickname.placement != null && nickname.placement !== "catalog-only") errors.push(`Nickname ${nickname.id}: unknown placement`);
+    }
     if (source.sampleNames.length !== scene.nicknames.length || scene.nicknames.some((row, index) => row.label !== source.sampleNames[index])) errors.push("Scene names do not match the dated source projection");
     sourceLink("app/sample-source.json", source.guildUrl);
     const characterIds = unique(snapshot.characters, "id", "Characters");
-    const names = new Map(snapshot.characters.map(row => [row.id, row.characterName]));
+    const characters = new Map(snapshot.characters.map(row => [row.id, row]));
     for (const nickname of scene.nicknames) {
       if (nickname.characterId) {
         const evidence = nickname.evidence;
-        if (!characterIds.has(nickname.characterId) || typeof evidence?.note !== "string" || !evidence.note.trim()
-          || !snapshot.rosterSource?.id || evidence.sourceId !== snapshot.rosterSource.id
-          || !Number.isInteger(snapshot.rosterSource.imageCount)
-          || !Number.isInteger(evidence.image) || evidence.image < 1
-          || evidence.image > snapshot.rosterSource?.imageCount) {
-          errors.push(`Nickname ${nickname.id}: alias needs a known character and explicit roster-note evidence`);
+        const ownerConfirmed = evidence?.kind === "owner-confirmed-character";
+        const supported = ownerConfirmed ? dated(evidence.confirmedOn)
+          : snapshot.rosterSource?.id && evidence?.sourceId === snapshot.rosterSource.id
+            && Number.isInteger(snapshot.rosterSource.imageCount)
+            && Number.isInteger(evidence.image) && evidence.image >= 1
+            && evidence.image <= snapshot.rosterSource.imageCount;
+        if (!characterIds.has(nickname.characterId) || typeof evidence?.note !== "string"
+          || !evidence.note.trim() || !supported) {
+          errors.push(`Nickname ${nickname.id}: alias needs a known character and explicit roster-note evidence or dated owner confirmation`);
         }
-      } else if (names.get(nickname.id) !== nickname.label) errors.push(`Nickname ${nickname.id}: character name mismatch`);
+      } else if (characters.get(nickname.id)?.characterName !== nickname.label) errors.push(`Nickname ${nickname.id}: character name mismatch`);
     }
-    for (const character of snapshot.characters) sourceLink("app/armory-snapshot.json", character.profileUrl);
+    for (const character of snapshot.characters) {
+      sourceLink("app/armory-snapshot.json", character.profileUrl);
+      sourceLink("app/armory-snapshot.json", character.binding?.sourceUrl);
+      if (character.observedOn != null && !dated(character.observedOn)) errors.push(`Character ${character.id}: invalid observation date`);
+      if (character.binding?.kind === "archive-character" && (character.recordKind !== "historical-character" || !character.binding.sourceUrl)) {
+        errors.push(`Character ${character.id}: archived character needs historical kind and source`);
+      }
+    }
     sourceLink("app/armory-snapshot.json", snapshot.sourceUrl);
     unique(snapshot.characterGroups, "id", "Character groups");
     const groupedNicknames = new Set();
     const groupedCharacters = new Set();
     const nicknameCharacters = new Map(scene.nicknames.map(row => [row.id, row.characterId || row.id]));
+    function tracedRosterRow(row) {
+      return snapshot.rosterSource?.id && row?.sourceId === snapshot.rosterSource.id
+        && Number.isInteger(row.image) && row.image > 0
+        && Number.isInteger(snapshot.rosterSource.imageCount) && row.image <= snapshot.rosterSource.imageCount;
+    }
     for (const group of snapshot.characterGroups) {
       const knownMain = group.members[0]?.role === "main";
       if (group.members.length < 2 || group.members.some((member, index) =>
         member.role !== (knownMain ? index === 0 ? "main" : "alt" : "related"))) {
         errors.push(`Group ${group.id}: expected a main followed by alts, or related characters without an inferred main`);
       }
-      if (!knownMain && group.evidenceKind !== "in-game-roster-note") errors.push(`Group ${group.id}: related characters need roster-note evidence`);
-      if (!knownMain && !group.evidence?.length) errors.push(`Group ${group.id}: missing roster-note evidence`);
+      const archived = group.evidenceKind === "archive-self-report";
+      if (archived) {
+        sourceLink("app/armory-snapshot.json", group.evidenceUrl);
+        if (knownMain || group.confirmedOn || group.roleInference || !dated(group.capturedOn) || !group.evidenceUrl) {
+          errors.push(`Group ${group.id}: archived self-report needs a dated source and unassigned roles`);
+        }
+      } else {
+        if (!knownMain && group.evidenceKind !== "in-game-roster-note") errors.push(`Group ${group.id}: related characters need roster-note evidence`);
+        if (!knownMain && !group.evidence?.length) errors.push(`Group ${group.id}: missing roster-note evidence`);
+      }
+      const inference = group.roleInference;
+      if (knownMain && group.evidenceKind === "in-game-roster-note" && !inference) {
+        errors.push(`Group ${group.id}: rank inference must be explicit, not an unconfirmed main assignment`);
+      }
+      if (inference) {
+        if (!knownMain || group.evidenceKind !== "in-game-roster-note" || group.confirmedOn
+          || inference.kind !== "single-non-twink"
+          || !/^\d{4}-\d{2}-\d{2}$/.test(inference.assessedOn)
+          || !Number.isFinite(Date.parse(inference.assessedOn))
+          || !inference.armoryObservedOn || inference.armoryObservedOn !== snapshot.observedOn
+          || !inference.rosterSourceId || inference.rosterSourceId !== snapshot.rosterSource?.id) {
+          errors.push(`Group ${group.id}: rank inference needs dated, separate, current-snapshot evidence`);
+        }
+        const supportedRoles = group.members.every((member, index) => {
+          const character = characters.get(member.characterId);
+          const rank = character?.guildRank?.index;
+          const observation = character?.rosterObservation;
+          return Number.isInteger(rank) && rank >= 0 && rank < rankKeys.length
+            && tracedRosterRow(observation) && observation.rankKey === rankKeys[rank]
+            && (rank === 5) === (index > 0)
+            && (index === 0 || group.evidence?.some(note =>
+              note.characterId === member.characterId && tracedRosterRow(note)
+              && typeof note.note === "string" && note.note.trim()));
+        });
+        if (!supportedRoles) errors.push(`Group ${group.id}: rank inference requires exactly one non-twink followed by linked, corroborated twinks`);
+      }
       for (const id of group.nicknameIds) {
         if (!nicknameIds.has(id) || groupedNicknames.has(id)) errors.push(`Group ${group.id}: unknown or multiply grouped nickname ${id}`);
         if (!group.members.some(member => member.characterId === nicknameCharacters.get(id))) errors.push(`Group ${group.id}: bound character missing for nickname ${id}`);
@@ -127,6 +190,8 @@ export function checkRuntime(root = repositoryRoot) {
         groupedCharacters.add(member.characterId);
       }
     }
+    reference("app/forum-media.json", forum.defaultImage?.url);
+    sourceLink("app/forum-media.json", forum.defaultImage?.sourceUrl);
     unique(forum.profiles, "nicknameId", "Forum profiles");
     for (const profile of forum.profiles) {
       if (!nicknameIds.has(profile.nicknameId)) errors.push(`Forum profile ${profile.nicknameId}: unknown nickname`);
@@ -136,9 +201,24 @@ export function checkRuntime(root = repositoryRoot) {
         reference("app/forum-media.json", image.url);
         if (image.stillUrl) reference("app/forum-media.json", image.stillUrl);
         if (Object.hasOwn(image, "sourcePath")) errors.push(`Forum profile ${profile.nicknameId}: private sourcePath must not be published`);
+        if (image.attributionKind != null && image.attributionKind !== "member-number-only") errors.push(`Forum profile ${profile.nicknameId}: unknown image attribution`);
       }
       sourceLink("app/forum-media.json", profile.archiveProfileUrl);
       sourceLink("app/forum-media.json", profile.evidenceUrl);
+      for (const capture of profile.profileHistory || []) {
+        sourceLink("app/forum-media.json", capture.sourceUrl);
+        if (!capture.memberId || !capture.forumName?.trim() || !capture.sourceUrl || !dated(capture.capturedOn)
+          || !["friendly", "legacy"].includes(capture.urlStyle)) {
+          errors.push(`Forum profile ${profile.nicknameId}: profile history needs account generation and a dated source`);
+        }
+      }
+      for (const declaration of profile.historicalDeclarations || []) {
+        sourceLink("app/forum-media.json", declaration.sourceUrl);
+        if (!declaration.characterName?.trim() || !declaration.sourceUrl || !dated(declaration.capturedOn)
+          || !["declared-character", "previously-mentioned"].includes(declaration.relation)) {
+          errors.push(`Forum profile ${profile.nicknameId}: historical declaration needs a named character, dated source and explicit relation`);
+        }
+      }
     }
     unique(screenshots.images, "id", "Memories");
     for (const image of screenshots.images) {

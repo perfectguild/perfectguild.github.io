@@ -389,7 +389,8 @@ button#controls-launcher {
   max-height: calc(100dvh - 24px);
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 10px 12px;
+  /* Reserve the same control rails, including cards without alternate characters. */
+  padding: 10px 44px;
   /* The SVG frame and this content share one measured outline and transform. */
   border: 1px solid transparent;
   border-radius: 10px;
@@ -400,12 +401,16 @@ button#controls-launcher {
   scrollbar-gutter: auto;
 }
 
+#character-card[data-placement="catalog-only"] {
+  border-color: #8fa596;
+  background: #151917fa;
+}
+
 .card-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 8px;
-  padding-inline-end: 32px;
 }
 
 .card-heading {
@@ -586,7 +591,9 @@ button#controls-launcher {
   font-size: 10px;
 }
 
-.card-source a {
+.card-source a,
+.card-group-confirmation a,
+.card-declarations a {
   color: #d0e6d7;
   text-underline-offset: 2px;
 }
@@ -597,12 +604,14 @@ button#controls-launcher {
   font-size: 10px;
 }
 
-#character-card[data-controls-style="compact"].has-character-navigation {
-  padding-inline: 44px;
+.card-declarations {
+  margin-top: 5px;
+  color: #bdc9bf;
+  font-size: 10px;
 }
 
-#character-card[data-controls-style="compact"].has-character-navigation .card-header {
-  padding-inline-end: 0;
+.card-declarations p {
+  margin: 2px 0 0;
 }
 
 #character-card[data-controls-style="round"] {
@@ -629,36 +638,22 @@ button#controls-launcher {
   right: 0;
 }
 
-#character-card[data-controls-style="round"].has-character-navigation .card-body {
-  display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) 44px;
-  align-items: center;
-  margin: 6px -12px 0;
+#character-card[data-controls-style="round"] .card-body {
+  position: relative;
 }
 
-#character-card[data-controls-style="round"].has-character-navigation .card-content {
-  grid-column: 2;
-  grid-row: 1;
-  margin: 0;
-}
-
-#character-card[data-controls-style="round"] .card-character-nav,
 .card-character-pagination .card-character-nav {
   position: relative;
   inset: auto;
   transform: none;
 }
 
-#character-card[data-controls-style="round"] .card-character-nav {
-  grid-row: 1;
-}
-
 #character-card[data-controls-style="round"] .card-character-previous {
-  grid-column: 1;
+  left: -44px;
 }
 
 #character-card[data-controls-style="round"] .card-character-next {
-  grid-column: 3;
+  right: -44px;
 }
 
 .card-character-pagination {

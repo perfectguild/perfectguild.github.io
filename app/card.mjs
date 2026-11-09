@@ -14,20 +14,27 @@ function writeLine(element, text) {
 
 function writeBinding(element, character, nickname) {
   if (nickname?.characterId) {
-    writeLine(element, t('card.noteAlias'));
-    element.title = t('card.noteAliasHelp', {
-      name: nickname.label, note: nickname.evidence.note, image: formatNumber(nickname.evidence.image),
-    });
+    const evidence = nickname.evidence;
+    const confirmed = evidence.kind === 'owner-confirmed-character';
+    writeLine(element, t(confirmed ? 'card.aliasConfirmed' : 'card.noteAlias'));
+    element.title = confirmed
+      ? t('card.aliasConfirmedHelp', {name: nickname.label, note: evidence.note, date: formatDate(evidence.confirmedOn)})
+      : t('card.noteAliasHelp', {name: nickname.label, note: evidence.note, image: formatNumber(evidence.image)});
     return;
   }
   const kind = character.binding?.kind;
   const confirmed = kind === 'owner-confirmed-url';
+  if (kind === 'owner-confirmed-character') {
+    writeLine(element, t('card.characterConfirmed'));
+    element.title = t('card.characterConfirmedHelp', {date: formatDate(character.binding.confirmedOn)});
+    return;
+  }
   if (kind === 'owner-confirmed-forum-avatar') {
     writeLine(element, t('card.forumAvatarConfirmed'));
     element.title = t('card.forumAvatarHelp', {date: formatDate(character.binding.confirmedOn)});
     return;
   }
-  if (kind === 'archive-forum-name') {
+  if (kind === 'archive-forum-name' || kind === 'archive-character') {
     writeLine(element, t('card.forumArchiveBinding'));
     element.title = t('card.forumArchiveHelp');
     return;
@@ -84,7 +91,7 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
   const element = document.getElementById('character-card');
   element.hidden = true;
   element.dataset.controlsStyle = 'round';
-  element.setAttribute('aria-describedby', 'card-group-confirmation card-collage-label card-binding card-description card-source');
+  element.setAttribute('aria-describedby', 'card-group-confirmation card-collage-label card-binding card-description card-declarations card-image-attribution card-source');
   element.innerHTML = `
     <header class="card-header">
       <div class="card-heading">
@@ -100,8 +107,9 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
         </svg>
       </button>
     </header>
-    <p id="card-group-confirmation" class="card-group-confirmation" data-i18n="card.groupConfirmed" hidden></p>
+    <p id="card-group-confirmation" class="card-group-confirmation" hidden></p>
     <p id="card-collage-label" class="card-group-confirmation" hidden></p>
+    <p id="card-forum-context" class="card-group-confirmation" hidden></p>
     <div class="card-body">
       <button id="card-previous-character" class="card-control card-character-nav card-character-previous" type="button"
         data-i18n-aria-label="card.previousCharacter" data-i18n-title="card.previousCharacter" hidden>
@@ -129,12 +137,16 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path transform="translate(22.7 0) scale(-1 1)" d="M15.4 5.4 8.8 12l6.6 6.6-1.4 1.4-8-8 8-8Z"/></svg>
       </button>
     </div>
+    <p id="card-image-attribution" class="card-note" hidden></p>
+    <div id="card-declarations" class="card-declarations" hidden></div>
     <p id="card-source" class="card-source">
       <a id="armory-link" target="_blank" rel="noopener noreferrer" data-i18n="card.armory"></a>
       <span id="card-no-armory" data-i18n="card.noArmory" hidden></span>
       <span id="card-realm"></span>
       <time id="card-snapshot-date"></time>
       <a id="forum-profile-link" target="_blank" rel="noopener noreferrer" data-i18n="card.forum" hidden></a>
+      <a id="forum-evidence-link" target="_blank" rel="noopener noreferrer" data-i18n="card.forumEvidence" hidden></a>
+      <a id="character-history-link" target="_blank" rel="noopener noreferrer" data-i18n="card.characterHistory" hidden></a>
     </p>
     <p id="card-outdated" class="card-note" data-i18n="card.outdated" hidden></p>
     <div class="card-character-pagination" hidden></div>
@@ -147,6 +159,9 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
   const binding = element.querySelector('#card-binding');
   const groupConfirmation = element.querySelector('#card-group-confirmation');
   const collageLabel = element.querySelector('#card-collage-label');
+  const forumContext = element.querySelector('#card-forum-context');
+  const declarations = element.querySelector('#card-declarations');
+  const imageAttribution = element.querySelector('#card-image-attribution');
   const body = element.querySelector('.card-body');
   const pagination = element.querySelector('.card-character-pagination');
   const content = element.querySelector('.card-content');
@@ -164,12 +179,11 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
   const realm = element.querySelector('#card-realm');
   const date = element.querySelector('#card-snapshot-date');
   const forumLink = element.querySelector('#forum-profile-link');
+  const forumEvidenceLink = element.querySelector('#forum-evidence-link');
+  const historyLink = element.querySelector('#character-history-link');
   const outdated = element.querySelector('#card-outdated');
   const previousCharacter = element.querySelector('#card-previous-character');
   const nextCharacter = element.querySelector('#card-next-character');
-  date.dateTime = snapshot.observedOn;
-  date.textContent = formatDate(snapshot.observedOn);
-  date.title = t('card.snapshotDate', {date: date.textContent});
 
   let selectedKey = null;
   let selectedGroup = null;
@@ -182,30 +196,25 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
   let elapsed = 0;
   let moving = false;
   let disposed = false;
+  const selections = new Map();
 
   function paintImage() {
-    const image = images[imageIndex];
-    photo.hidden = !image;
-    content.classList.toggle('has-forum-image', Boolean(image));
-    if (!image) {
-      photoLink.removeAttribute('href');
-      photoLink.removeAttribute('aria-label');
-      photoLink.removeAttribute('title');
-      photoImage.removeAttribute('src');
-      photoImage.alt = '';
-      writeLine(imagePosition, '');
-      return;
-    }
+    const fallback = images.length === 0;
+    const image = fallback ? forum.defaultImage : images[imageIndex];
+    photo.hidden = false;
+    content.classList.add('has-forum-image');
+    writeLine(imageAttribution, image?.attributionKind === 'member-number-only' ? t('card.numberOnlyImage') : '');
     const position = images.length > 1
       ? t('card.imagePosition', {index: formatNumber(imageIndex + 1), count: formatNumber(images.length)}) : '';
-    const label = joinDetails(t('card.openImage'), position);
+    const label = fallback ? t('card.openGuildImage') : joinDetails(t('card.openImage'), position);
     photoLink.href = image.url;
     photoLink.title = label;
     photoLink.setAttribute('aria-label', label);
     // There are deliberately no asynchronous decode callbacks: a hidden or replaced
     // selection cannot be overwritten by completion of an earlier image request.
     photoImage.src = reducedMotion && image.stillUrl ? image.stillUrl : image.url;
-    photoImage.alt = joinDetails(t('card.imageAlt', {name: profile.forumName}), position);
+    photoImage.alt = fallback ? t('card.guildImageAlt')
+      : joinDetails(t('card.imageAlt', {name: profile.forumName}), position);
     writeLine(imagePosition, position);
   }
 
@@ -216,7 +225,11 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
     element.setAttribute('aria-label', t('card.label', {name: label}));
     const memberRole = selectedGroup?.members[memberIndex].role;
     roleBadge.hidden = !selectedGroup || memberRole === 'related';
-    roleBadge.textContent = memberRole === 'main' ? t('card.main') : memberRole === 'alt' ? t('card.alt') : '';
+    const inference = selectedGroup?.roleInference;
+    roleBadge.textContent = memberRole === 'main' ? t(inference ? 'card.inferredMain' : 'card.main')
+      : memberRole === 'alt' ? t(inference ? 'card.inferredAlt' : 'card.alt') : '';
+    roleBadge.title = inference
+      ? t('card.rankInferenceHelp', {date: formatDate(inference.assessedOn)}) : '';
     writeLine(characterPosition, memberIds.length > 1
       ? t('card.characterPosition', {index: formatNumber(memberIndex + 1), count: formatNumber(memberIds.length)}) : '');
     writeBinding(binding, character, selectedNickname);
@@ -229,20 +242,27 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
       ? t('card.rosterStatsHelp') : t('card.statsTitle');
     const fromGame = character.binding?.kind === 'in-game-roster';
     classLine.title = fromGame ? t('card.rosterBindingHelp') : '';
+    const historical = character.recordKind === 'historical-character' || character.recordKind === 'historical-nickname';
     const forumAvatar = character.binding?.kind === 'owner-confirmed-forum-avatar';
     const forumArchive = character.binding?.kind === 'archive-forum-name';
     const fromForum = forumAvatar || forumArchive;
-    date.hidden = forumArchive;
-    if (fromGame || fromForum) date.removeAttribute('datetime');
-    else date.dateTime = snapshot.observedOn;
-    date.textContent = forumAvatar ? t('card.forumAvatarSource')
-      : forumArchive ? '' : fromGame ? t('card.rosterSource') : formatDate(snapshot.observedOn);
-    date.title = forumAvatar ? t('card.forumAvatarHelp', {date: formatDate(character.binding.confirmedOn)})
-      : forumArchive ? '' : fromGame ? t('card.rosterBindingHelp') : t('card.snapshotDate', {date: date.textContent});
+    const ownerCharacter = character.binding?.kind === 'owner-confirmed-character';
+    const withoutSnapshot = historical || fromForum || ownerCharacter;
+    date.hidden = withoutSnapshot;
+    const observedOn = character.observedOn || snapshot.observedOn;
+    if (fromGame || withoutSnapshot) date.removeAttribute('datetime');
+    else date.dateTime = observedOn;
+    date.textContent = withoutSnapshot ? '' : fromGame ? t('card.rosterSource') : formatDate(observedOn);
+    date.title = withoutSnapshot ? '' : fromGame ? t('card.rosterBindingHelp') : t('card.snapshotDate', {date: date.textContent});
+    const historyUrl = historical ? character.binding?.sourceUrl : null;
+    historyLink.hidden = !historyUrl || historyUrl === profile?.archiveProfileUrl
+      || historyUrl === profile?.evidenceUrl || historyUrl === selectedGroup?.evidenceUrl;
+    if (historyUrl) historyLink.href = historyUrl;
+    else historyLink.removeAttribute('href');
     writeArmoryLink(armoryLink, character);
     noArmory.hidden = Boolean(character.profileUrl);
-    noArmory.textContent = fromForum ? t('card.noArmoryBinding') : t('card.noArmory');
-    writeLine(realm, character.realm || '');
+    noArmory.textContent = historical || fromForum || ownerCharacter ? t('card.noArmoryBinding') : t('card.noArmory');
+    writeLine(realm, historical ? '' : character.realm || '');
     outdated.hidden = !character.isOutdated;
   }
 
@@ -276,6 +296,7 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
         element.hidden = false;
         return;
       }
+      if (selectedKey) selections.set(selectedKey, {memberIndex, imageIndex, elapsed});
       selectedKey = key;
       selectedGroup = group || null;
       selectedNickname = nickname;
@@ -283,11 +304,13 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
       memberIds = group ? group.members.map(member => member.characterId) : [characterId];
       memberIndex = group?.members[0].role === 'related'
         ? Math.max(0, group.members.findIndex(member => member.characterId === characterId)) : 0;
+      const saved = selections.get(key);
+      if (saved) memberIndex = saved.memberIndex;
       profile = profiles.get(nickname.id) || profiles.get(characterId)
         || (group && group.nicknameIds.map(id => profiles.get(id)).find(Boolean)) || null;
       images = profile?.images || emptyImages;
-      imageIndex = 0;
-      elapsed = 0;
+      imageIndex = saved?.imageIndex || 0;
+      elapsed = saved?.elapsed || 0;
       moving = false;
       const hasAlts = memberIds.length > 1;
       element.classList.toggle('has-character-navigation', hasAlts);
@@ -295,21 +318,63 @@ export function createCharacterCard({snapshot, forum, onLayout, reducedMotion = 
       nextCharacter.hidden = !hasAlts;
       pagination.hidden = !hasAlts || element.dataset.controlsStyle !== 'footer';
       groupConfirmation.hidden = !group;
-      groupConfirmation.textContent = group?.evidenceKind === 'in-game-roster-note'
-        ? t('card.groupRoster') : t('card.groupConfirmed');
-      groupConfirmation.title = !group ? '' : group.evidenceKind === 'in-game-roster-note'
-        ? t('card.groupRosterHelp') : group.evidence?.length
-          ? t('card.groupMixedHelp', {date: formatDate(group.confirmedOn)})
-          : t('card.groupConfirmedHelp', {date: formatDate(group.confirmedOn)});
+      const archiveGroup = group?.evidenceKind === 'archive-self-report';
+      groupConfirmation.replaceChildren();
+      if (archiveGroup) {
+        const link = document.createElement('a');
+        link.href = group.evidenceUrl;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = t('card.groupArchive', {date: formatDate(group.capturedOn)});
+        groupConfirmation.append(link);
+      } else {
+        groupConfirmation.textContent = group?.evidenceKind === 'in-game-roster-note'
+          ? t('card.groupRoster') : t('card.groupConfirmed');
+        if (group?.evidenceUrl) {
+          const link = document.createElement('a');
+          link.href = group.evidenceUrl;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = t('card.groupArchiveSource', {date: formatDate(group.capturedOn)});
+          groupConfirmation.append(' · ', link);
+        }
+      }
+      groupConfirmation.title = !group ? '' : archiveGroup ? t('card.groupArchiveHelp')
+        : group.evidenceKind === 'in-game-roster-note'
+          ? t(group.roleInference ? 'card.groupRankInferenceHelp' : 'card.groupRosterHelp') : group.evidence?.length
+            ? t('card.groupMixedHelp', {date: formatDate(group.confirmedOn)})
+            : t('card.groupConfirmedHelp', {date: formatDate(group.confirmedOn)});
       writeLine(collageLabel, nickname.characterId ? t('card.collageLabel', {name: nickname.label}) : '');
       paintCharacter();
-      writeLine(forumName, profile && profile.forumName !== nickname.label ? profile.forumName : '');
+      writeLine(forumName, images.length && profile.forumName !== nickname.label ? profile.forumName : '');
+      writeLine(forumContext, profile && !images.length ? t('card.forumContext', {name: profile.forumName}) : '');
+      declarations.replaceChildren();
+      const historicalDeclarations = profile?.historicalDeclarations || [];
+      declarations.hidden = historicalDeclarations.length === 0;
+      for (const declaration of historicalDeclarations) {
+        const line = document.createElement('p');
+        const link = document.createElement('a');
+        link.href = declaration.sourceUrl;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = t('card.declarationSource', {date: formatDate(declaration.capturedOn)});
+        line.append(t(declaration.relation === 'declared-character' ? 'card.declaredCharacter' : 'card.previouslyMentioned',
+          {name: declaration.characterName}), ' ', link);
+        declarations.append(line);
+      }
       paintImage();
       const forumSourceUrl = profile?.archiveProfileUrl || profile?.evidenceUrl;
       forumLink.hidden = !forumSourceUrl;
       forumLink.textContent = t(profile?.archiveProfileUrl ? 'card.forum' : 'card.forumEvidence');
       if (forumSourceUrl) forumLink.href = forumSourceUrl;
       else forumLink.removeAttribute('href');
+      const extraEvidence = profile?.archiveProfileUrl && profile.evidenceUrl !== forumSourceUrl
+        && profile.evidenceUrl !== group?.evidenceUrl
+        && !historicalDeclarations.some(declaration => declaration.sourceUrl === profile.evidenceUrl)
+        ? profile.evidenceUrl : null;
+      forumEvidenceLink.hidden = !extraEvidence;
+      if (extraEvidence) forumEvidenceLink.href = extraEvidence;
+      else forumEvidenceLink.removeAttribute('href');
       element.scrollTop = 0;
       element.hidden = false;
     },
