@@ -18,10 +18,10 @@
   },
   "devDependencies": {
     "@mermaid-lint/cli": "0.53.1",
-    "acorn": "8.15.0",
+    "acorn": "8.19.0",
     "assemblyscript": "0.28.20",
     "css-tree": "3.2.1",
-    "html-validate": "11.18.0",
+    "html-validate": "11.19.0",
     "markdown-it": "15.0.3",
     "markdownlint-cli2": "0.24.0",
     "parse5": "8.1.0"
